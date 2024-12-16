@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+    <%= require('../partials/pageloader/investment-pageloader.html').default %>
+      <%= require('../partials/header/investment-header.html').default %>
+
+        <div class="adminuiux-wrap">
+          <%= require('../partials/navigation/investment-sidebar.html').default %>
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb -->
+              <div class="container-fluid mt-3">
+                <div class="row gx-3 align-items-center">
+                  <div class="col col-sm">
+                    <h5>Setting Users</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- content -->
+              <div class="container mt-3" id="main-content">
+
+                <!-- cover -->
+                <div class="card adminuiux-card overflow-hidden mb-3 pt-5">
+                  <figure class="coverimg start-0 top-0 w-100 h-100 z-index-0 position-absolute overlay-gradiant">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-sm btn-theme" onclick="$(this).next().click()">
+                        <i class="bi bi-camera"></i> Change Cover
+                      </button>
+                      <input type="file" class="d-none">
+                    </div>
+                    <img src="assets/img/modern-ai-image/flamingo-3.jpg" class="mw-100" alt="">
+                  </figure>
+
+                  <div class="card-body text-center text-white z-index-1">
+                    <div class="d-inline-block position-relative w-auto mx-auto my-3">
+                      <figure class="avatar avatar-150 coverimg rounded-circle">
+                        <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                      </figure>
+                      <div class="position-absolute bottom-0 end-0 z-index-1 h-auto">
+                        <button class="btn btn-theme btn-square" onclick="$(this).next().click()">
+                          <i class="bi bi-camera"></i>
+                        </button>
+                        <input type="file" class="d-none">
+                      </div>
+                    </div>
+                    <h4 class="mb-0">AdminUIUX</h4>
+                    <p class="opacity-75 mb-3">guest@adminuiux.com</p>
+                  </div>
+                </div>
+
+                <!-- settings -->
+                <div class="row gx-3">
+                  <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                    <div class="card adminuiux-card mb-3 ">
+                      <div class="card-body">
+                        <ul class="nav nav-pills adminuiux-nav-pills flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings.html">
+                              <div class="avatar avatar-28 icon"><i data-feather="user"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">My Profile</p>
+                                <p class="small opacity-75">Basic Details</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="investment-settings-users.html">
+                              <div class="avatar avatar-28 icon"><i class="bi bi-people fs-4"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Users</p>
+                                <p class="small opacity-75">Roles, Permission, Access</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings-timing.html">
+                              <div class="avatar avatar-28 icon"><i data-feather="clock"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Timing</p>
+                                <p class="small opacity-75">Business hours, Emergency</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings-payment.html">
+                              <div class="avatar avatar-28 icon"><i class="bi bi-cash-stack fs-4"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Payment</p>
+                                <p class="small opacity-75">Online, Devices, Cash</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings-contact.html">
+                              <div class="avatar avatar-28 icon"><i class="bi bi-life-preserver"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Contact</p>
+                                <p class="small opacity-75">Support, Call, Chat, email</p>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card adminuiux-card mb-3" data-bs-target="#navbarpill" data-bs-spy="scroll">
+                      <div class="card-body py-0">
+
+                        <div class="position-sticky bg-card py-3 mb-0 z-index-7 header-pt mb-2" id="navbarpill">
+                          <ul class="nav nav-pills">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#scrollspayone">Location 1</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#scrollspaytwo">Location 2</a>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div id="scrollspayone" class="mb-4 mb-lg-5" style="scroll-margin: 150px;">
+                          <h6 class="mb-3"><i class="bi bi-hospital fs-4 me-2 align-middle"></i> Location 1 users and staff</h6>
+                          <nav class="mb-3">
+                            <div class="nav nav-underline" id="nav-tab-loc-1" role="tablist">
+                              <button class="nav-link active" id="nav-user-tab-loc-1" data-bs-toggle="tab" data-bs-target="#nav-user-loc-1" type="button" role="tab" aria-controls="nav-user-loc-1" aria-selected="true">Agents</button>
+                              <button class="nav-link" id="nav-staff-tab-loc-1" data-bs-toggle="tab" data-bs-target="#nav-staff-loc-1" type="button" role="tab" aria-controls="nav-staff-loc-1" aria-selected="false">Staff</button>
+                            </div>
+                          </nav>
+                          <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane show active fade" id="nav-user-loc-1" role="tabpanel" aria-labelledby="nav-user-tab-loc-1" tabindex="0">
+                              <div class="row gx-3">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                  <div class="card adminuiux-card border mb-3">
+                                    <div class="card-body">
+                                      <div class="row gx-3">
+                                        <div class="col"></div>
+                                        <div class="col-auto">
+                                          <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret" data-bs-toggle="dropdown">
+                                              <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                              <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                          <img src="assets/img/modern-ai-image/user-8.jpg" alt="" style="display: none;">
+                                        </div>
+                                        <h6 class="mb-0">
+                                          <span class="position-relative">Ryan Sylia
+                                            <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                              <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                          </span>
+                                        </h6>
+                                        <p class="text-secondary small">Support Assistant</p>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>ryansylia@gmail.com</span>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+089584A56892</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                  <div class="card adminuiux-card border mb-3">
+                                    <div class="card-body">
+                                      <div class="row gx-3">
+                                        <div class="col"></div>
+                                        <div class="col-auto">
+                                          <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret" data-bs-toggle="dropdown">
+                                              <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                              <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                          <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                                        </div>
+                                        <h6 class="mb-0">
+                                          <span class="position-relative">Chin Chou
+                                            <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                              <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                          </span>
+                                        </h6>
+                                        <p class="text-secondary small">Insurance Specialist</p>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>chinchou@gmail.com</span>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+085684A56568</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                  <div class="card adminuiux-card border mb-3">
+                                    <div class="card-body">
+                                      <div class="row gx-3">
+                                        <div class="col"></div>
+                                        <div class="col-auto">
+                                          <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret" data-bs-toggle="dropdown">
+                                              <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                              <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                          <img src="assets/img/modern-ai-image/user-4.jpg" alt="" style="display: none;">
+                                        </div>
+                                        <h6 class="mb-0">
+                                          <span class="position-relative">Sundar Vishwas
+                                            <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                              <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                          </span>
+                                        </h6>
+                                        <p class="text-secondary small">Investment Agent</p>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>sundarvishwas@gmail.com</span>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+05689584A2543</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="btn btn-sm btn-outline-theme" data-bs-toggle="modal" data-bs-target="#createuser"><i class="bi bi-plus me-1"></i>
+                                Create User</button>
+                            </div>
+                            <div class="tab-pane fade" id="nav-staff-loc-1" role="tabpanel" aria-labelledby="nav-staff-tab-loc-1" tabindex="0">...</div>
+                          </div>
+                        </div>
+
+                        <div class="" id="scrollspaytwo" style="scroll-margin: 150px;">
+                          <h6 class="mb-3"><i class="bi bi-hospital fs-4 me-2 align-middle"></i> Location 2 users and staff</h6>
+                          <div class="row gx-3 mb-3">
+                            <div class="col">
+                              <nav>
+                                <div class="nav nav-underline" id="nav-tab-loc-2" role="tablist">
+                                  <button class="nav-link active" id="nav-user-tab-loc-2" data-bs-toggle="tab" data-bs-target="#nav-user-loc-2" type="button" role="tab" aria-controls="nav-user-loc-2" aria-selected="true">Agents</button>
+                                  <button class="nav-link" id="nav-staff-tab-loc-2" data-bs-toggle="tab" data-bs-target="#nav-staff-loc-2" type="button" role="tab" aria-controls="nav-staff-loc-2" aria-selected="false">Staff</button>
+                                </div>
+                              </nav>
+                            </div>
+                            <div class="col-auto">
+                              <button class="btn btn-sm btn-outline-theme ms-auto" data-bs-toggle="modal" data-bs-target="#createuser"><i class="bi bi-plus"></i> Add</button>
+                            </div>
+                          </div>
+                          <div class="tab-content" id="nav-tabContent-2">
+                            <div class="tab-pane show active fade" id="nav-user-loc-2" role="tabpanel" aria-labelledby="nav-user-tab-loc-1" tabindex="0">
+                              <div class="row gx-3">
+                                <div class="col-12 col-md-6 col-lg-4">
+                                  <div class="card adminuiux-card border mb-3">
+                                    <div class="card-body">
+                                      <div class="row gx-3">
+                                        <div class="col"></div>
+                                        <div class="col-auto">
+                                          <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret" data-bs-toggle="dropdown">
+                                              <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                              <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                          <img src="assets/img/modern-ai-image/user-8.jpg" alt="" style="display: none;">
+                                        </div>
+                                        <h6 class="mb-0">
+                                          <span class="position-relative">Ryan Sylia
+                                            <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                              <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                          </span>
+                                        </h6>
+                                        <p class="text-secondary small">Support Assistant</p>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>ryansylia@gmail.com</span>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+089584A56892</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                  <div class="card adminuiux-card border mb-3">
+                                    <div class="card-body">
+                                      <div class="row gx-3">
+                                        <div class="col"></div>
+                                        <div class="col-auto">
+                                          <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret" data-bs-toggle="dropdown">
+                                              <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                              <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                          <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                                        </div>
+                                        <h6 class="mb-0">
+                                          <span class="position-relative">Chin Chou
+                                            <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                              <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                          </span>
+                                        </h6>
+                                        <p class="text-secondary small">Insurance Specialist</p>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>chinchou@gmail.com</span>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+085684A56568</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                  <div class="card adminuiux-card border mb-3">
+                                    <div class="card-body">
+                                      <div class="row gx-3">
+                                        <div class="col"></div>
+                                        <div class="col-auto">
+                                          <div class="dropdown d-inline-block">
+                                            <a class="btn btn-link btn-square no-caret" data-bs-toggle="dropdown">
+                                              <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                              <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                              <li><a class="dropdown-item theme-red" href="javascript:void(0)">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                          <img src="assets/img/modern-ai-image/user-4.jpg" alt="" style="display: none;">
+                                        </div>
+                                        <h6 class="mb-0">
+                                          <span class="position-relative">Sundar Vishwas
+                                            <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                              <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                          </span>
+                                        </h6>
+                                        <p class="text-secondary small">Investment Agent</p>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>sundarvishwas@gmail.com</span>
+                                        <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+05689584A2543</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-staff-loc-2" role="tabpanel" aria-labelledby="nav-staff-tab-loc-2" tabindex="0">
+                              ...</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row gx-3">
+                          <div class="col">
+                            <button class="btn btn-theme">Save</button>
+                          </div>
+                          <div class="col-auto">
+                            <button class="btn btn-link">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- add user  -->
+              <div class="modal adminuiux-modal fade" id="createuser" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <nav>
+                        <div class="nav nav-pills" id="nav-tab-user-1" role="tablist">
+                          <button class="nav-link active" id="nav-basic-tab-user-1" data-bs-toggle="tab" data-bs-target="#nav-basic-user-1" type="button" role="tab" aria-controls="nav-basic-user-1" aria-selected="true">Basic Info</button>
+                          <button class="nav-link" id="nav-prof-tab-user-2" data-bs-toggle="tab" data-bs-target="#nav-prof-user-2" type="button" role="tab" aria-controls="nav-prof-user-2" aria-selected="false">Professional</button>
+                          <button class="nav-link" id="nav-timing-tab-user-2" data-bs-toggle="tab" data-bs-target="#nav-timing-user-2" type="button" role="tab" aria-controls="nav-timing-user-2" aria-selected="false">Availability</button>
+                        </div>
+                      </nav>
+                      <button type="button" class="btn btn-link btn-square ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                    </div>
+                    <div class="modal-body pt-0">
+                      <div class="card adminuiux-card overflow-hidden mb-4 pt-5">
+                        <figure class="coverimg start-0 top-0 w-100 h-100 z-index-0 position-absolute overlay-gradiant" style="background-image: url(&quot;assets/img/modern-ai-image/flamingo-3.jpg&quot;);">
+                          <div class="position-absolute top-0 end-0 m-2">
+                            <button class="btn btn-theme" onclick="$(this).next().click()">
+                              <i class="bi bi-camera"></i> Change Cover
+                            </button>
+                            <input type="file" class="d-none">
+                          </div>
+                          <img src="assets/img/modern-ai-image/flamingo-3.jpg" class="mw-100" alt="" style="display: none;">
+                        </figure>
+
+                        <div class="card-body text-center text-white z-index-1">
+                          <div class="d-inline-block position-relative w-auto mx-auto my-3">
+                            <figure class="avatar avatar-150 coverimg rounded-circle" style="background-image: url(&quot;assets/img/modern-ai-image/user-6.jpg&quot;);">
+                              <img src="assets/img/modern-ai-image/user-6.jpg" alt="" style="display: none;">
+                            </figure>
+                            <div class="position-absolute bottom-0 end-0 z-index-1 h-auto">
+                              <button class="btn btn-lg btn-theme btn-square" onclick="$(this).next().click()">
+                                <i class="bi bi-camera"></i>
+                              </button>
+                              <input type="file" class="d-none">
+                            </div>
+                          </div>
+                          <h4>AdminUIUX</h4>
+                          <p class="opacity-75 mb-3">guest@adminuiux.com</p>
+                        </div>
+                      </div>
+
+                      <div class="tab-content" id="nav-tab-user-content-1">
+                        <div class="tab-pane show active fade" id="nav-basic-user-1" role="tabpanel" aria-labelledby="nav-basic-tab-user-1" tabindex="0">
+
+                          <h6 class="mb-3">Basic Details</h6>
+                          <div class="row gx-3 mb-2">
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="First Name" value="adminuiux" required="" class="form-control is-valid">
+                                <label>First Name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Last Name" value="" required="" class="form-control">
+                                <label>Last Name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating">
+                                <input type="email" placeholder="Email Address" value="guest@adminuiux.com" disabled="" required="" class="form-control">
+                                <label>Email Address</label>
+                              </div>
+                              <div class="invalid-feedback mb-3">Add .com at last to insert valid data </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Birth Date" value="26-04-1982" required="" class="form-control datepicker">
+                                <label>Birth date</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <select class="form-select">
+                                  <option>A</option>
+                                  <option>A+</option>
+                                  <option>B</option>
+                                  <option selected>B+</option>
+                                  <option>B-</option>
+                                  <option>O</option>
+                                  <option>O-</option>
+                                </select>
+                                <label>Blood group</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Weight" value="52" class="form-control">
+                                <label>Weight (kg)</label>
+                              </div>
+                              <div class="invalid-feedback mb-3">Add .com at last to insert valid data </div>
+                            </div>
+                          </div>
+                          <h6 class="mb-3">Address Details</h6>
+                          <div class="row gx-3 mb-2">
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Address Line 1" value="" required="" class="form-control">
+                                <label>Address Line 1</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="email" placeholder="Address Line 2" required="" class="form-control">
+                                <label>Address Line 2</label>
+                              </div>
+                              <div class="invalid-feedback mb-3">Add insert valid data </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Landmark" required="" class="form-control">
+                                <label>Landmark</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="email" placeholder="Street" required="" class="form-control">
+                                <label>Street</label>
+                              </div>
+                              <div class="invalid-feedback mb-3">Add insert valid data </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Country" value="" required="" class="form-control">
+                                <label>Country</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Pincode" value="" required="" class="form-control">
+                                <label>Pincode</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="State" value="" required="" class="form-control">
+                                <label>State</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="City" value="" required="" class="form-control  is-invalid">
+                                <label>City</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-prof-user-2" role="tabpanel" aria-labelledby="nav-prof-tab-user-2" tabindex="0">
+                          <h6 class="mb-3">Professional bio</h6>
+                          <div class="mb-3">
+                            <textarea class="FroalaEditor"></textarea>
+                          </div>
+
+                          <h6 class="mb-3">Academic qualification</h6>
+                          <div class="row  mb-2">
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Degree" value="M.B.B.S" class="form-control">
+                                <label>Degree</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="College/University" value="" class="form-control">
+                                <label>College/University</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-auto">
+                              <button class="btn btn-link mt-2">
+                                <i class="bi bi-plus"></i> Add
+                              </button>
+                            </div>
+                          </div>
+
+                          <h6 class="mb-3">Specialized treatment</h6>
+                          <div class="row  mb-2">
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Treatment name" value="Skin whitening" class="form-control">
+                                <label>Treatment name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Treatment name" value="Skin problem" class="form-control">
+                                <label>Treatment name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Treatment name" value="Skin decease" class="form-control">
+                                <label>Treatment name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Treatment name" value="Lesser treatment" class="form-control">
+                                <label>Treatment name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                              <div class="form-floating mb-3">
+                                <input type="text" placeholder="Treatment name" value="Hair problem" class="form-control">
+                                <label>Treatment name</label>
+                              </div>
+                              <div class="invalid-feedback">Please enter valid input</div>
+                            </div>
+                            <div class="col-auto">
+                              <button class="btn btn-link mt-2">
+                                <i class="bi bi-plus"></i> Add
+                              </button>
+                            </div>
+                          </div>
+
+                          <h6 class="mb-3">Public Visibility</h6>
+                          <div class="row gx-3">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="profileswitch1" checked="">
+                                <label class="form-check-label" for="profileswitch1">Show profile publicly</label>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="profileswitch2" checked="">
+                                <label class="form-check-label" for="profileswitch2">Show availability</label>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="profileswitch3">
+                                <label class="form-check-label" for="profileswitch3">Show tagline in profile</label>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="profileswitch4">
+                                <label class="form-check-label" for="profileswitch4">Make profile inactive</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-timing-user-2" role="tabpanel" aria-labelledby="nav-timing-tab-user-2" tabindex="0">
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="mb-3">Monday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="monday">
+                                <label class="form-check-label" for="monday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="20:00" class="form-control">
+                                <label>End Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto pt-2">
+                              <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="h6  mb-3">Tuesday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="tuesday">
+                                <label class="form-check-label" for="tuesday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="20:00" class="form-control">
+                                <label>End Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto pt-2">
+                              <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="mb-3">Wednesday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="wednesday">
+                                <label class="form-check-label" for="wednesday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="20:00" class="form-control">
+                                <label>End Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto pt-2">
+                              <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="mb-3">Thursday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="thursday">
+                                <label class="form-check-label" for="thursday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="20:00" class="form-control">
+                                <label>End Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto pt-2">
+                              <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="mb-3">Friday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="friday">
+                                <label class="form-check-label" for="friday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="20:00" class="form-control">
+                                <label>End Time</label>
+                              </div>
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto pt-2">
+                              <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="mb-3">Saturday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="saturday" checked>
+                                <label class="form-check-label" for="saturday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating opacity-50 mb-3">
+                                <input type="time" value="09:00" class="form-control" disabled>
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating opacity-50 mb-3">
+                                <input type="time" value="20:00" class="form-control" disabled>
+                                <label>End Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <button class="btn btn-link mb-3" disabled><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+
+                          <div class="row gx-3 mb-2">
+                            <div class="col-6 col-md-3 col-xl-2 pt-3">
+                              <h6 class="mb-3">Sunday</h6>
+                            </div>
+                            <div class="col-auto pt-3">
+                              <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="sunday">
+                                <label class="form-check-label" for="sunday">Full Day</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="09:00" class="form-control">
+                                <label>Start Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto">
+                              <div class="form-floating mb-3">
+                                <input type="time" value="20:00" class="form-control">
+                                <label>End Time</label>
+                              </div>
+                            </div>
+                            <div class="col-auto pt-2">
+                              <button class="btn btn-link mb-3"><i class="bi bi-plus"></i> Add Shift</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="col"><button type="button" class="btn btn-theme">Create User</button></div>
+                      <div class="col-auto"><button type="button" class="btn btn-link" data-bs-dismiss="modal">Cancel</button></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+        <%= require('../partials/footer/investment-footer.html').default %>
+
+          <!-- Page Level js -->
+
+  </body>
+
+</html>

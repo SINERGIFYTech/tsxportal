@@ -1,0 +1,330 @@
+<%= require('../partials/headbody/headbody.html').default %>
+    <%= require('../partials/pageloader/investment-pageloader.html').default %>
+        <%= require('../partials/header/investment-header.html').default %>
+
+            <!-- page wrapper -->
+            <div class="adminuiux-wrap">
+
+                <!-- Standard sidebar -->
+                <%= require('../partials/navigation/investment-sidebar.html').default %>
+
+                    <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+                        <!-- body content of pages -->
+
+                        <!-- breadcrumb -->
+                        <div class="container-fluid mt-3">
+                            <div class="row gx-3 align-items-center">
+                                <div class="col-12 col-sm">
+                                    <h5>KYC Form</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- content -->
+                        <div class="container mt-3" id="main-content">
+
+                            <div class="card adminuiux-card overflow-hidden mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-3">Basic Details</h5>
+                                    <p class="mb-4 text-secondary">Please type details very carefully and fill out the form with your personal details exact match with your identity proof.
+                                        <br>Your can't edit these details once you submitted.
+                                    </p>
+                                    <div class="row mb-2">
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="First Name" value="adminuiux" required="" class="form-control is-valid">
+                                                <label>First Name</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Last Name" value="" required="" class="form-control">
+                                                <label>Last Name</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" placeholder="Email Address" value="guest@adminuiux.com" disabled="" required="" class="form-control">
+                                                <label>Email Address</label>
+                                            </div>
+                                            <div class="invalid-feedback mb-3">Add .com at last to insert valid data </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Birth Date" value="26-04-1982" required="" class="form-control datepicker" id="datepicker">
+                                                <label>Birth date</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Phone Number" value="" class="form-control">
+                                                <label>Phone Number</label>
+                                            </div>
+                                            <div class="invalid-feedback mb-3">Add .com at last to insert valid data </div>
+                                        </div>
+                                    </div>
+                                    <hr class="mb-4">
+                                    <h6 class="mb-2">Upload Supportive Document Type</h6>
+                                    <p class="mb-4 text-secondary small">To avoid delay, make sure you upload valid document which is not expired, clearly visible and not with light glare.
+                                        <br>Select proof type and upload document.
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-4 col-lg-3 mb-3">
+                                            <div class="card h-100 selectable anyone active">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-50 rounded bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-person-vcard h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="text-theme-1 mb-1">Passport</h6>
+                                                            <p class="opacity-50 small">Upload passport photos</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-3 mb-3">
+                                            <div class="card h-100 selectable anyone">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-50 rounded bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-person-badge h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="text-theme-1 mb-1">National ID</h6>
+                                                            <p class="opacity-50 small">Upload ID photos</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-3 mb-3">
+                                            <div class="card h-100 selectable anyone">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-50 rounded bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-car-front h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="text-theme-1 mb-1">Driving License</h6>
+                                                            <p class="opacity-50 small">Upload DL photos</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-4 col-lg-3">
+                                            <p class="mb-3">Front-side of proof</p>
+                                            <form action="/target" class="dropzone mb-2" id="myDropzone1">
+                                                <div class="dz-default dz-message my-2">
+                                                    <i class="h1 bi bi-cloud-upload"></i><br>
+                                                    <button class="dz-button" type="button">Drag and Drop or Click here to upload</button>
+                                                </div>
+                                            </form>
+                                            <p class="text-secondary small">Upload only .jpeg, .jpg, .png format max. file size 2MB</p>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-3">
+                                            <p class="mb-3">Back-side of proof</p>
+                                            <form action="/target" class="dropzone mb-2" id="myDropzone2">
+                                                <div class="dz-default dz-message my-2">
+                                                    <i class="h1 bi bi-cloud-upload"></i><br>
+                                                    <button class="dz-button" type="button">Drag and Drop or Click here to upload</button>
+                                                </div>
+                                            </form>
+                                            <p class="text-secondary small">Upload only .jpeg, .jpg, .png format max. file size 2MB</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card adminuiux-card overflow-hidden mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-3">Address Details</h5>
+                                    <p class="mb-4 text-secondary">Please type details very carefully and fill out the form with your address details exact match with your address proof.
+                                        <br>Your can't edit these details once you submitted.
+                                    </p>
+                                    <div class="row mb-2">
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Address Line 1" value="" required="" class="form-control">
+                                                <label>Address Line 1</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" placeholder="Address Line 2" required="" class="form-control">
+                                                <label>Address Line 2</label>
+                                            </div>
+                                            <div class="invalid-feedback mb-3">Add insert valid data </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Landmark" required="" class="form-control">
+                                                <label>Landmark</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" placeholder="Street" required="" class="form-control">
+                                                <label>Street</label>
+                                            </div>
+                                            <div class="invalid-feedback mb-3">Add insert valid data </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Country" value="" required="" class="form-control">
+                                                <label>Country</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="Pincode" value="" required="" class="form-control">
+                                                <label>Pincode</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="State" value="" required="" class="form-control">
+                                                <label>State</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" placeholder="City" value="" required="" class="form-control  is-invalid">
+                                                <label>City</label>
+                                            </div>
+                                            <div class="invalid-feedback">Please enter valid input</div>
+                                        </div>
+                                    </div>
+                                    <hr class="mb-4">
+                                    <h6 class="mb-2">Upload Supportive Document Type</h6>
+                                    <p class="mb-4 text-secondary small">To avoid delay, make sure you upload valid document which is not expired, clearly visible and not with light glare.
+                                        <br>Select proof type and upload document.
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-4 col-lg-3 mb-3">
+                                            <div class="card h-100 selectable anyone active">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-50 rounded bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-person-vcard h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="text-theme-1 mb-1">Passport</h6>
+                                                            <p class="opacity-50 small">Upload passport photos</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-3 mb-3">
+                                            <div class="card h-100 selectable anyone">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-50 rounded bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-lightning-charge h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="text-theme-1 mb-1">Electricity Bill</h6>
+                                                            <p class="opacity-50 small">Upload ID photos</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-3 mb-3">
+                                            <div class="card h-100 selectable anyone">
+                                                <div class="card-body">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-50 rounded bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-fuel-pump h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="text-theme-1 mb-1">Gas Bill</h6>
+                                                            <p class="opacity-50 small">Upload DL photos</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-4 col-lg-3">
+                                            <p class="mb-3">Front-side of proof</p>
+                                            <form action="/target" class="dropzone mb-2" id="myDropzone3">
+                                                <div class="dz-default dz-message my-2">
+                                                    <i class="h1 bi bi-cloud-upload"></i><br>
+                                                    <button class="dz-button" type="button">Drag and Drop or Click here to upload</button>
+                                                </div>
+                                            </form>
+                                            <p class="text-secondary small">Upload only .jpeg, .jpg, .png format max. file size 2MB</p>
+                                        </div>
+                                        <div class="col-12 col-md-4 col-lg-3">
+                                            <p class="mb-3">Back-side of proof</p>
+                                            <form action="/target" class="dropzone mb-2" id="myDropzone4">
+                                                <div class="dz-default dz-message my-2">
+                                                    <i class="h1 bi bi-cloud-upload"></i><br>
+                                                    <button class="dz-button" type="button">Drag and Drop or Click here to upload</button>
+                                                </div>
+                                            </form>
+                                            <p class="text-secondary small">Upload only .jpeg, .jpg, .png format max. file size 2MB</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    All the personal details and address details I have provided is correct.
+                                </label>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <button class="btn btn-theme">Submit KYC</button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-link">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+            </div>
+
+            <!-- page footer -->
+            <%= require('../partials/footer/investment-footer.html').default %>
+                <%= require('../partials/offcanvas/theming.html').default %>
+
+                    <!-- Page Level js -->
+                    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+                    </body>
+
+                    </html>

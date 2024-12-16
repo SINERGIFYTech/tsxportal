@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+    <%= require('../partials/pageloader/investment-pageloader.html').default %>
+      <%= require('../partials/header/investment-header.html').default %>
+
+        <div class="adminuiux-wrap">
+          <%= require('../partials/navigation/investment-sidebar.html').default %>
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb -->
+              <div class="container-fluid mt-3">
+                <div class="row gx-3 align-items-center">
+                  <div class="col col-sm">
+                    <h5>Profile</h5>
+                  </div>
+                  <div class="col-auto ms-auto">
+                    <button class="btn btn-sm btn-theme">
+                      <i data-feather="edit" class="me-1"></i> Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="container mt-3" id="main-content">
+                <div class="position-relative w-100 z-index-0 mb-4 pt-5 bg-theme-1 rounded">
+
+                  <div class="coverimg h-100 w-100 rounded start-0 top-0 position-absolute overlay-gradiant overflow-hidden opacity-75">
+                    <img src="assets/img/investment/company.jpg" alt="">
+                  </div>
+                  <br><br>
+                  <div class="w-100 p-3 bottom-0 position-relative z-index-1">
+                    <figure class="avatar avatar-100 rounded bg-white p-3 mb-3">
+                      <img src="assets/img/logo-512.png" alt="" class="w-100 d-block">
+                    </figure>
+
+                    <div class="row text-white">
+                      <div class="col-12 col-md mb-3 mb-md-0">
+                        <h4>InvestoHub - <span class="fw-normal">Secure Future</span></h4>
+                        <p class="mb-2">Making investment easy
+                          <span class="mx-2">|</span> <i class="bi bi-clock"></i> Full Time
+                          <span class="mx-2">|</span> <i class="bi bi-coin"></i> $150 - $ 50000
+                        </p>
+                        <p class="small">12, Featherstone Street, Ward, London, NG25 5AY, United Kingdom</p>
+                      </div>
+                      <div class="col-12 col-md-auto text-md-end">
+                        <h5 class="fw-medium">
+                          <i class="bi bi-star-fill text-warning"></i> 5.0 <br>
+                        </h5>
+                        <p class="opacity-75 small">15.12k Reviews</p>
+
+                        <div>
+                          <button class="btn btn-square btn-theme align-middle"><i class="bi bi-geo-alt"></i></button>
+                          <button class="btn btn-theme mx-2">
+                            <i data-feather="phone"></i> <span>Call</span>
+                          </button>
+                          <button class="btn btn-light">
+                            <i data-feather="message-circle"></i> <span>Message</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row gx-3">
+                  <div class="col-12 col-md-12 col-lg-12 col-xxl-8">
+                    <h5 class="mb-3">Company bio</h5>
+                    <p>AdminUIUX is a leading investment firm specializing in delivering tailored financial solutions to individuals, institutions, and businesses. With a commitment to excellence, we offer a wide range of investment products, including equities, fixed income, private equity, and alternative assets. Our seasoned team of experts combines deep industry knowledge with innovative strategies to create value and drive growth for our clients.</p>
+                    <p>Founded on the principles of integrity, transparency, and client-focused service, AdminUIUX has a proven track record of success in navigating complex financial markets. We prioritize long-term partnerships, working closely with our clients to understand their unique goals and risk tolerance, ensuring that our strategies are aligned with their financial objectives.</p>
+                    <p>At AdminUIUX, we believe in the power of smart investments to shape a better financial future, delivering results that exceed expectations.</p>
+                    <br>
+                    <h5 class="mb-3">Agents</h5>
+                    <div class="row gx-3">
+                      <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card adminuiux-card mb-3">
+                          <div class="card-body">
+                            <div class="text-center">
+                              <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                <img src="assets/img/modern-ai-image/user-8.jpg" alt="" style="display: none;">
+                              </div>
+                              <h6 class="mb-0">
+                                <span class="position-relative">Ryan Sylia
+                                  <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                    <span class="visually-hidden">New alerts</span>
+                                  </span>
+                                </span>
+                              </h6>
+                              <p class="text-secondary small">Deposit Specialist</p>
+                              <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>ryansylia@gmail.com</span>
+                              <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+089584A56892</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card adminuiux-card mb-3">
+                          <div class="card-body">
+                            <div class="text-center">
+                              <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                <img src="assets/img/modern-ai-image/user-2.jpg" alt="" style="display: none;">
+                              </div>
+                              <h6 class="mb-0">
+                                <span class="position-relative">Chin Chou
+                                  <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                    <span class="visually-hidden">New alerts</span>
+                                  </span>
+                                </span>
+                              </h6>
+                              <p class="text-secondary small">Retirement Saving</p>
+                              <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>chinchou@gmail.com</span>
+                              <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+085684A56568</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card adminuiux-card mb-3">
+                          <div class="card-body">
+                            <div class="text-center">
+                              <div class="avatar avatar-80 rounded-circle coverimg mb-3 mx-auto">
+                                <img src="assets/img/modern-ai-image/user-4.jpg" alt="" style="display: none;">
+                              </div>
+                              <h6 class="mb-0">
+                                <span class="position-relative">Sundar Vishwas
+                                  <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2">
+                                    <span class="visually-hidden">New alerts</span>
+                                  </span>
+                                </span>
+                              </h6>
+                              <p class="text-secondary small">Head of Insurance</p>
+                              <span class="badge badge-light rounded-pill text-bg-theme-1 mb-2"><i class="bi bi-envelope me-2"></i>sundarvishwas@gmail.com</span>
+                              <span class="badge badge-light rounded-pill text-bg-theme-accent-1"><i class="bi bi-telephone me-2"></i>+05689584A2543</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-12 col-lg-12 col-xxl-4">
+                    <div class="position-sticky" style="top: 5.5rem;">
+
+                      <!-- specialize treatment highlight -->
+                      <div class="card adminuiux-card mb-3">
+                        <div class="card-header">
+                          <h6>Specialized treatment</h6>
+                        </div>
+                        <div class="card-body">
+                          <ul class="list-group adminuiux-list-group bg-none border-0">
+                            <li class="list-group-item">Investment</li>
+                            <li class="list-group-item">Mutual Funds</li>
+                            <li class="list-group-item">Share</li>
+                            <li class="list-group-item">Bond</li>
+                            <li class="list-group-item">Gov. Security</li>
+                            <li class="list-group-item">Fixed Deposit </li>
+                            <li class="list-group-item">Term Deposit</li>
+                            <li class="list-group-item">and many more...</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <!-- offer -->
+                      <div class="card adminuiux-card position-relative overflow-hidden bg-theme-1 mb-4">
+                        <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0 z-index-0 opacity-25">
+                          <img src="assets/img/modern-ai-image/flamingo-3.jpg" class="mw-100" alt="" style="display: none;">
+                        </figure>
+                        <div class="card-body position-relative z-index-1">
+                          <div class="row gx-3">
+                            <div class="col-8">
+                              <div class="bg-white-opacity text-white text-center p-2 rounded">
+                                <h2 class="mb-0">20% <small>OFF</small></h2>
+                                <h5>Holiday Season</h5>
+                                <p class="opacity-75 small">Price including with our launch offer get 5% Extra</p>
+                                <button class="copy-text btn btn-sm btn-rounded btn-outline-dashed btn-outline-light">GOSEASON</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+        <%= require('../partials/footer/investment-footer.html').default %>
+
+          <!-- Page Level js -->
+
+  </body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+                            <!-- breadcrumb -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm">
+                                        <h5>Blank</h5>
+                                    </div>
+                                    <div class="col-auto col-sm-auto text-end">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+                            </div>
+                        </main>
+                </div>
+                <%= require('../partials/footer/investment-footer.html').default %>
+
+                    <!-- Page Level js -->
+
+    </body>
+
+</html>

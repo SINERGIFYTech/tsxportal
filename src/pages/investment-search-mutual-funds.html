@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col-12 col-sm">
+                                        <h5>Find Mutual Funds</h5>
+                                    </div>
+                                    <div class="col-auto col-sm-auto text-end">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content  -->
+                            <div class="container mt-3" id="main-content">
+
+                                <div class="row gx-3">
+                                    <!-- basic requirements filter -->
+                                    <div class="col-12 col-md-12 col-lg-4 col-xxl-3">
+                                        <div class="row gx-3 align-items-center">
+                                            <!-- companies -->
+                                            <div class="col-12 col-sm-6 col-lg-12">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="row gx-3 align-items-center mb-3">
+                                                            <div class="col">
+                                                                <h6 class="">Fund Provider</h6>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-sm btn-link">Clear</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group">
+                                                            <input class="form-control border-end-0" type="text" placeholder="Search Companies">
+                                                            <button class="btn btn-square btn-link border"><i class="bi bi-search"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush bg-none mb-3">
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+                                                            <label class="form-check-label" for="firstCheckbox">Investo Press Bank</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+                                                            <label class="form-check-label" for="secondCheckbox">CICI Bank</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+                                                            <label class="form-check-label" for="thirdCheckbox">American Bank</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="forthCheckbox">
+                                                            <label class="form-check-label" for="forthCheckbox">Rusbank LLP</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="fifthCheckbox">
+                                                            <label class="form-check-label" for="fifthCheckbox">Marco Metro Bank</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- categories -->
+                                            <div class="col-12 col-sm-6 col-lg-12">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="row gx-3 align-items-center mb-3">
+                                                            <div class="col">
+                                                                <h6 class="">Categories</h6>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-sm btn-link">Clear</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group">
+                                                            <input class="form-control border-end-0" type="text" placeholder="Search Category">
+                                                            <button class="btn btn-square btn-link border"><i class="bi bi-search"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush bg-none mb-3">
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox1">
+                                                            <label class="form-check-label" for="firstCheckbox1">Debit</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox1">
+                                                            <label class="form-check-label" for="secondCheckbox1">Equity</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox1">
+                                                            <label class="form-check-label" for="thirdCheckbox1">Hybrid</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="forthCheckbox1">
+                                                            <label class="form-check-label" for="forthCheckbox1">Thematic</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="fifthCheckbox1">
+                                                            <label class="form-check-label" for="fifthCheckbox1">Other</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- fund size -->
+                                            <div class="col-12 col-sm-6 col-lg-12">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="row gx-3 align-items-center">
+                                                            <div class="col">
+                                                                <h6 class="">Fund Size ($)</h6>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-sm btn-link">Clear</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush bg-none mb-3">
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox3">
+                                                            <label class="form-check-label" for="firstCheckbox3">&lt; 10000cr</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox3">
+                                                            <label class="form-check-label" for="secondCheckbox3">1001cr - 5000cr</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox3">
+                                                            <label class="form-check-label" for="thirdCheckbox3">5001cr - 10000cr</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="forthCheckbox3">
+                                                            <label class="form-check-label" for="forthCheckbox3">10001cr - 15000cr</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="fifthCheckbox3">
+                                                            <label class="form-check-label" for="fifthCheckbox3">15001cr - 20000cr</label>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" value="" id="sixthCheckbox3">
+                                                            <label class="form-check-label" for="sixthCheckbox3"> &gt; 20000cr</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- plans -->
+                                    <div class="col-12 col-md-12 col-lg-8 col-xxl-9">
+                                        <div class="card adminuiux-card mb-3">
+                                            <div class="card-header ">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-12 col-md mb-3 mb-md-0">
+                                                        <h6>We have 236 funds found with match query</h6>
+                                                    </div>
+                                                    <div class="col-auto px-0">
+                                                        <span class="text-secondary small mx-2">Sort by: </span>
+                                                        <select class="form-select form-select-sm w-auto d-inline-block">
+                                                            <option>Last year return</option>
+                                                            <option>FY Return</option>
+                                                            <option>2 year return</option>
+                                                            <option>3 year return</option>
+                                                            <option>5 year return</option>
+                                                            <option>10 year return</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-sm btn-square btn-link"><i class="bi bi-arrow-clockwise"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0">
+                                                <div class="row gx-3">
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">JACKY New age EV and automotive Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> Thematic </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$150.1250</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$2426.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+32.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.79%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">OrganicX Agriculture and innovation Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> FoF </p>
+
+                                                                <div class="row align-items-center ">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$205.6530</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$9586.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+15.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.65%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red active"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">Energy and New Smart Technology Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> ELSS </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$156.1250</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$3265.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+25.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.65%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">JACKY New age EV and automotive Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> Thematic </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$150.1250</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$2426.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+32.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.79%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">OrganicX Agriculture and innovation Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> FoF </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$205.6530</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$9586.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+15.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.65%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red active"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">Energy and New Smart Technology Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> ELSS </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$156.1250</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$3265.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+25.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.65%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">JACKY New age EV and automotive Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> Thematic </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$150.1250</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$2426.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+32.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.79%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">OrganicX Agriculture and innovation Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> FoF </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$205.6530</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$9586.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+15.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.65%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red active"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                        <div class="card mb-3">
+                                                            <a href="investment-mutual-fund-detail.html" class="card-body style-none">
+                                                                <h6 class="fw-medium mb-2">Energy and New Smart Technology Fund</h6>
+                                                                <p class="text-secondary small mb-3">Direct <i class="bi bi-chevron-right"></i> Growth <i class="bi bi-chevron-right"></i> ELSS </p>
+
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6 text-start mb-3">
+                                                                        <h6 class="fw-medium">$156.1250</h6>
+                                                                        <p class="text-secondary small">Current NAV <span>10 Aug 2025</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end mb-3">
+                                                                        <h6 class="fw-medium">$3265.50 cr</h6>
+                                                                        <p class="text-secondary small">AUM</p>
+                                                                    </div>
+                                                                    <div class="col-6 text-start">
+                                                                        <h6 class="fw-medium text-success">+25.5%</h6>
+                                                                        <p class="text-secondary small">CAGR <span>5 Years</span></p>
+                                                                    </div>
+                                                                    <div class="col-6 text-end">
+                                                                        <h6 class="fw-medium">0.65%</h6>
+                                                                        <p class="text-secondary small">Expanse Ratio</p>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="card-footer bg-none">
+                                                                <div class="row gx-3 align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-theme">Buy</button>
+                                                                        <button class="btn btn-sm btn-theme mx-2">SIP</button>
+                                                                    </div>
+                                                                    <div class="col"></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-sm btn-square btn-outline-theme theme-red"><i class="bi bi-heart"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="text-center">
+                                                    <button class="btn btn-link">
+                                                        <span class="spinner-border height-20 width-20 me-1 align-middle " role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </span>
+                                                        Load more...
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+                <%= require('../partials/footer/investment-footer.html').default %>
+
+                    <!-- Page Level js -->
+
+    </body>
+
+</html>

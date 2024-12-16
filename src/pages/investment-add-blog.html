@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header-back.html').default %>
+
+                <div id="title" class="d-none">
+                    <%= htmlWebpackPlugin.options.title %>
+                </div>
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb  -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm">
+                                        <h5>Add Blog</h5>
+                                    </div>
+                                    <div class="col-auto py-1">
+                                        <button class="btn btn-sm btn-theme">
+                                            <i class="bi bi-globe me-0 me-md-1"></i>
+                                            <span>Publish</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+                                <div class="row ">
+                                    <div class="col-12 col-md-12 col-lg-12 col-xxl-8">
+                                        <div class="card adminuiux-card mb-3">
+                                            <div class="card-body">
+                                                <!-- Title -->
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="blogtitle" placeholder="Blog Title" value="Adminuiux template for your all need for business">
+                                                    <label for="blogtitle">Blog Title</label>
+                                                </div>
+                                                <!-- Textarea -->
+                                                <h6 class="mb-3">Blog Content</h6>
+                                                <div class="FroalaEditor mb-3">
+                                                    <h4>This is best interface design template I have ever seen.</h4>
+                                                    <p>I am really very impressed of work, flexibility, extensibility and elasticity across devices.
+                                                        Its awesome and I really appreciate this.</p>
+                                                </div>
+
+                                                <h6 class="mb-3">Other Details</h6>
+                                                <!-- Tags -->
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="blogtags" placeholder="Blog Tags">
+                                                    <label for="blogtags">Blog Tags</label>
+                                                </div>
+
+                                                <!-- Meta Description -->
+                                                <div class="form-floating ">
+                                                    <textarea class="form-control" placeholder="Your content here..." id="blogmetadesc"></textarea>
+                                                    <label for="blogmetadesc">Blog Short Description</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 col-xxl-4 mb-3">
+                                        <h6 class="mb-3">Featured Image</h6>
+                                        <!-- Image upload  -->
+                                        <div class="row gx-2 mb-3 ">
+                                            <div class="col-auto">
+                                                <!-- image as bg style-->
+                                                <div class="avatar avatar-80 rounded coverimg hover mb-2">
+                                                    <img src="assets/img/modern-ai-image/user-1.jpg" alt="">
+                                                    <div class="overlay">
+                                                        <button class="btn btn-square btn-light text-danger">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <p class="text-secondary fs-12">Home1-present...</p>
+                                            </div>
+                                        </div>
+                                        <form action="/target" class="dropzone mb-3" id="myDropzone2">
+                                            <div class="dz-default dz-message my-2">
+                                                <i class="h1 bi bi-cloud-upload"></i><br>
+                                                <button class="dz-button" type="button">Drag and Drop or Click here to upload</button>
+                                            </div>
+                                        </form>
+
+                                        <p class="text-secondary small">Upload only .jpeg, .png, .mp4, .mpeg4 file format max. file
+                                            size 6MB</p>
+                                    </div>
+                                </div>
+
+                                <!-- save and cancel buttons -->
+                                <div class="row gx-3">
+                                    <div class="col">
+                                        <a href="investment-blogs.html" class="btn btn-theme my-2"><i class="bi bi-globe me-2"></i>Publish</a>
+                                        <!-- <button class="btn btn-theme my-2"><i class="bi bi-floppy me-2"></i>Submit</button> -->
+                                        <button class="btn btn-outline-theme my-2 mx-2">Draft</button>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button class="btn btn-link my-2">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+                <%= require('../partials/footer/investment-footer.html').default %>
+
+                    <!-- Page Level js -->
+
+    </body>
+
+</html>

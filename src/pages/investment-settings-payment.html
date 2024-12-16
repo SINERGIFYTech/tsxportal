@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+    <%= require('../partials/pageloader/investment-pageloader.html').default %>
+      <%= require('../partials/header/investment-header.html').default %>
+
+        <div class="adminuiux-wrap">
+          <%= require('../partials/navigation/investment-sidebar.html').default %>
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb -->
+              <div class="container-fluid mt-3">
+                <div class="row gx-3 align-items-center">
+                  <div class="col col-sm">
+                    <h5>Settings Patment</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- content -->
+              <div class="container mt-3" id="main-content">
+
+                <!-- cover -->
+                <div class="card adminuiux-card overflow-hidden mb-3 pt-5">
+                  <figure class="coverimg start-0 top-0 w-100 h-100 z-index-0 position-absolute overlay-gradiant">
+                    <div class="position-absolute top-0 end-0 m-2">
+                      <button class="btn btn-sm btn-theme" onclick="$(this).next().click()">
+                        <i class="bi bi-camera"></i> Change Cover
+                      </button>
+                      <input type="file" class="d-none">
+                    </div>
+                    <img src="assets/img/modern-ai-image/flamingo-3.jpg" class="mw-100" alt="">
+                  </figure>
+
+                  <div class="card-body text-center text-white z-index-1">
+                    <div class="d-inline-block position-relative w-auto mx-auto my-3">
+                      <figure class="avatar avatar-150 coverimg rounded-circle">
+                        <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                      </figure>
+                      <div class="position-absolute bottom-0 end-0 z-index-1 h-auto">
+                        <button class="btn btn-theme btn-square" onclick="$(this).next().click()">
+                          <i class="bi bi-camera"></i>
+                        </button>
+                        <input type="file" class="d-none">
+                      </div>
+                    </div>
+                    <h4 class="mb-0">AdminUIUX</h4>
+                    <p class="opacity-75 mb-3">guest@adminuiux.com</p>
+                  </div>
+                </div>
+
+                <!-- settings -->
+                <div class="row gx-3">
+                  <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                    <div class="card adminuiux-card mb-3 ">
+                      <div class="card-body">
+                        <ul class="nav nav-pills adminuiux-nav-pills flex-column">
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings.html">
+                              <div class="avatar avatar-28 icon"><i data-feather="user"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">My Profile</p>
+                                <p class="small opacity-75">Basic Details</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings-users.html">
+                              <div class="avatar avatar-28 icon"><i class="bi bi-people fs-4"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Users</p>
+                                <p class="small opacity-75">Roles, Permission, Access</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings-timing.html">
+                              <div class="avatar avatar-28 icon"><i data-feather="clock"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Timing</p>
+                                <p class="small opacity-75">Business hours, Emergency</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="investment-settings-payment.html">
+                              <div class="avatar avatar-28 icon"><i class="bi bi-cash-stack fs-4"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Payment</p>
+                                <p class="small opacity-75">Online, Devices, Cash</p>
+                              </div>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="investment-settings-contact.html">
+                              <div class="avatar avatar-28 icon"><i class="bi bi-life-preserver"></i></div>
+                              <div class="col">
+                                <p class="h6 mb-0">Contact</p>
+                                <p class="small opacity-75">Support, Call, Chat, email</p>
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-8 col-lg-8 col-xl-9">
+                    <div class="card adminuiux-card mb-3">
+                      <div class="card-body pb-0">
+                        <h6 class="mb-3">My credit cards</h6>
+                        <div class="swiper swipernav mb-2">
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide width-250">
+                              <div class="card adminuiux-card bg-theme-1 w-100 mb-2 overflow-hidden">
+                                <div class="coverimg h-100 w-100 position-absolute top-0 start-0 z-index-0 opacity-50">
+                                  <img src="assets/img/modern-ai-image/flamingo-4.jpg" alt="">
+                                </div>
+                                <div class="card-body z-index-1">
+                                  <div class="row gx-3 align-items-center mb-2">
+                                    <div class="col-auto align-self-center">
+                                      <i class="bi bi-credit-card fs-4"></i>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p>
+                                        <span class="small opacity-75">City Bank</span><br>
+                                        <span class="">Credit Card</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <p class="h5 mb-3">
+                                    000 0000 0001 546598
+                                  </p>
+                                  <div class="row gx-3">
+                                    <div class="col-auto">
+                                      <p class="mb-0 small opacity-75">Expiry</p>
+                                      <p>09/023</p>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p class="mb-0 small opacity-75">Card Holder</p>
+                                      <p>adminuiux</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row gx-3">
+                                <div class="col">
+                                  <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                </div>
+                                <div class="col-auto">
+                                  <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide width-250">
+                              <div class="card bg-theme-1 adminuiux-card w-100 mb-2 overflow-hidden">
+                                <div class="coverimg h-100 w-100 position-absolute top-0 start-0 z-index-0">
+                                  <img src="assets/img/modern-ai-image/tree-4.jpg" alt="">
+                                </div>
+                                <div class="card-body z-index-1 blur">
+                                  <div class="row gx-3 align-items-center mb-2">
+                                    <div class="col-auto align-self-center">
+                                      <i class="bi bi-credit-card fs-4"></i>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p>
+                                        <span class="small opacity-75">City Bank</span><br>
+                                        <span class="">Credit Card</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <p class="h5 mb-3">
+                                    000 0000 0001 546598
+                                  </p>
+                                  <div class="row gx-3">
+                                    <div class="col-auto">
+                                      <p class="mb-0 small opacity-75">Expiry</p>
+                                      <p>09/023</p>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p class="mb-0 small opacity-75">Card Holder</p>
+                                      <p>adminuiux</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row gx-3">
+                                <div class="col">
+                                  <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                </div>
+                                <div class="col-auto">
+                                  <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide width-250">
+                              <div class="card adminuiux-card w-100 border mb-2 overflow-hidden">
+                                <div class="coverimg h-100 w-100 position-absolute top-0 start-0 z-index-0 opacity-25 rounded">
+                                  <img src="assets/img/modern-ai-image/flamingo-4.jpg" alt="">
+                                </div>
+                                <div class="card-body z-index-1 rounded">
+                                  <div class="row gx-3 align-items-center mb-2">
+                                    <div class="col-auto align-self-center">
+                                      <i class="bi bi-credit-card fs-4"></i>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p>
+                                        <span class="small opacity-75">City Bank</span><br>
+                                        <span class="">Credit Card</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <p class="h5 mb-3">
+                                    000 0000 0001 546598
+                                  </p>
+                                  <div class="row gx-3">
+                                    <div class="col-auto">
+                                      <p class="mb-0 small opacity-75">Expiry</p>
+                                      <p>09/023</p>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p class="mb-0 small opacity-75">Card Holder</p>
+                                      <p>adminuiux</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row gx-3">
+                                <div class="col">
+                                  <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                </div>
+                                <div class="col-auto">
+                                  <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide width-250">
+                              <div class="card bg-theme-l-gradient adminuiux-card w-100 mb-2">
+                                <div class="card-body z-index-1">
+                                  <div class="row gx-3 align-items-center mb-2">
+                                    <div class="col-auto align-self-center">
+                                      <i class="bi bi-credit-card fs-4"></i>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p>
+                                        <span class="small opacity-75">City Bank</span><br>
+                                        <span class="">Credit Card</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <p class="h5 mb-3">
+                                    000 0000 0001 546598
+                                  </p>
+                                  <div class="row gx-3">
+                                    <div class="col-auto">
+                                      <p class="mb-0 small opacity-75">Expiry</p>
+                                      <p>09/023</p>
+                                    </div>
+                                    <div class="col text-end">
+                                      <p class="mb-0 small opacity-75">Card Holder</p>
+                                      <p>adminuiux</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row gx-3">
+                                <div class="col">
+                                  <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                </div>
+                                <div class="col-auto">
+                                  <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide width-250">
+                              <a href="javascript:void(0)" data-bs-target="#addcreditcard" data-bs-toggle="modal" class="bg-theme-1-subtle text-theme-accent-1 height-180 w-100 rounded text-center d-flex align-items-center justify-content-center style-none">
+                                <div class="py-4">
+                                  <i class="bi bi-plus-circle h4 mb-4"></i>
+                                  <p class="h5 mb-0">Create New</p>
+                                  <p class="opacity-75 small">Add new card</p>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h6 class="mb-3">How you receive Payment?</h6>
+                        <div class="row gx-3 mb-2">
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="form-check form-switch mb-2">
+                              <input class="form-check-input" type="checkbox" id="onlinepayment" checked="">
+                              <label class="form-check-label" for="onlinepayment">Online Payment</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="form-check form-switch mb-2">
+                              <input class="form-check-input" type="checkbox" id="pos" checked="">
+                              <label class="form-check-label" for="pos">Have POS Device</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="form-check form-switch mb-2">
+                              <input class="form-check-input" type="checkbox" id="cash">
+                              <label class="form-check-label" for="cash">Cash</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h6 class="mb-3">PayPal ID
+                          <small class="text-secondary fw-normal">- Provide to receive payouts</small>
+                        </h6>
+                        <div class="row gx-3">
+                          <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-floating mb-2">
+                              <input type="email" placeholder="Email" value="testmail@adminuiux.com" required="" class="form-control">
+                              <label>Email</label>
+                            </div>
+                            <div class="invalid-feedback">Please enter valid input</div>
+                          </div>
+                          <div class="col-auto align-self-center">
+                            <p class="text-success"><i class="bi bi-patch-check me-1"></i> Verified</p>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="card-footer">
+                        <div class="row gx-3">
+                          <div class="col">
+                            <button class="btn btn-theme">Save</button>
+                          </div>
+                          <div class="col-auto">
+                            <button class="btn btn-link">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- add credit card  -->
+              <div class="modal adminuiux-modal fade" id="addcreditcard" tabindex="-1" aria-labelledby="addcreditcardLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header" id="addcreditcardLabel">
+                      <p class="h6">Add Credit Card</p>
+                    </div>
+                    <div class="modal-body pb-0">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <div class="form-floating">
+                          <input type="text" placeholder="Card Holder Name" value="Max Johnson" required="" class="form-control">
+                          <label>Card Holder Name</label>
+                        </div>
+                      </div>
+
+                      <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+                        <div class="form-floating">
+                          <input type="text" placeholder="Card Number" value="" required="" class="form-control">
+                          <label>Card Number</label>
+                        </div>
+                      </div>
+
+                      <div class="row gx-3">
+                        <div class="col-12 col-sm">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                            <div class="form-floating">
+                              <select class="form-select">
+                                <option>01</option>
+                                <option selected>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                              </select>
+                              <label>Expiry Month</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                            <div class="form-floating">
+                              <select class="form-select">
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option selected>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                              </select>
+                              <label>Expiry Year</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-asterisk"></i></span>
+                            <div class="form-floating">
+                              <input type="number" placeholder="CVV" value="" required="" class="form-control">
+                              <label>CVV</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="col">
+                        <button class="btn btn-theme">Add Card</button>
+                      </div>
+                      <div class="col-auto">
+                        <button class="btn btn-link" data-bs-dismiss="modal">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+        <%= require('../partials/footer/investment-footer.html').default %>
+
+          <!-- Page Level js -->
+
+  </body>
+
+</html>

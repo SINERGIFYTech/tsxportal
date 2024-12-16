@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm">
+                                        <h5>Schedule</h5>
+                                    </div>
+                                    <div class="col-auto py-1 ms-auto ms-sm-0">
+                                        <button class="btn btn-theme">
+                                            <i data-feather="plus" class="me-0 me-md-1"></i> <span class="d-none d-md-inline-block">Appointment</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container" id="main-content">
+                                <!-- full calendar view -->
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-12 col-md-12 col-xl">
+                                        <!-- Calendar Third party -->
+                                        <div class="card adminuiux-card mb-3">
+                                            <div class="card-body">
+                                                <div id="calendar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- book appointment and summary -->
+                                    <div class="col-12 col-md-12 col-xl-3 ">
+                                        <h6 class="mb-3">Book an appointment</h6>
+                                        <div class="dropdown w-100 mb-4">
+                                            <button class="btn btn-link dropdown-toggle text-start no-caret w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <span class="row align-items-center gx-3">
+                                                    <div class="col-auto">
+                                                        <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                            <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col">
+                                                        <h6 class="mb-1 text-theme">Dr. Ryan Sylia</h6>
+                                                        <p class="opacity-75 small">Orthopedic Specialist</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <i class="bi bi-chevron-down small"></i>
+                                                    </div>
+                                                </span>
+                                            </button>
+                                            <ul class="dropdown-menu w-100">
+                                                <li>
+                                                    <a class="dropdown-item active" href="javascript:void(0)">
+                                                        <div class="row align-items-center gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="mb-1">Dr. Ryan Sylia</p>
+                                                                <p class="opacity-75 small">Orthopedic Specialist</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">
+                                                        <div class="row align-items-center gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="mb-1">Dr. Angelina</p>
+                                                                <p class="opacity-75 small">Skincare Specialist</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">
+                                                        <div class="row align-items-center gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle coverimg">
+                                                                    <img src="assets/img/modern-ai-image/user-7.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col">
+                                                                <p class="mb-1">Dr. Smriti Vandana</p>
+                                                                <p class="opacity-75 small">General Expert</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row gx-3">
+                                            <!-- inline calendar -->
+                                            <div class="col-12 col-sm-6 col-xl-12 mb-4">
+                                                <h6 class="mb-3">Select Date</h6>
+                                                <div class="inlinewrap1 inline-calendar mx-auto"></div>
+                                                <input type="text" id="inlinewrap1" class="d-none">
+                                            </div>
+                                            <!-- appointment timings -->
+                                            <div class="col-12 col-sm-6 col-xl-12 mb-4">
+                                                <h6 class="mb-3">Select Time</h6>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1 active">
+                                                    <span>11:00 AM</span>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>11:30 AM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>12:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>12:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>1:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>1:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>2:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>2:30 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>3:00 PM</span></button>
+                                                <button class="btn btn-sm btn-outline-theme mb-2 me-1"><span>3:30 PM</span></button>
+                                                <br><br>
+                                                <!-- create button -->
+                                                <button class="btn btn-theme w-100">
+                                                    <i class="bi bi-plus"></i> <span>Appointment</span>
+                                                </button>
+                                            </div>
+                                            <!-- Total patients -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-60 text-center rounded bg-success-subtle text-success-emphasis mb-3">
+                                                            <i class="bi bi-people h5"></i>
+                                                        </div>
+                                                        <h4 class="mb-0">1320</h4>
+                                                        <p class="text-secondary small">Patients</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Total Staff -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-60 text-center rounded bg-info-subtle text-info-emphasis mb-3">
+                                                            <i class="bi bi-person-badge h5"></i>
+                                                        </div>
+                                                        <h4 class="mb-0">20</h4>
+                                                        <p class="text-secondary small">Active Staff</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Total Rooms occupied -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-60 text-center rounded bg-warning-subtle text-warning-emphasis mb-3">
+                                                            <i class="bi bi-hospital h5"></i>
+                                                        </div>
+                                                        <h4 class="mb-0">1320</h4>
+                                                        <p class="text-secondary small">+ 75 Rooms</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Total online appointment -->
+                                            <div class="col-6 col-sm-3 col-lg-3 col-xl-6 mb-4">
+                                                <div class="card adminuiux-card">
+                                                    <div class="card-body">
+                                                        <div class="avatar avatar-60 text-center rounded bg-danger-subtle text-danger-emphasis mb-3">
+                                                            <i class="bi bi-calendar-week h5"></i>
+                                                        </div>
+                                                        <h4 class="mb-0">820</h4>
+                                                        <p class="text-secondary small">Bookings</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+                <%= require('../partials/footer/investment-footer.html').default %>
+
+                    <!-- Page Level js -->
+                    <script src="assets/js/investment/investment-schedule.js"></script>
+
+    </body>
+
+</html>

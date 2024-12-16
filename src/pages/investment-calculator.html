@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col-12 col-sm">
+                                        <h5>Calculator</h5>
+                                    </div>
+                                    <div class="col-auto">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+
+                                <!-- navigation -->
+                                <div class="position-sticky z-index-5 mb-3 adminuiux-header" style="top: 5rem;">
+                                    <nav class="navbar rounded p-1">
+                                        <ul class="nav nav-sm nav-pills justify-content-center text-center w-100 bg-none" role=tablist>
+                                            <li class="nav-item"><a class="nav-link active" href="#pills-sip" id="pills-sip-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-sip" aria-selected="true">SIP</a></li>
+                                            <li class="nav-item mx-1"><a class="nav-link" href="#pills-lumpsum" id="pills-lumpsum-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-lumpsum" aria-selected="false">Lumpsum</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#pills-swp" id="pills-swp-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-swp" aria-selected="false">SWP</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+
+
+                                <div class="tab-content mb-3" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-sip" role="tabpanel" aria-labelledby="pills-sip-tab" tabindex="0">
+                                        <h6>SIP (Systematic Investment Plan)</h6>
+                                        <p class="text-secondary small">Calculate how much you need to save or how much you will accumulate with your SIP</p>
+                                        <div class="row gx-3">
+                                            <div class="col-12 col-lg-8 order-2 order-lg-1">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Monthly investment amount</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-text bg-none">$</span>
+                                                                        <input type="text" class="form-control text-end rangevalues" value="10000" id="value1">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range1" class="range1 rangevalue" min="100" max="150000" value="10000" data-value="value1">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Expected return rate per annual</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="11.5" id="value2">
+                                                                        <span class="input-group-text bg-none">%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range2" class="range1 rangevalue" min="1" max="30" step="0.1" value="11.5" data-value="value2">
+                                                        </div>
+                                                        <div class="">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Time period in Year</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="10" id="value3">
+                                                                        <span class="input-group-text bg-none">Yr</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range3" class="range1 rangevalue" min="1" max="40" step="1" value="10" data-value="value3">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h5>SIP Calculator - Systematic Investment Plan Calculator</h5>
+                                                <p class="text-secondary">Many investors often confuse SIPs (Systematic Investment Plans) with mutual funds, thinking they are the same. However, SIPs are merely a method of investing in mutual funds, with the other common method being a lump sum investment. A SIP calculator is a valuable tool that helps you estimate the returns on your investments when you choose the SIP route. SIP involves investing a fixed sum of money in mutual funds at regular intervals, typically weekly, quarterly, or monthly.</p>
+
+                                                <h6>What is a SIP Calculator?</h6>
+                                                <p class="text-secondary">A SIP calculator is a user-friendly tool that provides individuals with an estimate of the returns on their mutual fund investments made through SIPs. With the rising popularity of SIPs among millennials, these calculators have become essential for prospective investors.</p>
+                                                <p class="text-secondary">SIP calculators are designed to give potential investors an estimate of their mutual fund returns. However, it is important to note that the actual returns can vary based on several factors. Additionally, SIP calculators do not account for exit loads and expense ratios that might be applicable to mutual funds.</p>
+                                                <p class="text-secondary">This calculator helps you estimate the wealth gain and expected returns for your monthly SIP investments, providing a rough estimate of the maturity amount based on a projected annual return rate.</p>
+
+                                                <h6>How Can a SIP Return Calculator Help You?</h6>
+                                                <p class="text-secondary">SIPs are considered a more attractive investment method compared to lump sum investments by many mutual fund experts. They promote financial discipline and encourage a habit of regular savings, which can be beneficial in the long run.</p>
+                                                <p class="text-secondary">Using an online SIP calculator offers several advantages:</p>
+                                                <ul class="lists text-secondary">
+                                                    <li><b>Determines Investment Amount:</b> It helps you decide the amount you want to invest regularly.</li>
+                                                    <li><b>Tracks Total Investment:</b> It shows you the total amount you have invested over time.</li>
+                                                    <li><b>Estimates Returns:</b> It provides an estimated value of the returns you can expect at the end of your investment tenure.</li>
+                                                </ul>
+                                                <p class="text-secondary">By leveraging a SIP calculator, investors can make informed decisions about their investments, ensuring they can achieve their financial goals efficiently.</p>
+                                            </div>
+                                            <div class="col-12 col-lg-4 order-1 order-lg-2">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="text-center mt-2 mb-3">
+                                                            <div class="height-140 width-140 position-relative d-inline-block mx-auto text-white mb-3">
+                                                                <div id="circleprogressblue"></div>
+                                                            </div>
+                                                            <h2 class="mb-0">$ 22,55,442</h2>
+                                                            <p class="text-secondary">Total Value</p>
+                                                        </div>
+                                                        <div class="row justify-content-between">
+                                                            <div class="col-auto mb-3">
+                                                                <p>
+                                                                    <span class="avatar avatar-20 rounded-circle bg-theme-1-subtle align-middle me-2"></span>
+                                                                    <span class="d-inline-block align-middle">Investment Amount<br><small class="text-secondary">12,00,000</small></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-auto mb-3">
+                                                                <p>
+                                                                    <span class="avatar avatar-20 rounded-circle bg-theme-1 align-middle me-2"></span>
+                                                                    <span class="d-inline-block align-middle">Estimated Return<br><small class="text-secondary">10,55,442</small></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <a href="investment-mutual-funds.html" class="btn btn-sm btn-theme">Invest Now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-lumpsum" role="tabpanel" aria-labelledby="pills-lumpsum-tab" tabindex="0">
+                                        <h5>Lumpsum</h5>
+                                        <p class="text-secondary">Calculate returns for lumpsum investments to achieve your financial goals</p>
+                                        <div class="row gx-3">
+                                            <div class="col-12 col-lg-8 order-2 order-lg-1">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Total investment amount</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-text bg-none">$</span>
+                                                                        <input type="text" class="form-control text-end rangevalues" value="1000000" id="value11">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range11" class="range1 rangevalue" min="100" max="5000000" value="1000000" data-value="value11">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Expected return rate per annual</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="11.5" id="value21">
+                                                                        <span class="input-group-text bg-none">%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range21" class="range1 rangevalue" min="1" max="30" step="0.1" value="11.5" data-value="value21">
+                                                        </div>
+                                                        <div class="">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Time period in Year</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="10" id="value31">
+                                                                        <span class="input-group-text bg-none">Yr</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range31" class="range1 rangevalue" min="1" max="40" step="1" value="10" data-value="value31">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5>Understanding Lumpsum and SIP Investments in Mutual Funds</h5>
+                                                <p class="text-secondary">Mutual fund investments can generally be categorized into two primary types: lumpsum and SIP (Systematic Investment Plan). A lumpsum investment involves the depositor investing a substantial amount of money into a particular mutual fund scheme at once. Conversely, a SIP involves investing smaller amounts of money regularly, typically on a monthly basis.</p>
+
+                                                <h6>Benefits of Lumpsum and SIP Investments</h6>
+                                                <p class="text-secondary">Both investment strategies come with their own advantages. Lumpsum investments are often favored by many investors due to the simplicity of having fewer variables to manage, and they generally offer higher returns. To estimate the potential returns on your lumpsum mutual fund investment, you can use an online mutual fund lumpsum calculator.</p>
+
+                                                <h6>How a Lumpsum Calculator Can Help You</h6>
+                                                <p class="text-secondary">A mutual fund lumpsum calculator is a useful tool for investors to estimate the returns on their investments. To fully appreciate the benefits of using this calculator, it is important to understand the different types of returns associated with lumpsum investments:</p>
+
+                                                <ul class="lists text-secondary">
+                                                    <li><b>Absolute Return:</b> The total return on the investment without considering the investment duration.</li>
+                                                    <li><b>Total Return:</b> The overall return including capital gains and dividends.</li>
+                                                    <li><b>Annualized Return:</b> The average yearly return over a specific period.</li>
+                                                    <li><b>Point to Point Return:</b> The return calculated between two specific dates.</li>
+                                                    <li><b>Trailing Return:</b> The return over a set period, such as the last year, three years, or five years.</li>
+                                                    <li><b>Rolling Return:</b> The return calculated over overlapping periods, offering a more comprehensive view of performance.</li>
+                                                </ul>
+
+                                                <h6>Benefits of Using a Lumpsum Return Calculator</h6>
+                                                <p class="text-secondary">Understanding these types of returns can help investors make the most informed decisions and maximize their mutual fund investments. The benefits of using a lumpsum return calculator include:</p>
+                                                <ul class="lists text-secondary">
+                                                    <li><b>Accurate Estimations:</b> It provides a clear estimate of potential returns based on the investment amount and duration.</li>
+                                                    <li><b>Informed Decisions:</b> By knowing the different types of returns, investors can choose the best mutual fund schemes that align with their financial goals.</li>
+                                                    <li><b>Financial Planning:</b> It aids in effective financial planning by projecting future returns and helping investors set realistic financial targets.</li>
+                                                </ul>
+                                                <p class="text-secondary">Using a lumpsum return calculator empowers investors with the knowledge needed to optimize their investment strategies and achieve their financial objectives.</p>
+                                            </div>
+                                            <div class="col-12 col-lg-4 order-1 order-lg-2">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="text-center mt-2 mb-3">
+                                                            <div class="height-180 width-180 position-relative d-inline-block mx-auto text-white mb-4">
+                                                                <div id="circleprogressblue1"></div>
+                                                            </div>
+                                                            <h2 class="mb-0">$ 29,69,947</h2>
+                                                            <p class="text-secondary">Total Value</p>
+                                                        </div>
+                                                        <div class="row justify-content-between mb-3">
+                                                            <div class="col-auto">
+                                                                <p>
+                                                                    <span class="avatar avatar-20 rounded-circle bg-theme-1-subtle align-middle me-2"></span>
+                                                                    <span class="d-inline-block align-middle">Investment Amount<br><small class="text-secondary">10,00,000</small></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <p>
+                                                                    <span class="avatar avatar-20 rounded-circle bg-theme-1 align-middle me-2"></span>
+                                                                    <span class="d-inline-block align-middle">Estimated Return<br><small class="text-secondary">19,69,947</small></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <a href="investment-mutual-funds.html" class="btn btn-theme">Invest Now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-swp" role="tabpanel" aria-labelledby="pills-swp-tab" tabindex="0">
+                                        <h5>SWP (Systematic Withdrawal Plans)</h5>
+                                        <p class="text-secondary">Calculate your final amount with SWP</p>
+                                        <div class="row gx-3">
+                                            <div class="col-12 col-lg-8 order-2 order-lg-1">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Total investment amount</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-text bg-none">$</span>
+                                                                        <input type="text" class="form-control text-end rangevalues" value="3000000" id="value12">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range12" class="range1 rangevalue" min="100" max="5000000" value="3000000" data-value="value12">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Withdraw per month</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-text bg-none">$</span>
+                                                                        <input type="text" class="form-control text-end rangevalues" value="10000" id="value221">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range221" class="range1 rangevalue" min="500" max="1000000" step="500" value="10000" data-value="value221">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Expected return rate per annual</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="8" id="value22">
+                                                                        <span class="input-group-text bg-none">%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range22" class="range1 rangevalue" min="1" max="30" step="0.1" value="8" data-value="value22">
+                                                        </div>
+                                                        <div>
+                                                            <div class="row gx-3 align-items-center">
+                                                                <div class="col-12 col-sm mb-3">
+                                                                    <p>Time period in Year</p>
+                                                                </div>
+                                                                <div class="col-12 col-sm-auto mb-3">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="10" id="value32">
+                                                                        <span class="input-group-text bg-none">Yr</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <input type="range" id="range32" class="range1 rangevalue" min="1" max="40" step="1" value="10" data-value="value32">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h5>Understanding Systematic Withdrawal Plan (SWP)</h5>
+                                                <p class="text-secondary">Under a Systematic Withdrawal Plan (SWP), you can invest a lump sum amount in a mutual fund and set a fixed amount to withdraw regularly at a chosen frequency. This plan offers a structured way to generate regular income from your investments.</p>
+                                                <p class="text-secondary">For example, if you invest $1 lakh in the HDFC Top 200 Fund for a year and decide to withdraw $10,000 per month, your investment will reduce by $10,000 each month. The remaining amount will continue to stay invested, potentially earning returns.</p>
+
+                                                <h6>How an SWP Calculator Can Assist You</h6>
+                                                <p class="text-secondary">An SWP calculator is a valuable tool that helps you determine how much you can withdraw from your lump sum investments regularly. According to the Systematic Withdrawal Plan, you need to invest a particular amount and withdraw a set portion of the corpus monthly. After each withdrawal, the amount is deducted from your investment, which continues to accumulate returns.</p>
+                                                <p class="text-secondary">Accurately calculating the monthly withdrawals and total matured sum can be complex. Platforms like Groww offer an SWP calculator to simplify these calculations. This tool computes your matured sum based on your monthly withdrawals, providing precise results. SWP calculators are making it easier for individuals to plan their mutual fund investments efficiently.</p>
+
+                                                <h6>Example of Systematic Withdrawal Plan</h6>
+                                                <p class="text-secondary">An SWP allows investors to generate regular income as well as an accumulated sum at the end of the investment period. Here is an example to illustrate:</p>
+
+                                                <p class="text-secondary">Suppose you invest $50,000 for a tenure of 1 year with a systematic withdrawal of $1,000 per month and an interest rate of 10%.</p>
+                                                <ul class="lists text-secondary">
+                                                    <li><b>Initial Investment:</b> $50,000</li>
+                                                    <li><b>Monthly Withdrawal:</b> $1,000</li>
+                                                    <li><b>Interest Rate:</b> 10%</li>
+                                                </ul>
+                                                <p class="text-secondary">At the end of the tenure, your total return on investment would be $4,565.</p>
+                                                <p class="text-secondary">By using an SWP calculator, you can better understand the potential returns and plan your withdrawals to meet your financial goals effectively. This structured approach helps you maintain financial stability while maximizing the benefits of your investments.</p>
+                                            </div>
+                                            <div class="col-12 col-lg-4 order-1 order-lg-2">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="text-center mt-2 mb-4">
+                                                            <div class="height-180 width-180 position-relative d-inline-block mx-auto text-white mb-4">
+                                                                <div id="circleprogressblue3"></div>
+                                                            </div>
+                                                            <h2 class="mb-0">$ 46,75,532</h2>
+                                                            <p class="text-secondary">Total Value</p>
+                                                        </div>
+                                                        <div class="row justify-content-between mb-4">
+                                                            <div class="col-auto">
+                                                                <p>
+                                                                    <span class="avatar avatar-20 rounded-circle bg-theme-1-subtle align-middle me-2"></span>
+                                                                    <span class="d-inline-block align-middle">Investment Amount<br><small class="text-secondary">30,00,000</small></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <p>
+                                                                    <span class="avatar avatar-20 rounded-circle bg-theme-1 align-middle me-2"></span>
+                                                                    <span class="d-inline-block align-middle">Total Withdrawal<br><small class="text-secondary">12,00,000</small></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center">
+                                                            <a href="investment-mutual-funds.html" class="btn btn-theme">Invest Now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- mobile footer -->
+                            <%= require('../partials/footer/mobile-footer-2.html').default %>
+                        </main>
+                </div>
+                <%= require('../partials/footer/investment-footer.html').default %>
+
+                    <!-- Page Level js -->
+                    <script src="assets/js/investment/investment-goals.js"></script>
+
+    </body>
+
+</html>

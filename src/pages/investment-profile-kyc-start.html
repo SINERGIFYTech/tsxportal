@@ -1,0 +1,66 @@
+<%= require('../partials/headbody/headbody.html').default %>
+  <%= require('../partials/pageloader/investment-pageloader.html').default %>
+    <%= require('../partials/header/investment-header.html').default %>
+
+      <!-- page wrapper -->
+      <div class="adminuiux-wrap">
+        <!-- Standard sidebar -->
+        <%= require('../partials/navigation/investment-sidebar.html').default %>
+
+          <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+            <!-- body content of pages -->
+
+            <!-- breadcrumb -->
+            <div class="container-fluid mt-3">
+              <div class="row gx-3 align-items-center">
+                <div class="col-12 col-sm">
+                  <h5>KYC compliance</h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- content -->
+            <div class="container mt-4" id="main-content">
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-5">
+                  <!-- card -->
+                  <div class="card adminuiux-card overflow-hidden mb-3">
+                    <div class="card-body text-center">
+                      <div class="card adminuiux-card text-center bg-gradient-5 mb-3">
+                        <div class="card-body">
+                          <span class="avatar avatar-100 bg-theme-1-subtle rounded text-theme-1 my-3 my-lg-4">
+                            <i class="h1 bi bi-person-vcard"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <h4>Start your KYC Verification</h4>
+                      <p>To protect against fraudulent activity, all participants will be required to complete identity verification (KYC/AML).</p>
+                      <p class="text-secondary small">
+                        You will have to submit your necessary documents to verify your identity. Please keep your identity proof and address proof handy and make sure your camera is working fine before proceeding with this.
+                      </p>
+
+                      <a href="investment-profile-kyc.html" class="btn btn-theme">Let's Start KYC <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="text-center mb-3">
+                    <p>
+                      If you have any queries. feel free to connect with us at
+                      info@adminuiux.coms.
+                    </p>
+                    <a href="investment-help-center.html">Need more help?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+      </div>
+
+      <!-- page footer -->
+      <%= require('../partials/footer/investment-footer.html').default %>
+        <%= require('../partials/offcanvas/theming.html').default %>
+
+          <!-- Page Level js -->
+          </body>
+
+          </html>

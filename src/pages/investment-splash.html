@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+
+    <main class="flex-shrink-0 pt-0 h-100">
+      <!-- splash -->
+      <div class="container-fluid vh-100">
+        <div class="row h-100 text-center justify-content-center align-items-center">
+          <div class="col-12 mb-auto">
+          </div>
+
+          <div class="col-12">
+            <img src="assets/img/logo.svg" alt="" class="height-60 mb-3">
+            <p class="h4 mb-0 fw-normal text-secondary">AdminUIUX</p>
+            <p class="h3 mb-3">Investment</p>
+            <div class="loader10 mb-2 mx-auto"></div>
+          </div>
+
+
+          <div class="col-12 mt-auto pb-ios">
+            <p class="text-secondary small mb-4">Mobile HTML template</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Page Level js -->
+    <script>
+      "use strict";
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () { location.href = "./investment-login.html" }, 2000);
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+  <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+    <%= require('../partials/pageloader/investment-pageloader.html').default %>
+      <%= require('../partials/header/investment-header.html').default %>
+
+        <div class="adminuiux-wrap">
+          <%= require('../partials/navigation/investment-sidebar.html').default %>
+            <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+              <!-- breadcrumb -->
+              <div class="container-fluid mt-3">
+                <div class="row gx-3 align-items-center">
+                  <div class="col col-sm">
+                    <h5>My Subscription</h5>
+                  </div>
+                </div>
+              </div>
+
+              <!-- content -->
+              <div class="container mt-3" id="main-content">
+                <div class="row gx-3">
+                  <div class="col-12 col-lg-4 col-xl-3">
+
+                    <!-- profile details -->
+                    <div class="card adminuiux-card mb-3">
+                      <div class="card-body">
+                        <div class="text-center mb-3">
+                          <figure class="avatar avatar-100 coverimg rounded-circle mb-3 mx-auto">
+                            <img src="assets/img/modern-ai-image/user-6.jpg" alt="" style="display: none;">
+                          </figure>
+                          <h5 class="mb-0">Adminuiux</h5>
+                          <p class="text-secondary small">London, UK</p>
+                        </div>
+                        <p class="text-secondary small mb-0">Email Address</p>
+                        <p>test@adminuiuix.com <button class="btn btn-square btn-link"><i class="bi bi-pencil-square"></i></button></p>
+
+                        <p class="text-secondary small mb-0">Password</p>
+                        <p>Last changed 4 years ago <button class="btn btn-square btn-link"><i class="bi bi-pencil-square"></i></button></p>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-12 col-lg-8 col-xl-9">
+                    <div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      <h6><i class="bi bi-telephone-plus-fill me-1"></i> Add a phone number</h6>
+                      <p class="small">Ensure you never lose access to your account and receive important account updates like billing and
+                        security alerts.</p>
+                    </div>
+                    <div class="card adminuiux-card mb-3">
+                      <div class="card-header">
+                        <h6 class="mb-3">Current plan </h6>
+
+                        <div class="row gx-3">
+                          <div class="col-12 col-md-12 col-lg-6 col-xl-4 mb-lg-0">
+                            <div class="card adminuiux-card border mb-3 mb-lg-0">
+                              <div class="coverimg height-100 w-100 rounded">
+                                <img src="assets/img/modern-ai-image/flamingo-4.jpg" alt="">
+                              </div>
+                              <div class="card-body text-center mt--50">
+                                <figure class="avatar avatar-60 mb-3 mx-auto mtop-35 rounded">
+                                  <img src="assets/img/logo-512.png" class="mw-100" alt="">
+                                </figure>
+                                <h4 class="mb-0">Business</h4>
+                                <p class="text-secondary small">Annual Plan</p>
+                              </div>
+                              <div class="card-footer text-center">
+                                <h4>$ 250.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-3 mb-lg-0">
+                            <h6>Plan Features</h6>
+                            <p class="text-secondary mb-3">Including features of basic plan</p>
+                            <div class="row gx-3 mb-2">
+                              <div class="col-auto">
+                                <i class="bi bi-check-circle text-secondary"></i>
+                              </div>
+                              <div class="col-auto ps-0">
+                                Free Shipping
+                              </div>
+                            </div>
+                            <div class="row gx-3 mb-2">
+                              <div class="col-auto">
+                                <i class="bi bi-check-circle text-secondary"></i>
+                              </div>
+                              <div class="col-auto ps-0">
+                                Unlimited Send Money
+                              </div>
+                            </div>
+                            <div class="row gx-3 mb-2">
+                              <div class="col-auto">
+                                <i class="bi bi-check-circle text-secondary"></i>
+                              </div>
+                              <div class="col-auto ps-0">
+                                Multiple Currencies Support
+                              </div>
+                            </div>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-check-circle text-secondary"></i>
+                              </div>
+                              <div class="col-auto ps-0">
+                                Unlimited Send Money
+                              </div>
+                            </div>
+                            <a href="" class="btn btn-sm btn-outline-theme">More details</a>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-12 col-xl-4">
+                            <h6>Payment Method</h6>
+                            <p class="text-secondary mb-3">1 Credit Card is saved</p>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-credit-card text-theme-1"></i>
+                              </div>
+                              <div class="col-auto ps-0">
+                                Visa ending ****<b>25480</b>
+                              </div>
+                            </div>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-calendar-event text-theme-1"></i>
+                              </div>
+                              <div class="col-auto ps-0">
+                                Next Due date is <b>22-June-2022</b>
+                              </div>
+                            </div>
+                            <div>
+                              <button class="btn btn-sm btn-outline-theme">Change Card</button>
+                              <button class="btn btn-sm btn-outline-theme theme-red mx-2">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row gx-3">
+                          <div class="col-auto">
+                            <a href="investment-subscriptions.html" class="btn btn-sm btn-outline-theme">View all plans</a>
+                          </div>
+                          <div class="col-auto">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card adminuiux-card mb-3">
+                      <div class="card-body">
+                        <h5>Best way to work fast and east to use. Stay tracked and also committed with priorities.</h5>
+                        <p class="text-secondary mb-3">Get involved in the race of technology and digitization. Win the heart not the war. Go beyond of imagination but not far from your loved ones.</p>
+
+                        <div class="row gx-3">
+                          <div class="col-12 col-md-12 col-lg-6 mb-3 mb-lg-0">
+                            <h5>Creators of statements</h5>
+                            <p class="text-secondary mb-3">All the export functionalities are available for your reports and email to
+                              any person around the world.</p>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-filetype-pdf fs-4 me-1 avatar avatar-40 bg-danger-subtle text-danger-emphasis rounded"></i>
+                              </div>
+                              <div class="col ps-0">
+                                <h6>PDF export</h6>
+                                <p class="text-secondary small">Pdf export functionalities available for all kind of reports including charts and background images.</p>
+                              </div>
+                            </div>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-filetype-xlsx fs-4 me-1 avatar avatar-40 bg-success-subtle text-success-emphasis rounded"></i>
+                              </div>
+                              <div class="col ps-0">
+                                <h6>Excel export</h6>
+                                <p class="text-secondary small">Excel export functionalities available for all kind of reports including charts. </p>
+                              </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-theme">Buy now</button>
+                          </div>
+
+                          <div class="col-12 col-md-12 col-lg-6">
+                            <h5>Analytics Stronger</h5>
+                            <p class="text-secondary mb-3">Keep the eye on your visitors and users. Downloads, Clicked,shared with
+                              region, gender and people are available.</p>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-bar-chart fs-4 me-1 avatar avatar-40 bg-purple-subtle text-purple-emphasis rounded"></i>
+                              </div>
+                              <div class="col ps-0">
+                                <h6>Reporting</h6>
+                                <p class="text-secondary small">Subscription and manage features as per your need. More advance designs available to customize.</p>
+                              </div>
+                            </div>
+                            <div class="row gx-3 mb-3">
+                              <div class="col-auto">
+                                <i class="bi bi-pie-chart fs-4 me-1 avatar avatar-40 bg-pink-subtle text-pink-emphasis rounded"></i>
+                              </div>
+                              <div class="col ps-0">
+                                <h6>Sharing Domain</h6>
+                                <p class="text-secondary">Now you can able to track more resource availability and share your progress with multiple users. </p>
+                              </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-theme">Buy now</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </main>
+        </div>
+        <%= require('../partials/footer/investment-footer.html').default %>
+
+          <!-- Page Level js -->
+
+  </body>
+
+</html>

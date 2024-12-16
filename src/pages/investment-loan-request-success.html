@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+
+                                <div class="row justify-content-center align-items-center mt-5">
+                                    <div class="col-12 col-md-auto">
+                                        <div class="text-center mb-3">
+                                            <img src="assets/img/investment/loan-success.png" class="mw-100 mx-auto mb-3" alt="">
+                                            <h1 class="text-theme-1 theme-teal">Congratulations!</h1>
+                                            <h5 class="mb-4">Your loan application is under process!</h5>
+
+                                            <p class="text-secondary">You have raise request for $ 22500.00 loan with $130.00 EMI.</p>
+                                        </div>
+                                        <div class="card adminuiux-card mb-3">
+                                            <div class="card-body">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col">
+                                                        <h5 class="mb-0 fw-medium"> Home loan offer</h5>
+                                                        <p class="small text-secondary">HSBCD Bank</p>
+                                                    </div>
+                                                    <div class="col-auto text-end">
+                                                        <h5 class="mb-1">10.15%</h5>
+                                                        <p class="small text-secondary">Interest Rate</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center mb-3">
+                                            <a href="investment-loan-under-process-details.html" class="btn btn-theme mx-1 my-2">Check Status</a>
+                                            <a href="investment-loan-list.html" class="btn btn-outline-theme mx-1 my-2">Back to My Loans <i class="bi bi-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </main>
+
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/investment-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script src="assets/js/investment/investment-loan-list.js"></script>
+
+    </body>
+
+</html>

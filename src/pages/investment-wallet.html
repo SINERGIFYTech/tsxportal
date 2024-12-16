@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm">
+                                        <h5>Wallet</h5>
+                                    </div>
+                                    <div class="col-auto col-sm-auto text-end">
+                                        <input type="text" class="form-control form-control-sm d-inline-block w-auto align-middle" id="daterangepicker">
+                                        <button class="btn btn-sm btn-square btn-theme" onclick="$(this).prev().click()">
+                                            <i data-feather="calendar"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+                                <div class="row gx-3">
+                                    <!-- balance -->
+                                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                                        <div class="card adminuiux-card bg-theme-1">
+                                            <div class="card-body z-index-1">
+                                                <div class="row gx-2 align-items-center mb-3">
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-40 bg-white-opacity rounded"><i class="bi bi-wallet"></i></div>
+                                                    </div>
+                                                    <div class="col px-0">
+
+                                                    </div>
+                                                    <div class="col-auto py-2">
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#qrcodemodal" title="Scan to pay"><i class="bi bi-qr-code"></i></a>
+                                                    </div>
+                                                    <div class="col-auto py-2">
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#sendmoneymodal" title="Send Money"><i class="bi bi-arrow-up-right"></i></a>
+                                                    </div>
+                                                    <div class="col-auto py-2">
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#receivemoneymodal" title="Receive Money"><i class="bi bi-arrow-down-left"></i></a>
+                                                    </div>
+                                                    <div class="col-auto py-2">
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#addmoneymodal" title="Add Money"><i class="bi bi-plus-lg"></i></a>
+                                                    </div>
+                                                </div>
+                                                <h1 class="mb-1">$25052.00</h1>
+                                                <h6 class="opacity-75 fw-normal mb-1">Tu balance total</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- income expense -->
+                                    <div class="col-12 col-sm-12 col-md-8">
+                                        <div class="row gx-3">
+                                            <div class="col-6 col-sm-6 col-md-3">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <div class="avatar avatar-50 bg-success-subtle text-success rounded mb-2"><i class="bi bi-graph-down-arrow"></i></div>
+                                                        <h4 class="fw-medium mb-0">$5560.50</h4>
+                                                        <p class="text-secondary small">Deposito Total<br><span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 11.5%</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-6 col-md-3">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <div class="avatar avatar-50 bg-danger-subtle text-danger rounded mb-2"><i class="bi bi-graph-up-arrow"></i></div>
+                                                        <h4 class="fw-medium mb-0">$3586.15</h4>
+                                                        <p class="text-secondary small">Total Beneficios de Inversion forex<br><span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 11.5%</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-6 col-lg-3">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <div class="avatar avatar-50 bg-theme-1-subtle text-theme-1 rounded mb-2"><i class="bi bi-bank"></i></div>
+                                                        <h4 class="fw-medium mb-0">$5560.50</h4>
+                                                        <p class="text-secondary small">Fondos Compartidos<br><span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 25.35%</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-6 col-lg-3">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <div class="avatar avatar-50 bg-theme-1-subtle text-theme-1 rounded mb-2"><i class="bi bi-cash-coin"></i></div>
+                                                        <h4 class="fw-medium mb-0">$0000.00</h4>
+                                                        <p class="text-secondary small">Total Retirado<br><span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 00.00%</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- chart -->
+                                    <div class="col-12 col-md-12 col-lg-8 mb-3">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-body">
+                                                <div class="row gx-3 align-items-center mb-3">
+                                                    <div class="col">
+                                                        <h6>Cash Flow</h6>
+                                                    </div>
+                                                    <div class="col-auto px-0">
+                                                        <select class="form-select form-select-sm">
+                                                            <option>USD</option>
+                                                            <option>CAD</option>
+                                                            <option>AUD</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-sm btn-square btn-link"><i class="bi bi-arrow-clockwise"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="height-220 mb-3">
+                                                    <canvas id="areachartblue1"></canvas>
+                                                </div>
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-6 col-md-4 col-lg-3">
+                                                        <div class="card adminuiux-card bg-theme-1">
+                                                            <div class="card-body z-index-1">
+                                                                <h4 class="fw-medium text mb-0">$5560.50</h4>
+                                                                <p class="opacity-75 small">Income <span class="fs-14"><i class="bi bi-arrow-up"></i> 11.5%</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 col-md-4 col-lg-3">
+                                                        <div class="card adminuiux-card bg-theme-1-subtle">
+                                                            <div class="card-body z-index-1">
+                                                                <h4 class="fw-medium mb-0">$5560.50</h4>
+                                                                <p class="text-secondary small">Expense <span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 11.5%</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- recent transaction -->
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-body">
+                                                <div class="row gx-3 align-items-center mb-3">
+                                                    <div class="col">
+                                                        <h6>Recent Transactions</h6>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-sm btn-outline-theme"><i class="bi bi-arrow-up-right me-1"></i> Send</button>
+                                                    </div>
+                                                </div>
+                                                <!-- recent connection -->
+                                                <div class="swiper swipernav">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle border border-dotted border-theme">
+                                                                <span class="h4">+</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-1.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-8.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-slide w-auto">
+                                                            <div class="avatar avatar-40 rounded-circle coverimg">
+                                                                <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- recent transaction list -->
+                                            <ul class="list-group list-group-flush border-top bg-none">
+                                                <li class="list-group-item">
+                                                    <div class="row gx-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-40 rounded-circle border">
+                                                                <i class="bi bi-arrow-up-right h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class="mb-1 fw-medium">Send money</p>
+                                                            <p class="text-secondary small">12 December 2024, 12:50 PM</p>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <h6>- $ 150.00</h6>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row gx-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-40 rounded-circle border">
+                                                                <i class="bi bi-arrow-up-right h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class="mb-1 fw-medium">Paid Bill</p>
+                                                            <p class="text-secondary small">11 December 2024, 7:15 AM</p>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <h6>- $ 145.00</h6>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row gx-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-40 rounded-circle border">
+                                                                <i class="bi bi-arrow-up-right h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class="mb-1 fw-medium">Paid Bill</p>
+                                                            <p class="text-secondary small">10 November 2024, 1:20 PM</p>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <h6>- $ 325.00</h6>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item theme-green">
+                                                    <div class="row gx-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-40 rounded-circle border border-theme-1 bg-theme-1-subtle text-theme-1">
+                                                                <i class="bi bi-arrow-down-left h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class="mb-1 fw-medium">Received money</p>
+                                                            <p class="text-secondary small">5 November 2024, 1:45 AM</p>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <h6 class="text-theme-1">+ $ 562.00</h6>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row gx-3 align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="avatar avatar-40 rounded-circle border">
+                                                                <i class="bi bi-arrow-up-right h5"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class="mb-1 fw-medium">Send money</p>
+                                                            <p class="text-secondary small">3 November 2024, 1:30 PM</p>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <h6>- $ 356.00</h6>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item text-center">
+                                                    <a href="#" class="btn btn-link text-center">
+                                                        View all <i class="bi bi-arrow-right fs-14"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <!-- my cards -->
+                                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                        <div class="card adminuiux-card overflow-hidden">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col">
+                                                        <h6>My Cards</h6>
+                                                    </div>
+                                                    <div class="col-auto px-0">
+
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <a class="btn btn-sm btn btn-link">Manage</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <!-- cards  -->
+                                                <div class="swiper swipernav">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card adminuiux-card bg-theme-1 overflow-hidden width-260 mx-auto mb-2">
+                                                                <div class="coverimg h-100 w-100 position-absolute top-0 start-0 z-index-0 opacity-50">
+                                                                    <img src="assets/img/modern-ai-image/flamingo-4.jpg" alt="">
+                                                                </div>
+                                                                <div class="card-body z-index-1">
+                                                                    <div class="row gx-3 align-items-center mb-2">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-credit-card fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p>
+                                                                                <span class="small opacity-75">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="h5 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <p class="mb-0 small opacity-75">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="mb-0 small opacity-75">Card Holder</p>
+                                                                            <p>adminuiux</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row gx-3 justify-content-center mb-2">
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- list -->
+                                                            <ul class="list-group list-group-flush border-top bg-none">
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/lion-3.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Lion's dan resort</p>
+                                                                            <p class="small text-secondary">Hotel & Restaurant</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 252.00</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/tree-4.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Treeview</p>
+                                                                            <p class="small text-secondary">Grocery</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 300.35</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/flamingo-2.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Flamingo Bar</p>
+                                                                            <p class="small text-secondary">Hotel & Restaurant</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 500.50</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card adminuiux-card bg-theme-1 overflow-hidden width-260 mx-auto mb-2">
+                                                                <div class="card-body z-index-1">
+                                                                    <div class="row gx-3 align-items-center mb-2">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-credit-card fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p>
+                                                                                <span class="small opacity-75">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="h5 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <p class="mb-0 small opacity-75">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="mb-0 small opacity-75">Card Holder</p>
+                                                                            <p>adminuiux</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row gx-3 justify-content-center mb-2">
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                                                </div>
+                                                            </div><!-- list -->
+                                                            <ul class="list-group list-group-flush border-top bg-none">
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/lion-3.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Lion's dan </p>
+                                                                            <p class="small text-secondary">Hotel & Restaurant</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 252.00</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/tree-4.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Treeview</p>
+                                                                            <p class="small text-secondary">Grocery</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 300.35</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/flamingo-2.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Flamingo Bar </p>
+                                                                            <p class="small text-secondary">Hotel & Restaurant</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 500.50</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card adminuiux-card border width-260 mx-auto mb-2">
+                                                                <div class="coverimg h-100 w-100 position-absolute top-0 start-0 z-index-0 opacity-25 rounded">
+                                                                    <img src="assets/img/modern-ai-image/flamingo-4.jpg" alt="">
+                                                                </div>
+                                                                <div class="card-body z-index-1 rounded">
+                                                                    <div class="row gx-3 align-items-center mb-2">
+                                                                        <div class="col-auto align-self-center">
+                                                                            <i class="bi bi-credit-card fs-4"></i>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p>
+                                                                                <span class="small opacity-75">City Bank</span><br>
+                                                                                <span class="">Credit Card</span>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="h5 mb-3">
+                                                                        000 0000 0001 546598
+                                                                    </p>
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <p class="mb-0 small opacity-75">Expiry</p>
+                                                                            <p>09/023</p>
+                                                                        </div>
+                                                                        <div class="col text-end">
+                                                                            <p class="mb-0 small opacity-75">Card Holder</p>
+                                                                            <p>adminuiux</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row gx-3 justify-content-center mb-2">
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-link btn-square"><i class="bi bi-pencil"></i></button>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <button class="btn btn-link theme-red text-danger btn-square"><i class="bi bi-trash"></i></button>
+                                                                </div>
+                                                            </div><!-- list -->
+                                                            <ul class="list-group list-group-flush border-top bg-none">
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/lion-3.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Lion's dan resort</p>
+                                                                            <p class="small text-secondary">Hotel & Restaurant</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 252.00</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/tree-4.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Treeview</p>
+                                                                            <p class="small text-secondary">Grocery</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 300.35</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3 align-items-center">
+                                                                        <div class="col-auto">
+                                                                            <div class="avatar avatar-40 h5 rounded-circle border coverimg">
+                                                                                <img src="assets/img/modern-ai-image/flamingo-2.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <p class="mb-1 fw-medium">Flamingo Bar</p>
+                                                                            <p class="small text-secondary">Hotel & Restaurant</p>
+                                                                        </div>
+                                                                        <div class="col-auto text-end">
+                                                                            <h6>- $ 500.50</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- mobile footer -->
+                            <%= require('../partials/footer/mobile-footer-2.html').default %>
+                        </main>
+                </div>
+                <%= require('../partials/footer/investment-footer.html').default %>
+
+                    <!-- qr code modal -->
+                    <div class="modal adminuiux-modal fade" id="qrcodemodal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="text-center my-4">
+                                        <div class="avatar avatar-150 mb-4">
+                                            <img src="assets/img/adminuiux-qr.png" alt="" class="mw-100 mx-auto">
+                                        </div>
+                                        <h5 class="mb-0">Scan QR Code</h5>
+                                        <p class="text-secondary">To add money in wallet account</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="text-secondary">Name</p>
+                                        </div>
+                                        <div class="col-auto mb-3">
+                                            <p class="fw-medium">AdminUIUX</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="text-secondary">Virtual ID</p>
+                                        </div>
+                                        <div class="col-auto mb-3">
+                                            <p class="fw-medium">00VFGBADMINUIUX02154869</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="text-secondary">Valid Till</p>
+                                        </div>
+                                        <div class="col-auto mb-3">
+                                            <p class="fw-medium">26-09-2026 12:00 am</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="text-secondary">Generated on</p>
+                                        </div>
+                                        <div class="col-auto mb-3">
+                                            <p class="fw-medium">12-04-2024 6:25 am <i class="bi bi-arrow-clockwise text-secondary" data-bs-toggle="tooltip" title="Re-generate"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-link theme-red" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- send money modal -->
+                    <div class="modal adminuiux-modal fade" id="sendmoneymodal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <p class="modal-title h5">Send Money</p>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-floating mb-4">
+                                        <input type="text" class="form-control" id="contact" placeholder="Enter contact..." value="Jonathan">
+                                        <label for="contact">Send money to</label>
+                                    </div>
+
+                                    <p class="small text-secondary text-center">Recently connected contacts</p>
+                                    <!-- recent connection -->
+                                    <div class="swiper swipernav mb-3">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle border border-dotted border-theme">
+                                                    <span class="h4">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-1.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-8.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input type="number" class="form-control form-control-lg text-center mb-3" id="ihavei" placeholder="Convert Amount..." value="100.00">
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <div class="form-floating mb-1">
+                                                <select class="form-select" id="ihavecurrencyi">
+                                                    <option>USD Wallet</option>
+                                                    <option>CAD Wallet</option>
+                                                    <option>AUD Wallet</option>
+                                                </select>
+                                                <label for="ihavecurrencyi">From...</label>
+                                            </div>
+                                            <p class="small text-secondary text-center">1.00 USD</p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-square btn-theme mt-2"><i class="bi bi-arrow-left-right"></i></button>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-floating mb-1">
+                                                <select class="form-select" id="ihavecurrency2i">
+                                                    <option>USD</option>
+                                                    <option selected="">CAD</option>
+                                                    <option>AUD</option>
+                                                </select>
+                                                <label for="ihavecurrency2i">Send in...</label>
+                                            </div>
+                                            <p class="small text-secondary text-center">1.38 CAD</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <h5 class="fw-normal"><b class="fw-bold">Great!</b> You are going to send</h5>
+                                        <h1 class="mb-0 text-theme-1">100.00</h1>
+                                        <p class="text-secondary small">in Canadian Dollar</p>
+                                    </div>
+
+                                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                                        <strong><i class="bi bi-exclamation-triangle me-1"></i> Low balance!</strong><br>
+                                        <small>Your wallet account does not have enough money to send. Kindly add money or choose different wallet account.</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-theme">Send Money</button>
+                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- receive money modal -->
+                    <div class="modal adminuiux-modal fade" id="receivemoneymodal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <p class="modal-title h5">Receive/Request Money</p>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-floating mb-4">
+                                        <input type="text" class="form-control" id="contact" placeholder="Enter contact..." value="Jonathan">
+                                        <label for="contact">Receive money from</label>
+                                    </div>
+
+                                    <p class="small text-secondary text-center">Recently connected contacts</p>
+                                    <!-- recent connection -->
+                                    <div class="swiper swipernav mb-4">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle border border-dotted border-theme">
+                                                    <span class="h4">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-1.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-5.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-6.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-8.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-3.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide w-auto">
+                                                <div class="avatar avatar-40 rounded-circle coverimg">
+                                                    <img src="assets/img/modern-ai-image/user-4.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <input type="number" class="form-control form-control-lg" placeholder="Convert Amount..." value="100.00">
+                                        </div>
+                                        <div class="col-auto">
+                                            <select class="form-select form-select-lg">
+                                                <option>USD Wallet</option>
+                                                <option selected>CAD Wallet</option>
+                                                <option>AUD Wallet</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <h5 class="fw-normal"><b class="fw-bold">Great!</b> You are going to receive</h5>
+                                        <h1 class="mb-0 text-theme-1">100.00</h1>
+                                        <p class="text-secondary small">in CAD wallet</p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-theme">Request Money</button>
+                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- add money modal -->
+                    <div class="modal adminuiux-modal fade" id="addmoneymodal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <p class="modal-title h5">Add Money</p>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <input type="number" class="form-control form-control-lg text-center" placeholder="Add Amount..." value="100.00">
+                                        </div>
+                                        <div class="col-auto">
+                                            <select class="form-select form-select-lg">
+                                                <option>USD Wallet</option>
+                                                <option>CAD Wallet</option>
+                                                <option>AUD Wallet</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mb-4">
+                                        <h5 class="fw-normal"><b class="fw-bold">Great!</b> You are going to add</h5>
+                                        <h1 class="mb-0 text-theme-1">100.00</h1>
+                                        <p class="text-secondary small">money in CAD Wallet</p>
+                                    </div>
+                                    <h6>Add money using</h6>
+                                    <ul class="list-group adminuiux-list-group">
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio2" checked="">
+                                            <label class="form-check-label stretched-link" for="firstRadio2">Net Banking</label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio2">
+                                            <label class="form-check-label stretched-link" for="secondRadio2">Credit / Debit Card</label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio2">
+                                            <label class="form-check-label stretched-link" for="thirdRadio2">UPI Payment</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-theme">Pay Now</button>
+                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page Level js -->
+                    <script src="assets/js/investment/investment-wallet.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<%= require('../partials/headbody/headbody.html').default %>
+
+    <body class="main-bg main-bg-opac main-bg-blur adminuiux-sidebar-fill-white adminuiux-sidebar-boxed theme-blue roundedui" data-theme="theme-blue" data-sidebarfill="adminuiux-sidebar-fill-white" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+        <%= require('../partials/pageloader/investment-pageloader.html').default %>
+            <%= require('../partials/header/investment-header.html').default %>
+
+                <div class="adminuiux-wrap">
+                    <%= require('../partials/navigation/investment-sidebar.html').default %>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- breadcrumb -->
+                            <div class="container-fluid mt-3">
+                                <div class="row gx-3 align-items-center">
+                                    <div class="col col-sm">
+                                        <h5>Loan under process</h5>
+                                    </div>
+                                    <div class="col-auto col-sm-auto text-end">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3" id="main-content">
+
+                                <!-- summary loan account-->
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-auto mb-3 mb-sm-0">
+                                        <span class="avatar avatar-80 h4 bg-theme-1-subtle rounded p-3">
+                                            <img src="assets/img/logo-512.png" alt="">
+                                        </span>
+                                    </div>
+                                    <div class="col-12 col-sm">
+                                        <h4>Home loan premium plus ID254158 <a href="#" class="fs-14 fw-normal text-theme-1 style-none align-middle"><i class="bi bi-file-earmark-pdf text-danger"></i> Brochure</a> </h4>
+                                        <p class="fw-medium"><span class="text-secondary">Provided by:</span> HSBCD Bank</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center align-items-center justify-content-between mb-3">
+                                    <div class="col-12 col-sm-auto py-3">
+                                        <i class="bi bi-check-circle-fill h3 text-success mb-3"></i>
+                                        <p class="text-success">Applied for Loan</p>
+                                    </div>
+                                    <div class="col-12 col-sm-auto py-0 py-sm-3">
+                                        <i class="bi bi-arrow-right h4 text-theme-1 d-none d-sm-inline-block"></i>
+                                        <i class="bi bi-arrow-down h4 text-theme-1 d-inline-block d-sm-none"></i>
+                                    </div>
+
+                                    <div class="col-12 col-sm-auto py-3">
+                                        <i class="bi bi-check-circle-fill h3 text-success mb-3"></i>
+                                        <p class="text-success">Eligibility Check</p>
+                                    </div>
+                                    <div class="col-12 col-sm-auto py-0 py-sm-3">
+                                        <i class="bi bi-arrow-right h4 text-theme-1 d-none d-sm-inline-block"></i>
+                                        <i class="bi bi-arrow-down h4 text-theme-1 d-inline-block d-sm-none"></i>
+                                    </div>
+
+                                    <div class="col-12 col-sm-auto py-3">
+                                        <i class="bi bi-check-circle-fill h3 text-success mb-3"></i>
+                                        <p class="text-success">Document Verification</p>
+                                    </div>
+                                    <div class="col-12 col-sm-auto py-0 py-sm-3">
+                                        <i class="bi bi-arrow-right h4 text-theme-1 d-none d-sm-inline-block"></i>
+                                        <i class="bi bi-arrow-down h4 text-theme-1 d-inline-block d-sm-none"></i>
+                                    </div>
+
+                                    <div class="col-12 col-sm-auto py-3">
+                                        <i class="bi bi-check-circle-fill h3 text-success mb-3"></i>
+                                        <p class="text-success">Loan Passed</p>
+                                    </div>
+                                    <div class="col-12 col-sm-auto py-0 py-sm-3">
+                                        <i class="bi bi-arrow-right h4 text-theme-1 d-none d-sm-inline-block"></i>
+                                        <i class="bi bi-arrow-down h4 text-theme-1 d-inline-block d-sm-none"></i>
+                                    </div>
+
+                                    <div class="col-12 col-sm-auto py-3">
+                                        <i class="bi bi-check-circle h3 text-secondary mb-3"></i>
+                                        <p class="text-secondary">Disbursement</p>
+                                    </div>
+                                </div>
+                                <div class="row gx-3">
+                                    <div class="col-12 col-lg-6">
+                                        <div class="row gx-3">
+                                            <!-- status -->
+                                            <div class="col-12 col-sm-6 col-lg-6">
+                                                <div class="card adminuiux-card mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <h4 class="fw-medium text-warning">$ 12,500.00</h4>
+                                                        <p><span class="text-secondary">Processing...</p>
+                                                    </div>
+                                                </div>
+                                                <div class="card adminuiux-card theme-orange mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <h4 class="fw-medium">$ 140.00</h4>
+                                                        <p>140 Monthly EMI</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- interest rate -->
+                                            <div class="col-12 col-sm-6 col-lg-6">
+                                                <div class="card adminuiux-card theme-teal mb-3">
+                                                    <div class="card-body z-index-1">
+                                                        <h4 class="fw-medium">10.15 %</h4>
+                                                        <p><span class="text-secondary">Interest Rate</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card border-theme-1 theme-teal overflow-hidden mb-3">
+                                                    <div class="card-body bg-theme-1-subtle z-index-1">
+                                                        <div class="row gx-3 align-items-center">
+                                                            <div class="col">
+                                                                <h4 class="fw-medium ">12 July 2025 </h4>
+                                                                <p><span class="text-secondary">Disbursement</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card adminuiux-card mb-3">
+                                            <div class="card-header">
+                                                <h6>Overview</h6>
+                                            </div>
+                                            <div class="card-body pb-0">
+                                                <div class="row gx-3">
+                                                    <div class="col-12 col-sm-6 mb-3">
+                                                        <h6 class="mb-1">12 December 2024</h6>
+                                                        <p class="small opacity-75">Loan Start Date</p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 text-sm-end mb-3">
+                                                        <h6 class="mb-1">30 February 2030</h6>
+                                                        <p class="small opacity-75">Loan End Date</p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 mb-3">
+                                                        <h6 class="mb-1">Variable</h6>
+                                                        <p class="small opacity-75">Interest rate</p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6 text-sm-end mb-3">
+                                                        <h6 class="mb-1">11.50%</h6>
+                                                        <p class="small opacity-75">From 30-07-2025</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- actions timeline -->
+                                    <div class="col-12 col-md-6 col-lg-6 col-xxl-3 mb-3">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col">
+                                                        <h6>Loan Notifications</h6>
+                                                    </div>
+                                                    <div class="col-5">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body height-dynamic overflow-y-auto" style="--h-dynamic:410px">
+                                                <ul class="timeline circle">
+                                                    <li><span class="circle-dot bg-theme-1" data-bs-toggle="tooltip" aria-label="Normal" data-bs-original-title="Normal"></span>
+                                                        <div>
+                                                            <p class="h6 mb-2">9 June 2025 11:55 AM</p>
+                                                            <p class="text-secondary small">Application disbursement letter allocated to applicant and email notification has been sent for the same.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li><span class="circle-dot bg-warning" data-bs-toggle="tooltip" aria-label="Better" data-bs-original-title="Better"></span>
+                                                        <div>
+                                                            <p class="h6 mb-2">7 June 2025 10:15 AM</p>
+                                                            <p class="text-secondary small">EMI received for the loan account: XX-1211. Confirmation message and invoice will be delivered to your inbox in 24 hours.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li><span class="circle-dot bg-danger" data-bs-toggle="tooltip" aria-label="Critical" data-bs-original-title="Critical"></span>
+                                                        <div>
+                                                            <p class="h6 mb-2">6 June 2025 5:00 PM</p>
+                                                            <p class="text-secondary small">Application has a updating request for your current address provided in application form. Error code suggest that there may be city code mismatch.</p>
+                                                        </div>
+                                                    </li>
+                                                    <li><span class="circle-dot bg-theme-1"></span>
+                                                        <div>
+                                                            <p class="h6 mb-2">1 June 2025 11:55 AM</p>
+                                                            <p class="text-secondary small">EMI received for the loan account: XX-1211. Confirmation message and invoice will be delivered to your inbox in 24 hours.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- help center -->
+                                    <div class="col-12 col-md-6 col-lg-6 col-xxl-3 mb-3">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-header">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col">
+                                                        <h6>Raise Query</h6>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-sm btn-outline-theme"><i class="bi bi-telephone"></i> Callback Me</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body overflow-y-auto chat-list height-dynamic" style="--h-dynamic:354px">
+                                                <div class="row no-margin right-chat">
+                                                    <div class="col-12">
+                                                        <div class="chat-block">
+                                                            <div class="row gx-3">
+                                                                <div class="col">Hi! Can you help me for account information?</div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 text-end">
+                                                        <p class="text-secondary small time"><i class="bi bi-check"></i> 12:00 am</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center text-center">
+                                                    <div class="col-auto text-center">
+                                                        <div class="alert alert-light mx-auto py-1 mb-3 small">26 July 2025</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row no-margin left-chat">
+                                                    <div class="col-12">
+                                                        <div class="chat-block">
+                                                            <div class="row gx-3">
+                                                                <div class="col">
+                                                                    <p class="small mb-2"><a href="" class="style-none">Alex Smith</a></p>
+                                                                    <p>Hi! <br>We will be happy to help you.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <p class="text-secondary small time"><i class="bi bi-check"></i> 9:00 pm</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row no-margin left-chat">
+                                                    <div class="col-12">
+                                                        <div class="chat-block">
+                                                            <div class="row gx-3">
+                                                                <div class="col">
+                                                                    <p class="small mb-2"><a href="" class="style-none">Alex Smith</a></p>
+                                                                    <p>Thank you for your response. Tell us more about your query</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <p class="text-secondary small time"><i class="bi bi-check"></i> 9:00 pm</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row no-margin right-chat">
+                                                    <div class="col-12">
+                                                        <div class="chat-block">
+                                                            <div class="row gx-3">
+                                                                <div class="col">Hello!<br>I wanted to know next due date and amount to pay.</div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 text-end">
+                                                        <p class="text-secondary small time"><i class="bi bi-check"></i> 9:10 pm</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row no-margin left-chat">
+                                                    <div class="col-12">
+                                                        <div class="chat-block">
+                                                            <div class="row gx-3">
+                                                                <div class="col">
+                                                                    <p class="small mb-2"><a href="" class="style-none">Mr. Jack Mario</a></p>Adminuiux is amazing and we thank you. How can we buy?
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-footer border-top p-1">
+                                                <div class="input-group">
+                                                    <button class="btn btn-square btn-link"><i class="bi bi-emoji-smile"></i></button>
+                                                    <button class="btn btn-square btn-link"><i class="bi bi-paperclip"></i></button>
+                                                    <input class="form-control border-0" placeholder="Type your query here... " value="">
+                                                    <button class="btn btn-square btn-link" type="button"><i class="bi bi-send"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </main>
+
+                </div>
+
+                <!-- page footer -->
+                <%= require('../partials/footer/investment-footer.html').default %>
+                    <%= require('../partials/offcanvas/theming.html').default %>
+
+                        <!-- Page Level js -->
+                        <script src="assets/js/investment/investment-loan-list.js"></script>
+
+    </body>
+
+</html>
