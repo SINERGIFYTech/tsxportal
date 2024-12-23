@@ -29,7 +29,7 @@ const loginController = async (req, res) => {
     }
   
     // Generar token JWT
-    const payload = { email: user.email, nombre: user.nombre }
+    const payload = { email: user.email, nombre: user.nombre, id: user.id };
     const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
     res.json({ message: 'Inicio de sesión exitoso.', token, payload });
   };

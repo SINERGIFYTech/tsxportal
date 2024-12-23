@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./db');
 const authRoutes = require('./auth');
+const transactionRoutes = require('./transactions');
 
 const app = express();
 const port = 3000;
@@ -19,6 +20,7 @@ app.get('/inversiones', (req, res) => {
 app.use(express.json());
 
 app.use('/auth', authRoutes);
+app.use('/transactions', transactionRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
