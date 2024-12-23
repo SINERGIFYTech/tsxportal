@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('./db');
+const authRoutes = require('./auth');
 
 const app = express();
 const port = 3000;
@@ -12,6 +13,8 @@ app.get('/inversiones', (req, res) => {
         res.json(results);
     });
 });
+
+app.use('/auth', authRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
