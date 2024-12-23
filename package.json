@@ -24,7 +24,7 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --progress",
     "watch": "webpack --config webpack.config.js --watch --progress",
     "start": "webpack serve --config webpack.config.js --progress",
-    "backend": "nodemon ./server/app", 
+    "backend": "nodemon ./server/app",
     "prepublishOnly": "cross-env NODE_ENV=production webpack --progress --config webpack.config.js"
   },
   "author": "adminuiux.com",
@@ -71,6 +71,7 @@
     "clean-css": "5.1.2",
     "datatables.net-dt": "^2.0.3",
     "datatables.net-responsive-dt": "^3.0.1",
+    "dotenv": "^16.4.7",
     "dragula": "^3.7.3",
     "dropzone": "^6.0.0-beta.2",
     "express": "^4.21.2",

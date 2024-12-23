@@ -1,23 +1,26 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const db = require('./db');
 
 const router = express.Router();
 
 // Controlador
 const loginController = async (req, res) => {
-    const { email, password } = req.body;
-  
+    const { email, password } = req.body || {};
+  console.log({email, password, }, process.env.JWT_SECRET_KEY,)
     // Validar entrada
     if (!email || !password) {
       return res.status(400).json({ error: 'Email y contraseña son requeridos.' });
     }
   
     // Buscar usuario en la base de datos
-    const user = users.find(u => u.email === email);
+    const [rows] = await db.execute('SELECT * FROM clientes WHERE email = ?', [email]);
+    const user = rows[0];
+
     if (!user) {
-      return res.status(401).json({ error: 'Credenciales inválidas.' });
-    }
+        return res.status(401).json({ error: 'Credenciales inválidas.' });
+      }
   
     // Verificar contraseña
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -26,9 +29,9 @@ const loginController = async (req, res) => {
     }
   
     // Generar token JWT
-    const token = jwt.sign({ email: user.email }, 'SECRET_KEY', { expiresIn: '1h' });
-  
-    res.json({ message: 'Inicio de sesión exitoso.', token });
+    const payload = { email: user.email, nombre: user.nombre }
+    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
+    res.json({ message: 'Inicio de sesión exitoso.', token, payload });
   };
 
 
