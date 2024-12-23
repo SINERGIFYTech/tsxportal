@@ -4,6 +4,7 @@ const express = require('express');
 const db = require('./db');
 const authRoutes = require('./auth');
 const transactionRoutes = require('./transactions');
+const investmentRoutes = require('./investment');
 
 const app = express();
 const port = 3000;
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 app.use('/transactions', transactionRoutes);
+app.use('/investment', investmentRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
