@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const db = require('./db');
 const authRoutes = require('./auth');
 const transactionRoutes = require('./transactions');
@@ -19,6 +20,7 @@ app.get('/inversiones', (req, res) => {
 });
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/auth', authRoutes);
 app.use('/transactions', transactionRoutes);

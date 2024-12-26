@@ -617,32 +617,3 @@ function isinframe() {
     }
 }
 window.isinframe = isinframe;
-
-// Mi codigo para poner los valores en el dashboard
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:3000/inversiones') // Asegúrate de que la URL apunte al puerto correcto
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data); // Mostrar los datos JSON en la consola
-
-            if (data.length > 0) {
-                const inversion = data[0]; // Suponiendo que quieres mostrar el primer registro
-
-                // Actualizar Beneficio Total
-                document.getElementById('beneficio-total').textContent = `$${(inversion['beneficio total'] / 1000).toFixed(2)}k`;
-
-                // Actualizar Mejor Ganancia
-                document.getElementById('mejor-ganancia').textContent = `$${(inversion['mejor_op'] / 1000).toFixed(2)}k`;
-
-                // Actualizar Peor Pérdida
-                document.getElementById('peor-perdida').textContent = `-$${(inversion['peor_op'] / 1000).toFixed(2)}k`;
-            }
-        })
-        .catch(error => console.error('Error:', error));
-});

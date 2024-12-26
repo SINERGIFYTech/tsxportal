@@ -7,8 +7,7 @@ const router = express.Router();
 
 // Controlador
 const loginController = async (req, res) => {
-    const { email, password } = req.body || {};
-  console.log({email, password, }, process.env.JWT_SECRET_KEY,)
+    const { email, password } = req.body || {}
     // Validar entrada
     if (!email || !password) {
       return res.status(400).json({ error: 'Email y contraseña son requeridos.' });

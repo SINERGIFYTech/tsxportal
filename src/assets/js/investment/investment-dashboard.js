@@ -182,4 +182,53 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     var mydoughnutchart = new Chart(doughnutchart, mydoughnutchartCofig);
 
-})
+
+
+    const loadInvestment = () => {
+        const token = AuthHelper.getToken();
+        console.log(token)
+        
+        if (!token) {
+            console.error('Token no encontrado. Asegúrate de estar autenticado.');
+            alert('Debes iniciar sesión para acceder a esta información.');
+        } else {
+            fetch('http://localhost:3000/investment/my', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red: respuesta no válida');
+                    }
+                    return response.json();
+                })
+                .then(({investment: data}) => {
+                    console.log(data); // Mostrar los datos JSON en la consola
+        
+                    if (data.length > 0) {
+                        const inversion = data[0]; // Suponiendo que quieres mostrar el primer registro
+        
+                        // Actualizar Beneficio Total
+                        document.getElementById('beneficio-total').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
+        
+                        // Actualizar Mejor Ganancia
+                        document.getElementById('mejor-ganancia').textContent = `$${(inversion['mejor_op'] / 1000).toFixed(2)}k`;
+        
+                        // Actualizar Peor Pérdida
+                        document.getElementById('peor-perdida').textContent = `-$${(inversion['peor_op'] / 1000).toFixed(2)}k`;
+                        // Actualizar Peor beneficio-total
+                        document.getElementById('beneficio-total-estimado').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
+                    } else {
+                        console.log('No se encontraron datos de inversión.');
+                        alert('No hay datos de inversión disponibles.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        
+    }
+    loadInvestment()
+});
