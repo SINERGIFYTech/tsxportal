@@ -101,4 +101,69 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         myAreaChartblue1.update();
     }, 3000);
+
+
+    // obtener la data de las transacciones
+
+    const getTransactions = () => {
+        // Suponiendo que el token está disponible
+        const token = AuthHelper.getToken(); // Reemplaza con tu método para obtener el token
+
+        if (!token) {
+            console.error('Token no encontrado. Asegúrate de estar autenticado.');
+            alert('Debes iniciar sesión para acceder a esta información.');
+        } else {
+            fetch('http://localhost:3000/transactions/my', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red: respuesta no válida');
+                    }
+                    return response.json();
+                })
+                .then(({transactions: data}) => {
+                    console.log(data); // Mostrar los datos JSON en la consola
+
+                    if (data.length > 0) {
+                        // Inicializar variables para sumatoria
+                        let totalDepositos = 0;
+                        let totalRetiros = 0;
+
+                        // Iterar sobre las transacciones para calcular sumatorias
+                        data.forEach(transaction => {
+                            if (transaction.tipo === 'deposito') {
+                                totalDepositos += transaction.monto;
+                            } else if (transaction.tipo === 'retiro') {
+                                totalRetiros += transaction.monto;
+                            }
+                        });
+                        let balance = totalDepositos -totalRetiros;
+                        // Mostrar resultados en pantalla
+                        document.getElementById('total-depositos').textContent = `$${(totalDepositos / 100).toFixed(2)}k`;
+                        document.getElementById('total-retiros').textContent = `-$${(totalRetiros / 100).toFixed(2)}k`;
+                        document.getElementById('total-balance').textContent = `$${(balance / 100).toFixed(2)}k`;
+
+                        // Mostrar listado de transacciones (ejemplo básico)
+                        const transaccionesList = document.getElementById('lista-transacciones');
+                        transaccionesList.innerHTML = ''; // Limpiar listado previo
+                        data.forEach(transaction => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `${transaction.tipo.toUpperCase()}: $${transaction.monto}`;
+                            transaccionesList.appendChild(listItem);
+                        });
+                    } else {
+                        console.log('No se encontraron transacciones.');
+                        alert('No hay transacciones disponibles.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+    }
+    getTransactions();
 });

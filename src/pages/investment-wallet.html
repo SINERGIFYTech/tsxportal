@@ -54,7 +54,7 @@
                                                         <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#addmoneymodal" title="Add Money"><i class="bi bi-plus-lg"></i></a>
                                                     </div>
                                                 </div>
-                                                <h1 class="mb-1">$25052.00</h1>
+                                                <h1 class="mb-1" id="total-balance">$25052.00</h1>
                                                 <h6 class="opacity-75 fw-normal mb-1">Tu balance total</h6>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                                 <div class="card adminuiux-card mb-3">
                                                     <div class="card-body z-index-1">
                                                         <div class="avatar avatar-50 bg-success-subtle text-success rounded mb-2"><i class="bi bi-graph-down-arrow"></i></div>
-                                                        <h4 class="fw-medium mb-0">$5560.50</h4>
+                                                        <h4 class="fw-medium mb-0" id="total-depositos">$5560.50</h4>
                                                         <p class="text-secondary small">Deposito Total<br><span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 11.5%</span></p>
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                                                 <div class="card adminuiux-card mb-3">
                                                     <div class="card-body z-index-1">
                                                         <div class="avatar avatar-50 bg-theme-1-subtle text-theme-1 rounded mb-2"><i class="bi bi-cash-coin"></i></div>
-                                                        <h4 class="fw-medium mb-0">$0000.00</h4>
+                                                        <h4 class="fw-medium mb-0" id="total-retiros">$0000.00</h4>
                                                         <p class="text-secondary small">Total Retirado<br><span class="text-success fs-14"><i class="bi bi-arrow-up"></i> 00.00%</span></p>
                                                     </div>
                                                 </div>
@@ -918,6 +918,7 @@
 
                     <!-- Page Level js -->
                     <script src="assets/js/investment/investment-wallet.js"></script>
+                    <script src="assets/js/investment/helpers/auth.js"></script>
 
     </body>
 
