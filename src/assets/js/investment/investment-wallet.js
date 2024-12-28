@@ -165,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const fillTransactions = data => {
         const transaccionesList = document.getElementById('lista-transacciones');
         transaccionesList.innerHTML = ''; // Limpiar contenido previo
-        console.log(data)
         data.forEach(transaction => {
             let listItem = '';
             if (transaction.tipo === 'deposito') {
@@ -207,11 +206,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     </li>`;
             }
-            console.log(listItem)
             // Agregar el elemento al contenedor
             transaccionesList.innerHTML += listItem;
         });
-        console.log(transaccionesList);
     }
 
     getTransactions();
