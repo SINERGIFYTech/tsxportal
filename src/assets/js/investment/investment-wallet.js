@@ -3,104 +3,109 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function () {
-    /* chart js areachart summary  */
-    window.randomScalingFactor = function () {
-        return Math.round(Math.random() * 20);
-    }
-    var areachartblue = document.getElementById('areachartblue1').getContext('2d');
-    var gradientblue = areachartblue.createLinearGradient(0, 0, 0, 300);
-    gradientblue.addColorStop(0, 'rgba(0, 73, 232, 1)');
-    gradientblue.addColorStop(1, 'rgba(0, 73, 232, 0)');
-
-    var gradientred = areachartblue.createLinearGradient(0, 0, 0, 280);
-    gradientred.addColorStop(0, 'rgba(0, 73, 232, 0.5)');
-    gradientred.addColorStop(1, 'rgba(0, 73, 232, 0)');
-    var myareachartblue = {
-        type: 'bar',
-        data: {
-            labels: ['1', '2', '3', '4', '5', '7', '8', '9', '10', '11', '12'],
-            datasets: [{
-                label: '# of Votes',
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-
-                ],
-                radius: 0,
-                backgroundColor: gradientblue,
-                borderColor: '#015EC2',
-                borderWidth: 0,
-                borderRadius: 4,
-                fill: true,
-                tension: 0.5,
-            }, {
-                label: '# of Votes',
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                ],
-                radius: 0,
-                backgroundColor: gradientred,
-                borderColor: '#015EC2',
-                borderWidth: 0,
-                borderRadius: 4,
-                fill: true,
-                tension: 0.5,
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
-                },
-                tooltip: {
-                    enabled: true
-                },
+    try {
+        
+        /* chart js areachart summary  */
+        window.randomScalingFactor = function () {
+            return Math.round(Math.random() * 20);
+        }
+        var areachartblue = document.getElementById('areachartblue1').getContext('2d');
+        var gradientblue = areachartblue.createLinearGradient(0, 0, 0, 300);
+        gradientblue.addColorStop(0, 'rgba(0, 73, 232, 1)');
+        gradientblue.addColorStop(1, 'rgba(0, 73, 232, 0)');
+    
+        var gradientred = areachartblue.createLinearGradient(0, 0, 0, 280);
+        gradientred.addColorStop(0, 'rgba(0, 73, 232, 0.5)');
+        gradientred.addColorStop(1, 'rgba(0, 73, 232, 0)');
+        var myareachartblue = {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '7', '8', '9', '10', '11', '12'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+    
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+    
+                    ],
+                    radius: 0,
+                    backgroundColor: gradientblue,
+                    borderColor: '#015EC2',
+                    borderWidth: 0,
+                    borderRadius: 4,
+                    fill: true,
+                    tension: 0.5,
+                }, {
+                    label: '# of Votes',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+    
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                    ],
+                    radius: 0,
+                    backgroundColor: gradientred,
+                    borderColor: '#015EC2',
+                    borderWidth: 0,
+                    borderRadius: 4,
+                    fill: true,
+                    tension: 0.5,
+                }]
             },
-            scales: {
-                y: {
-                    display: true,
-                    beginAtZero: true,
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    tooltip: {
+                        enabled: true
+                    },
                 },
-                x: {
-                    display: true,
+                scales: {
+                    y: {
+                        display: true,
+                        beginAtZero: true,
+                    },
+                    x: {
+                        display: true,
+                    }
                 }
             }
         }
-    }
-    var myAreaChartblue1 = new Chart(areachartblue, myareachartblue);
-    /* my area chart randomize */
-    setInterval(function () {
-        myareachartblue.data.datasets.forEach(function (dataset) {
-            dataset.data = dataset.data.map(function () {
-                return randomScalingFactor();
+        var myAreaChartblue1 = new Chart(areachartblue, myareachartblue);
+        /* my area chart randomize */
+        setInterval(function () {
+            myareachartblue.data.datasets.forEach(function (dataset) {
+                dataset.data = dataset.data.map(function () {
+                    return randomScalingFactor();
+                });
             });
-        });
-        myAreaChartblue1.update();
-    }, 3000);
+            myAreaChartblue1.update();
+        }, 3000);
+    } catch (err) {
+        console.log(err)
+    }
 
 
     // obtener la data de las transacciones
@@ -127,9 +132,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     return response.json();
                 })
                 .then(({transactions: data}) => {
-                    console.log(data); // Mostrar los datos JSON en la consola
 
                     if (data.length > 0) {
+                        fillTransactions(data);
                         // Inicializar variables para sumatoria
                         let totalDepositos = 0;
                         let totalRetiros = 0;
@@ -147,15 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.getElementById('total-depositos').textContent = `$${(totalDepositos / 100).toFixed(2)}k`;
                         document.getElementById('total-retiros').textContent = `-$${(totalRetiros / 100).toFixed(2)}k`;
                         document.getElementById('total-balance').textContent = `$${(balance / 100).toFixed(2)}k`;
-
-                        // Mostrar listado de transacciones (ejemplo básico)
-                        const transaccionesList = document.getElementById('lista-transacciones');
-                        transaccionesList.innerHTML = ''; // Limpiar listado previo
-                        data.forEach(transaction => {
-                            const listItem = document.createElement('li');
-                            listItem.textContent = `${transaction.tipo.toUpperCase()}: $${transaction.monto}`;
-                            transaccionesList.appendChild(listItem);
-                        });
                     } else {
                         console.log('No se encontraron transacciones.');
                         alert('No hay transacciones disponibles.');
@@ -165,5 +161,58 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }
+
+    const fillTransactions = data => {
+        const transaccionesList = document.getElementById('lista-transacciones');
+        transaccionesList.innerHTML = ''; // Limpiar contenido previo
+        console.log(data)
+        data.forEach(transaction => {
+            let listItem = '';
+            if (transaction.tipo === 'deposito') {
+                // Generar HTML para depósitos
+                listItem = `
+                <li class="list-group-item theme-green">
+                    <div class="row gx-3 align-items-center">
+                        <div class="col-auto">
+                            <div class="avatar avatar-40 rounded-circle border border-theme-1 bg-theme-1-subtle text-theme-1">
+                                <i class="bi bi-arrow-up-right h5"></i>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <p class="mb-1 fw-medium">Depósito</p>
+                            <p class="text-secondary small">${new Date(transaction.fecha).toLocaleString()}</p>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-theme-1">+ $ ${(transaction.monto / 1000).toFixed(2)}k</h6>
+                        </div>
+                    </div>
+                    </li>`;
+            } else if (transaction.tipo === 'retiro') {
+                // Generar HTML para retiros
+                listItem = `
+                <li class="list-group-item">
+                    <div class="row gx-3 align-items-center">
+                        <div class="col-auto">
+                            <div class="avatar avatar-40 rounded-circle border">
+                                <i class="bi bi-arrow-down-left h5"></i>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <p class="mb-1 fw-medium">Retiro</p>
+                            <p class="text-secondary small">${new Date(transaction.fecha).toLocaleString()}</p>
+                        </div>
+                        <div class="col-auto">
+                            <h6>- $ ${(transaction.monto / 1000).toFixed(2)}k</h6>
+                        </div>
+                    </div>
+                    </li>`;
+            }
+            console.log(listItem)
+            // Agregar el elemento al contenedor
+            transaccionesList.innerHTML += listItem;
+        });
+        console.log(transaccionesList);
+    }
+
     getTransactions();
 });
