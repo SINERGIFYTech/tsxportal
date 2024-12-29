@@ -16,7 +16,7 @@
                             <div class="container-fluid mt-3">
                                 <div class="row gx-3 align-items-center">
                                     <div class="col-12 col-sm">
-                                        <h5>Calculator</h5>
+                                        <h5>Calculadora</h5>
                                     </div>
                                     <div class="col-auto">
                                     </div>
@@ -30,9 +30,7 @@
                                 <div class="position-sticky z-index-5 mb-3 adminuiux-header" style="top: 5rem;">
                                     <nav class="navbar rounded p-1">
                                         <ul class="nav nav-sm nav-pills justify-content-center text-center w-100 bg-none" role=tablist>
-                                            <li class="nav-item"><a class="nav-link active" href="#pills-sip" id="pills-sip-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-sip" aria-selected="true">SIP</a></li>
-                                            <li class="nav-item mx-1"><a class="nav-link" href="#pills-lumpsum" id="pills-lumpsum-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-lumpsum" aria-selected="false">Lumpsum</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#pills-swp" id="pills-swp-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-swp" aria-selected="false">SWP</a></li>
+                                            <li class="nav-item"><a class="nav-link active" href="#pills-sip" id="pills-sip-tab" data-bs-toggle="pill" role="tab" aria-controls="pills-sip" aria-selected="true">InvestorTSX</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -40,8 +38,8 @@
 
                                 <div class="tab-content mb-3" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-sip" role="tabpanel" aria-labelledby="pills-sip-tab" tabindex="0">
-                                        <h6>SIP (Systematic Investment Plan)</h6>
-                                        <p class="text-secondary small">Calculate how much you need to save or how much you will accumulate with your SIP</p>
+                                        <h6>InvestorTSX</h6>
+                                        <p class="text-secondary small">Calcula el total de tu inversión con InvestorTSX</p>
                                         <div class="row gx-3">
                                             <div class="col-12 col-lg-8 order-2 order-lg-1">
                                                 <div class="card adminuiux-card mb-3">
@@ -49,7 +47,7 @@
                                                         <div class="mb-3">
                                                             <div class="row gx-3 align-items-center">
                                                                 <div class="col-12 col-sm mb-3">
-                                                                    <p>Monthly investment amount</p>
+                                                                    <p>Monto total invertido</p>
                                                                 </div>
                                                                 <div class="col-12 col-sm-auto mb-3">
                                                                     <div class="input-group">
@@ -63,35 +61,38 @@
                                                         <div class="mb-3">
                                                             <div class="row gx-3 align-items-center">
                                                                 <div class="col-12 col-sm mb-3">
-                                                                    <p>Expected return rate per annual</p>
+                                                                    <p>Interés compuesto porcentual</p>
                                                                 </div>
                                                                 <div class="col-12 col-sm-auto mb-3">
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control text-end rangevalues" value="11.5" id="value2">
+                                                                        <input type="text" class="form-control text-end rangevalues" value="5" readonly disabled id="value2">
                                                                         <span class="input-group-text bg-none">%</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <input type="range" id="range2" class="range1 rangevalue" min="1" max="30" step="0.1" value="11.5" data-value="value2">
+                                                            <input type="range" id="range2" class="range1 rangevalue" min="1" max="30" step="0.1" value="5" data-value="value2">
                                                         </div>
-                                                        <div class="">
+                                                        <div class="mb-3">
                                                             <div class="row gx-3 align-items-center">
                                                                 <div class="col-12 col-sm mb-3">
-                                                                    <p>Time period in Year</p>
+                                                                    <p>Periodo de tiempo en meses</p>
                                                                 </div>
                                                                 <div class="col-12 col-sm-auto mb-3">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control text-end rangevalues" value="10" id="value3">
-                                                                        <span class="input-group-text bg-none">Yr</span>
+                                                                        <span class="input-group-text bg-none">Meses</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <input type="range" id="range3" class="range1 rangevalue" min="1" max="40" step="1" value="10" data-value="value3">
                                                         </div>
+                                                        <div class="text-left">
+                                                            <button class="btn btn-sm btn-theme" onclick="calcularInteresCompuesto()">Calcular</button>
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <h5>SIP Calculator - Systematic Investment Plan Calculator</h5>
+                                                <!-- <h5>SIP Calculator - Systematic Investment Plan Calculator</h5>
                                                 <p class="text-secondary">Many investors often confuse SIPs (Systematic Investment Plans) with mutual funds, thinking they are the same. However, SIPs are merely a method of investing in mutual funds, with the other common method being a lump sum investment. A SIP calculator is a valuable tool that helps you estimate the returns on your investments when you choose the SIP route. SIP involves investing a fixed sum of money in mutual funds at regular intervals, typically weekly, quarterly, or monthly.</p>
 
                                                 <h6>What is a SIP Calculator?</h6>
@@ -107,7 +108,7 @@
                                                     <li><b>Tracks Total Investment:</b> It shows you the total amount you have invested over time.</li>
                                                     <li><b>Estimates Returns:</b> It provides an estimated value of the returns you can expect at the end of your investment tenure.</li>
                                                 </ul>
-                                                <p class="text-secondary">By leveraging a SIP calculator, investors can make informed decisions about their investments, ensuring they can achieve their financial goals efficiently.</p>
+                                                <p class="text-secondary">By leveraging a SIP calculator, investors can make informed decisions about their investments, ensuring they can achieve their financial goals efficiently.</p> -->
                                             </div>
                                             <div class="col-12 col-lg-4 order-1 order-lg-2">
                                                 <div class="card adminuiux-card mb-3">
@@ -116,25 +117,25 @@
                                                             <div class="height-140 width-140 position-relative d-inline-block mx-auto text-white mb-3">
                                                                 <div id="circleprogressblue"></div>
                                                             </div>
-                                                            <h2 class="mb-0">$ 22,55,442</h2>
-                                                            <p class="text-secondary">Total Value</p>
+                                                            <h2 class="mb-0" id="resultadoMontoFinal">$ 22,55,442</h2>
+                                                            <p class="text-secondary">Valor total</p>
                                                         </div>
                                                         <div class="row justify-content-between">
                                                             <div class="col-auto mb-3">
                                                                 <p>
                                                                     <span class="avatar avatar-20 rounded-circle bg-theme-1-subtle align-middle me-2"></span>
-                                                                    <span class="d-inline-block align-middle">Investment Amount<br><small class="text-secondary">12,00,000</small></span>
+                                                                    <span class="d-inline-block align-middle">Monto invertido<br><small class="text-secondary" id="resultadoMontoInicial">12,00,000</small></span>
                                                                 </p>
                                                             </div>
                                                             <div class="col-auto mb-3">
                                                                 <p>
                                                                     <span class="avatar avatar-20 rounded-circle bg-theme-1 align-middle me-2"></span>
-                                                                    <span class="d-inline-block align-middle">Estimated Return<br><small class="text-secondary">10,55,442</small></span>
+                                                                    <span class="d-inline-block align-middle">Retorno estimado<br><small class="text-secondary" id="resultadoInteresGanado">10,55,442</small></span>
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="text-center">
-                                                            <a href="investment-mutual-funds.html" class="btn btn-sm btn-theme">Invest Now</a>
+                                                            <a href="investment-dashboard.html" class="btn btn-sm btn-theme">Invertir ahora</a>
                                                         </div>
                                                     </div>
                                                 </div>
