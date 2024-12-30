@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row gx-3">
             <div class="col-12 col-md col-lg text-center text-md-start py-2">
-                <span class="small">&copy;2024,
+                <span class="small">&copy;<span id="current-year"></span>,
                     <a href="https://adminuiux.com" target="_blank">TRADESynx X</a> a SINERGIFY WORLD Brand.
                 </span>
             </div>
@@ -19,3 +19,6 @@
         </div>
     </div>
 </footer>
+<script>
+    document.getElementById('current-year').innerHTML = new Date().getFullYear();
+</script>
