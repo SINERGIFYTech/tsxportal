@@ -34,9 +34,9 @@ const getInvestmentController = async (req, res) => {
         let montoTotalCon8 = 0;
     
         const resultados = investment.map(inversion => {
-            const fechaInicio = new Date(inversion.fechaInicio);
+            const fechaInicio = new Date(inversion.fecha);
             const mesesTranscurridos = Math.floor((ahora - fechaInicio) / (1000 * 60 * 60 * 24 * 30)); // Meses completos
-    
+            montoTotalInicial += +inversion.monto;
             if (mesesTranscurridos <= 0) {
                 return { ...inversion, mesesTranscurridos: 0, montoActual5: 0, montoActual8: 0, beneficio5: 0, fondoCompartido: 0 };
             }
@@ -46,24 +46,23 @@ const getInvestmentController = async (req, res) => {
             const beneficio5 = montoActual5 - inversion.monto;
             const fondoCompartido = montoActual8;
     
-            montoTotalInicial += inversion.monto;
             montoTotalCon5 += +montoActual5;
             montoTotalCon8 += +montoActual8;
     
             return {
                 ...inversion,
                 mesesTranscurridos,
-                montoActual5: montoActual5,
-                montoActual8: montoActual8,
+                montoActual5: montoActual5.toFixed(2),
+                montoActual8: montoActual8.toFixed(2),
                 beneficio5: beneficio5,
-                fondoCompartido: fondoCompartido,
+                fondoCompartido: fondoCompartido.toFixed(2),
             };
         });
         
         const resumen = {
             montoTotalInicial: montoTotalInicial,
-            montoTotalCon5: montoTotalCon5,
-            montoTotalCon8: montoTotalCon8,
+            montoTotalCon5: montoTotalCon5.toFixed(2),
+            montoTotalCon8: montoTotalCon8.toFixed(2),
         };
     
         res.json({ inversiones: resultados, resumen });
