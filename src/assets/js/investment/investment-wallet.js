@@ -187,30 +187,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('total-balance').textContent = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
                     document.getElementById('inversion5').textContent = `$${(+resumen.montoTotalCon5 - resumen.montoTotalInicial).toFixed(2)}`;
                     document.getElementById('inversion8').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalCon5).toFixed(2)}`;
-
-                    return;
-                    if (data.length > 0) {
-                        fillTransactions(data);
-                        // Inicializar variables para sumatoria
-                        let totalDepositos = 0;
-                        let totalRetiros = 0;
-
-                        // Iterar sobre las transacciones para calcular sumatorias
-                        data.forEach(transaction => {
-                            if (transaction.tipo === 'deposito') {
-                                totalDepositos += transaction.monto;
-                            } else if (transaction.tipo === 'retiro') {
-                                totalRetiros += transaction.monto;
-                            }
-                        });
-                        let balance = totalDepositos -totalRetiros;
-                        // Mostrar resultados en pantalla
-                        document.getElementById('total-depositos').textContent = `$${(+totalDepositos).toFixed(2)}k`;
-                        document.getElementById('total-retiros').textContent = `-$${(+totalRetiros).toFixed(2)}k`;
-                    } else {
-                        console.log('No se encontraron transacciones.');
-                        alert('No hay transacciones disponibles.');
-                    }
                 })
                 .catch(error => console.error('Error:', error));
         }

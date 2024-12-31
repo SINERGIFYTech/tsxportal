@@ -184,8 +184,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const loadUserInfo = () => {
         const token = AuthHelper.getToken();
-        console.log(token)
-        
         if (!token) {
             console.error('Token no encontrado. Asegúrate de estar autenticado.');
             alert('Debes iniciar sesión para acceder a esta información.');
@@ -204,21 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return response.json();
                 })
                 .then(({user}) => {
-                    console.log(user); // Mostrar los datos JSON en la consola
-                    const initialAmount =  `$${(user.inversion_inicial / 1000).toFixed(2)}k`;
-                    document.getElementById('valor-inicial').innerText = initialAmount;
-                    const tasa = 0.05;
-                    const tiempo = 12;
-                    const montoFinal = user.inversion_inicial * Math.pow((1 + tasa), tiempo);
-
-                    //TODO: ajustar tema de portafolio ha crecido
-                    document.getElementById('grown-amount').innerText = initialAmount;
-
-                    //TODO: ajustar tema de portafolio ha crecido
-                    document.getElementById('valor-actual').innerText = initialAmount;
-
-                    // Actualizar beneficio-total
-                    document.getElementById('beneficio-total-estimado').textContent = `$${(montoFinal / 1000).toFixed(2)}k`;
+                    
                 })
             }
         }
@@ -226,13 +210,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const loadInvestment = () => {
         const token = AuthHelper.getToken();
-        console.log(token)
-        
         if (!token) {
             console.error('Token no encontrado. Asegúrate de estar autenticado.');
             alert('Debes iniciar sesión para acceder a esta información.');
         } else {
-            fetch('http://liquidvault.sinergifyworld.com:3000/investment/my', {
+            fetch('http://liquidvault.sinergifyworld.com:3000/investment/calculado', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
@@ -245,24 +227,36 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     return response.json();
                 })
-                .then(({investment: data}) => {
-        
-                    if (data.length > 0) {
-                        const inversion = data[0]; // Suponiendo que quieres mostrar el primer registro
-        
+                .then(({ resumen, inversiones }) => {
+                    console.log(resumen)
                         // Actualizar Beneficio Total
-                        document.getElementById('beneficio-total').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
+                        // document.getElementById('beneficio-total').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
+                        document.getElementById('beneficio-total').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalInicial).toFixed(2)}`;
         
                         // Actualizar Mejor Ganancia
-                        document.getElementById('mejor-ganancia').textContent = `$${(inversion['mejor_op'] / 1000).toFixed(2)}k`;
+                        // document.getElementById('mejor-ganancia').textContent = `$${(inversion['mejor_op'] / 1000).toFixed(2)}k`;
+                        document.getElementById('mejor-ganancia').textContent = `$${(0 / 1000).toFixed(2)}k`;
         
                         // Actualizar Peor Pérdida
-                        document.getElementById('peor-perdida').textContent = `-$${(inversion['peor_op'] / 1000).toFixed(2)}k`;
+                        document.getElementById('peor-perdida').textContent = `-$${(0 / 1000).toFixed(2)}k`;
+                        // document.getElementById('peor-perdida').textContent = `-$${(inversion['peor_op'] / 1000).toFixed(2)}k`;
+                        
+                        //TODO: ajustar tema de portafolio ha crecido
+                        document.getElementById('grown-amount').innerText = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
+                        
+                        //TODO: ajustar tema de portafolio ha crecido
+                        document.getElementById('valor-actual').innerText = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
+                        const initialAmount =  `$${(resumen.montoTotalInicial).toFixed(2)}`;
 
-                    } else {
-                        console.log('No se encontraron datos de inversión.');
-                        alert('No hay datos de inversión disponibles.');
-                    }
+                        document.getElementById('valor-inicial').innerText = initialAmount;
+                        const tasa = 0.08;
+                        const tiempo = 12;
+                        const montoFinal = resumen.montoTotalInicial * Math.pow((1 + tasa), tiempo);
+
+
+                        // Actualizar beneficio-total
+                        document.getElementById('beneficio-total-estimado').textContent = `$${(montoFinal).toFixed(2)}`;
+                        
                 })
                 .catch(error => console.error('Error:', error));
             }
