@@ -38,7 +38,7 @@ const getInvestmentController = async (req, res) => {
             const mesesTranscurridos = Math.floor((ahora - fechaInicio) / (1000 * 60 * 60 * 24 * 30)); // Meses completos
             montoTotalInicial += +inversion.monto;
             if (mesesTranscurridos <= 0) {
-                return { ...inversion, mesesTranscurridos: 0, montoActual5: 0, montoActual8: 0, beneficio5: 0, fondoCompartido: 0 };
+                return { ...inversion, mesesTranscurridos: 0, montoActual5: inversion.monto, montoActual8: inversion.monto, beneficio5: 0, fondoCompartido: 0 };
             }
     
             const montoActual5 = calcularInteresCompuesto(inversion.monto, 0.05, mesesTranscurridos);
