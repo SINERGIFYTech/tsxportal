@@ -182,32 +182,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     var mydoughnutchart = new Chart(doughnutchart, mydoughnutchartCofig);
 
-    const loadUserInfo = () => {
-        const token = AuthHelper.getToken();
-        if (!token) {
-            console.error('Token no encontrado. Asegúrate de estar autenticado.');
-            alert('Debes iniciar sesión para acceder a esta información.');
-        } else {
-            fetch('http://liquidvault.sinergifyworld.com:3000/user/info', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la red: respuesta no válida');
-                    }
-                    return response.json();
-                })
-                .then(({user}) => {
-                    
-                })
-            }
-        }
-
-
     const loadInvestment = () => {
         const token = AuthHelper.getToken();
         if (!token) {
@@ -263,5 +237,4 @@ document.addEventListener('DOMContentLoaded', function () {
         
     }
     loadInvestment()
-    loadUserInfo()
 });
