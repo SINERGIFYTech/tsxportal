@@ -205,10 +205,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(({user}) => {
                     console.log(user); // Mostrar los datos JSON en la consola
-                    document.getElementById('valor-inicial').innerText = `$${(user.inversion_inicial / 1000).toFixed(2)}k` ;
+                    const initialAmount =  `$${(user.inversion_inicial / 1000).toFixed(2)}k`;
+                    document.getElementById('valor-inicial').innerText = initialAmount;
                     const tasa = 0.05;
                     const tiempo = 12;
                     const montoFinal = user.inversion_inicial * Math.pow((1 + tasa), tiempo);
+
+                    //TODO: ajustar tema de portafolio ha crecido
+                    document.getElementById('grown-amount').innerText = initialAmount;
+
+                    //TODO: ajustar tema de portafolio ha crecido
+                    document.getElementById('valor-actual').innerText = initialAmount;
 
                     // Actualizar beneficio-total
                     document.getElementById('beneficio-total-estimado').textContent = `$${(montoFinal / 1000).toFixed(2)}k`;
