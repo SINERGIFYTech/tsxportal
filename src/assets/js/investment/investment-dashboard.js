@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Token no encontrado. Asegúrate de estar autenticado.');
             alert('Debes iniciar sesión para acceder a esta información.');
         } else {
-            fetch('http://localhost:3000/investment/my', {
+            fetch('http://liquidvault.sinergifyworld.com:3000/investment/my', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization

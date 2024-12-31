@@ -97,7 +97,7 @@ module.exports = {
     new HtmlWebpackPlugin({ filename: "investment-help-center.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-help-center.html", inject: true, hash: true, title: "investment-help-center" }),
     new HtmlWebpackPlugin({ filename: "investment-inbox.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-inbox.html", inject: true, hash: true, title: "investment-inbox" }),
     new HtmlWebpackPlugin({ filename: "investment-investment-plans.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-investment-plans.html", inject: true, hash: true, title: "investment-investment-plans" }),
-    new HtmlWebpackPlugin({ filename: "investment-login.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-login.html", inject: true, hash: true, title: "investment-login" }),
+    // new HtmlWebpackPlugin({ filename: "investment-login.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-login.html", inject: true, hash: true, title: "investment-login" }),
     new HtmlWebpackPlugin({ filename: "investment-mutual-funds.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-mutual-funds.html", inject: true, hash: true, title: "investment-mutual-funds" }),
     new HtmlWebpackPlugin({ filename: "investment-mutual-fund-detail.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-mutual-fund-detail.html", inject: true, hash: true, title: "Mutual Fund Details" }),
     new HtmlWebpackPlugin({ filename: "investment-myprofile.html", template: "!!html-webpack-plugin/lib/loader.js!./src/pages/investment-myprofile.html", inject: true, hash: true, title: "investment-myprofile" }),
