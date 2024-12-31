@@ -53,17 +53,17 @@ const getInvestmentController = async (req, res) => {
             return {
                 ...inversion,
                 mesesTranscurridos,
-                montoActual5: montoActual5.toFixed(2),
-                montoActual8: montoActual8.toFixed(2),
-                beneficio5: beneficio5.toFixed(2),
-                fondoCompartido: fondoCompartido.toFixed(2),
+                montoActual5: montoActual5,
+                montoActual8: montoActual8,
+                beneficio5: beneficio5,
+                fondoCompartido: fondoCompartido,
             };
         });
-    
+        
         const resumen = {
-            montoTotalInicial: montoTotalInicial.toFixed(2),
-            montoTotalCon5: montoTotalCon5.toFixed(2),
-            montoTotalCon8: montoTotalCon8.toFixed(2),
+            montoTotalInicial: montoTotalInicial,
+            montoTotalCon5: montoTotalCon5,
+            montoTotalCon8: montoTotalCon8,
         };
     
         res.json({ inversiones: resultados, resumen });
