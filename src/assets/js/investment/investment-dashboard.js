@@ -206,6 +206,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(({user}) => {
                     console.log(user); // Mostrar los datos JSON en la consola
                     document.getElementById('valor-inicial').innerText = `$${(user.inversion_inicial / 1000).toFixed(2)}k` ;
+                    const tasa = 0.05;
+                    const tiempo = 12;
+                    const montoFinal = user.inversion_inicial * Math.pow((1 + tasa), tiempo);
+
+                    // Actualizar beneficio-total
+                    document.getElementById('beneficio-total-estimado').textContent = `$${(montoFinal / 1000).toFixed(2)}k`;
                 })
             }
         }
@@ -245,8 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
                         // Actualizar Peor Pérdida
                         document.getElementById('peor-perdida').textContent = `-$${(inversion['peor_op'] / 1000).toFixed(2)}k`;
-                        // Actualizar Peor beneficio-total
-                        document.getElementById('beneficio-total-estimado').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
+
                     } else {
                         console.log('No se encontraron datos de inversión.');
                         alert('No hay datos de inversión disponibles.');
