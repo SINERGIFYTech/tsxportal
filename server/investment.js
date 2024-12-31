@@ -47,8 +47,8 @@ const getInvestmentController = async (req, res) => {
             const fondoCompartido = montoActual8;
     
             montoTotalInicial += inversion.monto;
-            montoTotalCon5 += montoActual5;
-            montoTotalCon8 += montoActual8;
+            montoTotalCon5 += +montoActual5;
+            montoTotalCon8 += +montoActual8;
     
             return {
                 ...inversion,
