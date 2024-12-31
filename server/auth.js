@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const db = require('./db');
 
+const validateToken = require('./auth.middleware');
+
 const router = express.Router();
 
 // Controlador
@@ -34,7 +36,26 @@ const loginController = async (req, res) => {
   };
 
 
+  const validAuth = (req, res) => {
+      const authHeader = req.headers['authorization'];
+  
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+          return res.status(400).json({ valid: false, error: 'Token no proporcionado o formato incorrecto.' });
+      }
+  
+      const token = authHeader.split(' ')[1];
+  
+      jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+          if (err) {
+              return res.status(401).json({ valid: false, error: 'Token inválido.' });
+          }
+  
+          res.json({ valid: true, message: 'Token válido.', user: decoded });
+      });
+  }
+
   // Ruta de login
 router.post('/login', loginController);
+router.get('/validate-token', validAuth);
 
 module.exports = router;
