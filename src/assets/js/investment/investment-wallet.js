@@ -149,9 +149,64 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                         let balance = totalDepositos -totalRetiros;
                         // Mostrar resultados en pantalla
-                        document.getElementById('total-depositos').textContent = `$${(totalDepositos / 100).toFixed(2)}k`;
-                        document.getElementById('total-retiros').textContent = `-$${(totalRetiros / 100).toFixed(2)}k`;
-                        document.getElementById('total-balance').textContent = `$${(balance / 100).toFixed(2)}k`;
+                        document.getElementById('total-depositos').textContent = `$${(+totalDepositos).toFixed(2)}`;
+                        document.getElementById('total-retiros').textContent = `-$${(+totalRetiros).toFixed(2)}`;
+                    } else {
+                        console.log('No se encontraron transacciones.');
+                        alert('No hay transacciones disponibles.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+    }
+
+    const getInvestmentCalculated = () => {
+        // Suponiendo que el token está disponible
+        const token = AuthHelper.getToken(); // Reemplaza con tu método para obtener el token
+
+        if (!token) {
+            console.error('Token no encontrado. Asegúrate de estar autenticado.');
+            alert('Debes iniciar sesión para acceder a esta información.');
+        } else {
+            fetch('http://liquidvault.sinergifyworld.com:3000/investment/calculado', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red: respuesta no válida');
+                    }
+                    return response.json();
+                })
+                .then(({resumen, inversiones}) => {
+                    console.log(resumen);
+                    document.getElementById('total-balance').textContent = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
+                    document.getElementById('inversion5').textContent = `$${(+resumen.montoTotalCon5 - resumen.montoTotalInicial).toFixed(2)}`;
+                    document.getElementById('inversion8').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalCon5).toFixed(2)}`;
+
+                    return;
+                    if (data.length > 0) {
+                        fillTransactions(data);
+                        // Inicializar variables para sumatoria
+                        let totalDepositos = 0;
+                        let totalRetiros = 0;
+
+                        // Iterar sobre las transacciones para calcular sumatorias
+                        data.forEach(transaction => {
+                            if (transaction.tipo === 'deposito') {
+                                totalDepositos += transaction.monto;
+                            } else if (transaction.tipo === 'retiro') {
+                                totalRetiros += transaction.monto;
+                            }
+                        });
+                        let balance = totalDepositos -totalRetiros;
+                        // Mostrar resultados en pantalla
+                        document.getElementById('total-depositos').textContent = `$${(+totalDepositos).toFixed(2)}k`;
+                        document.getElementById('total-retiros').textContent = `-$${(+totalRetiros).toFixed(2)}k`;
                     } else {
                         console.log('No se encontraron transacciones.');
                         alert('No hay transacciones disponibles.');
@@ -212,4 +267,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     getTransactions();
+    getInvestmentCalculated();
 });
