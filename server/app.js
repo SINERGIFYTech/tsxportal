@@ -6,6 +6,7 @@ const db = require('./db');
 const authRoutes = require('./auth');
 const transactionRoutes = require('./transactions');
 const investmentRoutes = require('./investment');
+const userRoutes = require('./user');
 
 const app = express();
 const port = 3000;
@@ -25,6 +26,7 @@ app.use(cors());
 app.use('/auth', authRoutes);
 app.use('/transactions', transactionRoutes);
 app.use('/investment', investmentRoutes);
+app.use('/user', userRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
