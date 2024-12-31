@@ -182,6 +182,33 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     var mydoughnutchart = new Chart(doughnutchart, mydoughnutchartCofig);
 
+    const loadUserInfo = () => {
+        const token = AuthHelper.getToken();
+        console.log(token)
+        
+        if (!token) {
+            console.error('Token no encontrado. Asegúrate de estar autenticado.');
+            alert('Debes iniciar sesión para acceder a esta información.');
+        } else {
+            fetch('http://liquidvault.sinergifyworld.com:3000/user/info', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red: respuesta no válida');
+                    }
+                    return response.json();
+                })
+                .then(({user}) => {
+                    console.log(user); // Mostrar los datos JSON en la consola
+                    document.getElementById('valor-inicial').innerText = `$${(user.inversion_inicial / 1000).toFixed(2)}k` ;
+                })
+            }
+        }
 
 
     const loadInvestment = () => {
@@ -206,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     return response.json();
                 })
                 .then(({investment: data}) => {
-                    console.log(data); // Mostrar los datos JSON en la consola
         
                     if (data.length > 0) {
                         const inversion = data[0]; // Suponiendo que quieres mostrar el primer registro
@@ -231,4 +257,5 @@ document.addEventListener('DOMContentLoaded', function () {
         
     }
     loadInvestment()
+    loadUserInfo()
 });
