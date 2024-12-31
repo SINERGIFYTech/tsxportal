@@ -38,6 +38,8 @@ const getInvestmentController = async (req, res) => {
             const mesesTranscurridos = Math.floor((ahora - fechaInicio) / (1000 * 60 * 60 * 24 * 30)); // Meses completos
             montoTotalInicial += +inversion.monto;
             if (mesesTranscurridos <= 0) {
+              montoTotalCon5 += +inversion.monto;
+              montoTotalCon8 += +inversion.monto;
                 return { ...inversion, mesesTranscurridos: 0, montoActual5: inversion.monto, montoActual8: inversion.monto, beneficio5: 0, fondoCompartido: 0 };
             }
     
