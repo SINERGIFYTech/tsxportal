@@ -145,11 +145,11 @@ document.addEventListener('DOMContentLoaded', function () {
     /* doughnut chart js */
     var doughnutchart = document.getElementById('doughnutchart').getContext('2d');
     var doughnutdata = {
-        labels: ['Daily Vages', 'Cancelled Bookings', 'Oxygen', 'Manpower', 'Medical Facilities'],
+        labels: ['Stablecoins Pool', 'DeFi Yield Farming', 'Arbitraje'],
         datasets: [
             {
                 label: 'Expense categories',
-                data: [40, 35, 15, 25, 20],
+                data: [40, 35, 15],
                 backgroundColor: ['#6faa00', '#ffc107', '#fd7e14', '#0049e8', '#becede'],
                 borderWidth: 0,
             }
@@ -228,8 +228,19 @@ document.addEventListener('DOMContentLoaded', function () {
                         const montoFinal = resumen.montoTotalInicial * Math.pow((1 + tasa), tiempo);
 
 
-                        // Actualizar beneficio-total
+                        //TODO: ajustar tema de portafolio ha crecido
                         document.getElementById('beneficio-total-estimado').textContent = `$${(montoFinal).toFixed(2)}`;
+                        
+                        
+                        // Actualizar my wallet
+                        const earned = resumen.montoTotalCon8 - resumen.montoTotalInicial;
+                        const earned8 = resumen.montoTotalCon8 - resumen.montoTotalCon5;
+                        document.getElementById('valor-actual2').innerText = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
+                        document.getElementById('gainsTotal').innerText = `${(earned).toFixed(2)}`;
+                        document.getElementById('gainsPercentage').innerText = `${((earned / resumen.montoTotalCon8) * 100).toFixed(2)}`;
+                        document.getElementById('earnedCompartido').innerText = `${(earned8).toFixed(2)}`;
+                        document.getElementById('earnedCompartidoPercentage').innerText = `${((earned8/ resumen.montoTotalCon8) * 100).toFixed(2)}`;
+
                         
                 })
                 .catch(error => console.error('Error:', error));

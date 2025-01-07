@@ -202,7 +202,11 @@
                                                             </div>
                                                             <canvas id="doughnutchart" class="mx-auto width-230 height-230"></canvas>
                                                         </div>
-                                                        <p class="text-secondary small">You have invested in different types of categories shown as above and summary of each category.</p>
+                                                        <p class="text-secondary small">
+                                                            Stablecoins Pool, 
+                                                            DeFi Yield Farming, 
+                                                            Arbitraje
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm">
@@ -211,14 +215,14 @@
                                                             <div class="col-6 col-md-6 mb-3">
                                                                 <p class="text-secondary small mb-2">
                                                                     <span class="me-1 avatar avatar-10 rounded bg-green"></span>
-                                                                    Share holdings
+                                                                    Stablecoins Pool
                                                                 </p>
                                                                 <h5 class="ps-3 fw-medium">$ 165.52k<br> <span class="text-success fs-14 fw-normal"><i class="bi bi-caret-up-fill me-1 fs-14"></i> 25.30%</span></h5>
                                                             </div>
                                                             <div class="col-6 col-md-6 mb-3">
                                                                 <p class="text-secondary small mb-2">
                                                                     <span class="me-1 avatar avatar-10 rounded bg-yellow"></span>
-                                                                    Mutual Funds
+                                                                    DeFi Yield Farming
                                                                 </p>
                                                                 <h5 class="ps-3 fw-medium">$ 265.85k<br> <span class="text-success fs-14 fw-normal"><i class="bi bi-caret-up-fill me-1"></i> 21.42%</span></h5>
                                                             </div>
@@ -238,9 +242,9 @@
                                                         <span class="avatar avatar-30 rounded-circle bg-theme-1-subtle text-theme-1"><i class="bi bi-wallet"></i></span>
                                                     </div>
                                                     <div class="col px-0">
-                                                        <h6>My Wallet</h6>
+                                                        <h6>Mi Wallet</h6>
                                                     </div>
-                                                    <div class="col-auto px-0">
+                                                    <!-- <div class="col-auto px-0">
                                                         <select class="form-select form-select-sm">
                                                             <option>USD</option>
                                                             <option>CAD</option>
@@ -249,12 +253,12 @@
                                                     </div>
                                                     <div class="col-auto">
                                                         <button class="btn btn-sm btn-square btn-link"><i class="bi bi-arrow-clockwise"></i></button>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <h4 class="fw-medium">$ 1152.25k </h4>
-                                                <p class="text-secondary small">Total net revenue is $ 756.83 <span class="text-success fs-14"><i class="bi bi-arrow-up-short"></i> 11.5%</span> increased in last week</p>
+                                                <h4 class="fw-medium" id="valor-actual2">$ 1152.25k </h4>
+                                                <p class="text-secondary small">Su total de ingresos netos es $ <span id="gainsTotal"></span> <span class="text-success fs-14"><i class="bi bi-arrow-up-short"></i> <span id="gainsPercentage"></span>%</span> Incrementado en el último mes.</p>
 
                                                 <!-- chart blue -->
                                                 <div class="summarychart height-110 w-100 mb-3">
@@ -262,8 +266,28 @@
                                                 </div>
                                                 <div class="card adminuiux-card bg-theme-1-subtle">
                                                     <div class="card-body">
-                                                        <p class="text-secondary small mb-2">Top performing investment is <b class="text-theme-1">Share Holdings</b></p>
-                                                        <h5 class="fw-medium">$ 165.52k <span class="text-success fs-14 fw-normal"><i class="bi bi-caret-up-fill me-1 fs-14"></i> 25.30%</span></h5>
+                                                        <p class="text-secondary small mb-2">intereses ganados por <b class="text-theme-1">Fondos compartidos</b></p>
+                                                        <h5 class="fw-medium">$ <span id="earnedCompartido"></span> <span class="text-success fs-14 fw-normal"><i class="bi bi-caret-up-fill me-1 fs-14"></i> <span id="earnedCompartidoPercentage"></span>%</span></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <!-- Referral -->
+                                    <div class="col-12 col-lg-6 mb-3">
+                                        <div class="card adminuiux-card">
+                                            <div class="card-body">
+                                                <div class="row gx-3">
+                                                    <div class="col">
+                                                        <h5>Refiere a amigos & gana</h5>
+                                                        <p class="text-secondary small">Cada que alguien de tus amigos se una a nuestro club, puedes ganar hasta el 10% de su primer ganancia.</p>
+                                                        <a class="btn btn-sm btn-outline-theme my-1" href="/investment-referral.html">Invitar a Unirse</a>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <div class="avatar avatar-60 rounded bg-theme-1-subtle text-theme-1">
+                                                            <i class="bi bi-send h1"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,33 +295,8 @@
                                     </div>
 
                                     
-
-                                        
-                                            <!-- Referral -->
-                                            <div class="col-12 col-lg-6 mb-3">
-                                                <div class="card adminuiux-card">
-                                                    <div class="card-body">
-                                                        <div class="row gx-3">
-                                                            <div class="col">
-                                                                <h5>Refiere a amigos & gana</h5>
-                                                                <p class="text-secondary small">Cada que alguien de tus amigos se una a nuestro club, puedes ganar hasta el 10% de su primer ganancia.</p>
-                                                                <button class="btn btn-sm btn-outline-theme my-1">Invitar a Unirse</button>
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <div class="avatar avatar-60 rounded bg-theme-1-subtle text-theme-1">
-                                                                    <i class="bi bi-send h1"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
                                     <!-- offer -->
-                                    <div class="col-12 col-xxl-4 mb-3">
+                                    <div class="col-12 col-xxl-6 mb-3">
                                         <div class="card adminuiux-card bg-theme-1">
                                             <div class="card-body">
                                                 <h4 class="mb-3 fw-medium">Invierte en Fondos Compartidos OFERTA ESPECIAL NUEVOS CLIENTES</h4>
@@ -333,6 +332,10 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        </div>
+                                    </div>
+
 
                                 </div>
 
