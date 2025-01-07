@@ -41,17 +41,17 @@
                                                     <div class="col px-0">
 
                                                     </div>
-                                                    <div class="col-auto py-2">
-                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#qrcodemodal" title="Scan to pay"><i class="bi bi-qr-code"></i></a>
+                                                    <!-- <div class="col-auto py-2">
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#qrcodemodal" title="Escanea para depositar"><i class="bi bi-qr-code"></i></a>
                                                     </div>
                                                     <div class="col-auto py-2">
-                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#sendmoneymodal" title="Send Money"><i class="bi bi-arrow-up-right"></i></a>
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#sendmoneymodal" title="Depositar"><i class="bi bi-arrow-up-right"></i></a>
+                                                    </div> -->
+                                                    <div class="col-auto py-2">
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#receivemoneymodal" title="Retirar"><i class="bi bi-arrow-down-left"></i></a>
                                                     </div>
                                                     <div class="col-auto py-2">
-                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#receivemoneymodal" title="Receive Money"><i class="bi bi-arrow-down-left"></i></a>
-                                                    </div>
-                                                    <div class="col-auto py-2">
-                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#addmoneymodal" title="Add Money"><i class="bi bi-plus-lg"></i></a>
+                                                        <a class="btn btn-lg btn-square btn-outline-light" data-bs-toggle="modal" data-bs-target="#addmoneymodal" title="Depositar"><i class="bi bi-plus-lg"></i></a>
                                                     </div>
                                                 </div>
                                                 <h1 class="mb-1" id="total-balance">$25052.00</h1>
@@ -529,17 +529,17 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <p class="modal-title h5">Receive/Request Money</p>
+                                    <p class="modal-title h5">Retirar fondos</p>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-floating mb-4">
+                                    <!-- <div class="form-floating mb-4">
                                         <input type="text" class="form-control" id="contact" placeholder="Enter contact..." value="Jonathan">
                                         <label for="contact">Receive money from</label>
-                                    </div>
+                                    </div> -->
 
-                                    <p class="small text-secondary text-center">Recently connected contacts</p>
-                                    <!-- recent connection -->
+                                    <!-- <p class="small text-secondary text-center">Recently connected contacts</p>
+                                    <!-- recent connection >
                                     <div class="swiper swipernav mb-4">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide w-auto">
@@ -588,7 +588,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row mb-4">
                                         <div class="col">
@@ -596,21 +596,19 @@
                                         </div>
                                         <div class="col-auto">
                                             <select class="form-select form-select-lg">
-                                                <option>USD Wallet</option>
-                                                <option selected>CAD Wallet</option>
-                                                <option>AUD Wallet</option>
+                                                <option>Cuenta en USD</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <h5 class="fw-normal"><b class="fw-bold">Great!</b> You are going to receive</h5>
+                                        <!-- <h5 class="fw-normal"><b class="fw-bold">¡Perfecto!</b> Recibirás</h5> -->
                                         <h1 class="mb-0 text-theme-1">100.00</h1>
-                                        <p class="text-secondary small">in CAD wallet</p>
+                                        <p class="text-secondary small">en billetera USD</p>
                                     </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
-                                    <button class="btn btn-theme">Request Money</button>
-                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-theme">Retirar dinero</button>
+                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
                         </div>
@@ -621,46 +619,47 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <p class="modal-title h5">Add Money</p>
+                                    <p class="modal-title h5">Depositar dinero</p>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="row mb-4">
                                         <div class="col">
-                                            <input type="number" class="form-control form-control-lg text-center" placeholder="Add Amount..." value="100.00">
+                                            <input type="number" class="form-control form-control-lg text-center" placeholder="Add Amount..." value="100">
                                         </div>
                                         <div class="col-auto">
                                             <select class="form-select form-select-lg">
-                                                <option>USD Wallet</option>
-                                                <option>CAD Wallet</option>
-                                                <option>AUD Wallet</option>
+                                                <option>Billetera USD</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="text-center mb-4">
-                                        <h5 class="fw-normal"><b class="fw-bold">Great!</b> You are going to add</h5>
                                         <h1 class="mb-0 text-theme-1">100.00</h1>
-                                        <p class="text-secondary small">money in CAD Wallet</p>
+                                        <p class="text-secondary small">Dólares a recargar</p>
                                     </div>
-                                    <h6>Add money using</h6>
+                                    <h6>Agrega el dinero utilizando</h6>
                                     <ul class="list-group adminuiux-list-group">
                                         <li class="list-group-item">
                                             <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio2" checked="">
-                                            <label class="form-check-label stretched-link" for="firstRadio2">Net Banking</label>
+                                            <label class="form-check-label stretched-link" for="firstRadio2">Transferencia bancaria</label>
                                         </li>
                                         <li class="list-group-item">
                                             <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio2">
-                                            <label class="form-check-label stretched-link" for="secondRadio2">Credit / Debit Card</label>
+                                            <label class="form-check-label stretched-link" for="secondRadio2">Tarjeta de débito o crédito</label>
                                         </li>
                                         <li class="list-group-item">
                                             <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio2">
-                                            <label class="form-check-label stretched-link" for="thirdRadio2">UPI Payment</label>
+                                            <label class="form-check-label stretched-link" for="thirdRadio2">Paypal</label>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="FourthRadio2">
+                                            <label class="form-check-label stretched-link" for="FourthRadio2">Bitcoin</label>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="modal-footer justify-content-between">
-                                    <button class="btn btn-theme">Pay Now</button>
-                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-theme">Depositar ahora</button>
+                                    <button type="button" class="btn btn-link mx-2 theme-red" data-bs-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
                         </div>

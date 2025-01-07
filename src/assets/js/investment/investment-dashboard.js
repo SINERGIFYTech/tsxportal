@@ -202,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     return response.json();
                 })
                 .then(({ resumen, inversiones }) => {
-                    console.log(resumen)
                         // Actualizar Beneficio Total
                         // document.getElementById('beneficio-total').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
                         // document.getElementById('beneficio-total').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalInicial).toFixed(2)}`;
