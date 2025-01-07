@@ -205,14 +205,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log(resumen)
                         // Actualizar Beneficio Total
                         // document.getElementById('beneficio-total').textContent = `$${(inversion['beneficio_total'] / 1000).toFixed(2)}k`;
-                        document.getElementById('beneficio-total').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalInicial).toFixed(2)}`;
+                        // document.getElementById('beneficio-total').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalInicial).toFixed(2)}`;
         
                         // Actualizar Mejor Ganancia
                         // document.getElementById('mejor-ganancia').textContent = `$${(inversion['mejor_op'] / 1000).toFixed(2)}k`;
-                        document.getElementById('mejor-ganancia').textContent = `$${(0 / 1000).toFixed(2)}k`;
+                        // document.getElementById('mejor-ganancia').textContent = `$${(0 / 1000).toFixed(2)}k`;
         
                         // Actualizar Peor Pérdida
-                        document.getElementById('peor-perdida').textContent = `-$${(0 / 1000).toFixed(2)}k`;
+                        // document.getElementById('peor-perdida').textContent = `-$${(0 / 1000).toFixed(2)}k`;
                         // document.getElementById('peor-perdida').textContent = `-$${(inversion['peor_op'] / 1000).toFixed(2)}k`;
                         
                         //TODO: ajustar tema de portafolio ha crecido
@@ -236,5 +236,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         
     }
+
+    const loadUser = () => {
+        const user = AuthHelper.getPayload();
+        if (user) {
+            document.getElementById('user-name').innerText = user.nombre;
+        }
+    }
+
+    loadUser()
     loadInvestment()
 });

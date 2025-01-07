@@ -4,6 +4,11 @@ const AuthHelper = {
       if (!token) throw new Error('El token no puede estar vacío.');
       localStorage.setItem('authToken', token);
     },
+    
+    savePayload: (payload) => {
+      if (!payload) throw new Error('El token no puede estar vacío.');
+      localStorage.setItem('payload', JSON.stringify(payload));
+    },
   
     // Obtiene el token desde localStorage
     getToken: () => {
@@ -13,6 +18,15 @@ const AuthHelper = {
         return null;
       }
       return token;
+    },
+
+    getPayload: () => {
+      const payload = localStorage.getItem('payload');
+      if (!payload) {
+        console.warn('No hay datos de usuario almacenado.');
+        return null;
+      }
+      return JSON.parse(payload);
     },
   
     // Elimina el token de localStorage para desloguear al usuario

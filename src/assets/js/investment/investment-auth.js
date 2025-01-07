@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Guardar el token en localStorage
         AuthHelper.saveToken(data.token);
+        AuthHelper.savePayload(data.payload);
 
         alert('Inicio de sesión exitoso.');
         // Redirigir o realizar acciones posteriores al login
