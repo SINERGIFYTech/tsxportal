@@ -183,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     return response.json();
                 })
                 .then(({resumen, inversiones}) => {
-                    console.log(resumen);
                     document.getElementById('total-balance').textContent = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
                     document.getElementById('inversion5').textContent = `$${(+resumen.montoTotalCon5 - resumen.montoTotalInicial).toFixed(2)}`;
                     document.getElementById('inversion8').textContent = `$${(resumen.montoTotalCon8 - resumen.montoTotalCon5).toFixed(2)}`;
