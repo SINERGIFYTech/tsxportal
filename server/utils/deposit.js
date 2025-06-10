@@ -28,9 +28,14 @@ const depositUtils = {
       ]
     );
     return {
-      depositBody,
+        wallet_address: depositBody.wallet_address,
+        amount_expected: depositBody.amount_expected
     };
   },
+  checkAddress: async (address) => {
+    const dataAddress = await TRC20Utils.getBalance(address);
+    return dataAddress;
+  }
 };
 
 module.exports = depositUtils;
