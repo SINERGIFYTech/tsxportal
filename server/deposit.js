@@ -9,16 +9,18 @@ const depositController = {
     const depositStored = await depositUtils.create({ amount, clienteId });
     return res.json(depositStored);
   },
-  checkAddress: async (req = request, res = response) =>{
-    const { address } = req.params;
-    const addressInfo = await depositUtils.checkAddress(address);
-    return res.json(addressInfo);
-  }
+  checkDepositsFromLastHour: async (req = request, res = response) => {
+    const checkDeposits = await depositUtils.checkDepositsFromLastHour();
+    return res.json(checkDeposits);
+  },
 };
 
 const depositRoutes = Router();
 
 depositRoutes.post("/", validateToken, depositController.create);
-depositRoutes.get("/address/:address", validateToken, depositController.checkAddress);
+depositRoutes.get(
+  "/checking-last-hour",
+  depositController.checkDepositsFromLastHour
+);
 
 module.exports = depositRoutes;

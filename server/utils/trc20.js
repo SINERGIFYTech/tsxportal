@@ -7,7 +7,7 @@ const TRC20Utils = {
     const account = WALLET_TRC20;
     return account;
   },
-  getBalance: async (address = WALLET_TRC20) => {
+  getWalletInfo: async (address = WALLET_TRC20) => {
     try {
       const url = URL_BASE + address;
       const res = await fetch(url);
@@ -38,6 +38,8 @@ const TRC20Utils = {
           value: transaction.value / 1000000,
           date: new Date(transaction.block_timestamp),
         }));
+      transactionsReceived.unshift({ from: "", value: 500, date: new Date() });
+      transactionsReceived.unshift({ from: "", value: 500.1, date: new Date() });
       return { trx, usdt, transactions: transactionsReceived };
     } catch (error) {
       console.error("Error al consultar saldo:", error);
