@@ -34,12 +34,23 @@ const TRC20Utils = {
       const transactionsReceived = jsonTransactions.data
         .filter((transaction) => transaction.to === WALLET_TRC20)
         .map((transaction) => ({
+          transaction_id: transaction.transaction_id,
           from: transaction.from,
           value: transaction.value / 1000000,
           date: new Date(transaction.block_timestamp),
         }));
-      transactionsReceived.unshift({ from: "", value: 500, date: new Date() });
-      transactionsReceived.unshift({ from: "", value: 500.1, date: new Date() });
+      transactionsReceived.unshift({
+        transaction_id: Math.random(),
+        from: "",
+        value: 500,
+        date: new Date(),
+      });
+      transactionsReceived.unshift({
+        transaction_id: Math.random(),
+        from: "",
+        value: 500.1,
+        date: new Date(),
+      });
       return { trx, usdt, transactions: transactionsReceived };
     } catch (error) {
       console.error("Error al consultar saldo:", error);

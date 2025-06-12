@@ -54,8 +54,8 @@ const depositUtils = {
   },
   checkDepositsFromLastHour: async () => {
     const deposits = await depositUtils.depositsFromLastHour();
+    if (!deposits.length) return {};
     const dataAddress = await TRC20Utils.getWalletInfo();
-
     // Validar cada depósito
     const resultados = deposits
       .map((deposit) => {
@@ -82,8 +82,8 @@ const depositUtils = {
     await Promise.all(
       resultados.map((deposit) =>
         db.execute(
-          `UPDATE depositos SET sweepStatus = 'confirmed', updatedAt = NOW() WHERE id = ?`,
-          [deposit.id]
+          `UPDATE depositos SET sweepStatus = 'confirmed', updatedAt = NOW(), transaction_id = ? WHERE id = ?`,
+          [deposit.txInfo.transaction_id, deposit.id]
         )
       )
     );
