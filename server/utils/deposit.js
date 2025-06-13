@@ -1,4 +1,5 @@
 const db = require("../db");
+const investmentUtils = require("./invesment");
 const TRC20Utils = require("./trc20");
 
 const depositUtils = {
@@ -11,6 +12,13 @@ const depositUtils = {
   getDepositsByClient: async (clienteId) => {
     const [data] = await db.execute(
       "SELECT * FROM depositos WHERE clienteId = ? ORDER BY `createdAt` DESC",
+      [clienteId]
+    );
+    return data;
+  },
+  getConfirmedDepositsByClient: async (clienteId) => {
+    const [data] = await db.execute(
+      "SELECT * FROM depositos WHERE clienteId = ? And sweepStatus = 'confirmed' ORDER BY `createdAt` DESC",
       [clienteId]
     );
     return data;
@@ -98,10 +106,33 @@ const depositUtils = {
     // validar ahora si en las transacciones hay una nueva transacción con el valor indicado en el depósito
     await Promise.all(
       resultados.map((deposit) =>
-        db.execute(
-          `UPDATE depositos SET sweepStatus = 'confirmed', updatedAt = NOW(), transaction_id = ? WHERE id = ?`,
-          [deposit.txInfo.transaction_id, deposit.id]
-        )
+        db
+          .execute(
+            `UPDATE depositos SET sweepStatus = 'confirmed', updatedAt = NOW(), transaction_id = ? WHERE id = ?`,
+            [deposit.txInfo.transaction_id, deposit.id]
+          )
+          .then((queryUpdated) => {
+            //obtener los depositos del usuario que sean completos
+            return depositUtils.getConfirmedDepositsByClient(deposit.clienteId);
+          })
+          .then((depositsConfirmed) => {
+            // ahora se debe de crear la inversión
+            const investmentAmount = depositsConfirmed.length == 1
+              ? deposit.amount - 49
+              : deposit.amount;
+            if (investmentAmount > 0) {
+              investmentUtils.create({
+                id_cliente: deposit.clienteId,
+                tipo: "Inversion",
+                monto: investmentAmount,
+                beneficio_total: 0,
+                mejor_op: 0,
+                peor_op: 0,
+                monto_proyectado: 0,
+                porcentaje_actual: 0,
+              });
+            }
+          })
       )
     );
     return { dataAddress, resultados };

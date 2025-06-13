@@ -48,7 +48,7 @@ const TRC20Utils = {
       transactionsReceived.unshift({
         transaction_id: Math.random(),
         from: "",
-        value: 500.1,
+        value: 549,
         date: new Date(),
       });
       return { trx, usdt, transactions: transactionsReceived };
