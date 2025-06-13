@@ -28,6 +28,15 @@ app.use('/transactions', transactionRoutes);
 app.use('/investment', investmentRoutes);
 app.use('/user', userRoutes);
 
-app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+//app.listen(port, () => {
+//    console.log(`Servidor escuchando en http://localhost:${port}`);
+//});
+var fs = require('fs');
+var https = require('https');
+
+https.createServer({
+   cert: fs.readFileSync('/etc/letsencrypt/live/liquidvault.sinergifyworld.com/fullchain.pem'),
+   key: fs.readFileSync('/etc/letsencrypt/live/liquidvault.sinergifyworld.com/privkey.pem')
+ },app).listen(3000, function(){
+	console.log(`Servidor escuchando en http://localhost:${port}`);
 });
