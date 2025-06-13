@@ -6,91 +6,91 @@ Auth pages js
 
 "use strict";
 
-document.addEventListener('DOMContentLoaded', function () {
 
-    // main links active 
-    setActivelink();
+document.addEventListener("DOMContentLoaded", function () {
+  // main links active
+  setActivelink();
 
-    // set header space 
-    fixedHeaderSpace()
+  // set header space
+  fixedHeaderSpace();
 
-    // auto theme mode
-    //autoThemeMode();
+  // auto theme mode
+  //autoThemeMode();
 
-    //feature icons 
-    featherjs();
+  //feature icons
+  featherjs();
 
-    // cover img background set
-    coverimg();
+  // cover img background set
+  coverimg();
 
-    // don't close dropdown
-    dontclosedd()
+  // don't close dropdown
+  dontclosedd();
 
-    // check strength password 
-    checkstrength();
+  // check strength password
+  checkstrength();
 
-    // bs tooltip 
-    bstooltip();
+  // bs tooltip
+  bstooltip();
 
-    //swiper carousel
-    swipernavpagination();
+  //swiper carousel
+  swipernavpagination();
 
-    // hide page loader 
-    PageLoaderHide()
+  // hide page loader
+  PageLoaderHide();
 
+  // Referencia al formulario
+  const loginForm = document.getElementById("loginForm");
 
-    // Referencia al formulario
-    const loginForm = document.getElementById('loginForm');
+  // Evento submit del formulario
+  loginForm.addEventListener("submit", async (event) => {
+    console.log('entra')
+    event.preventDefault(); // Evita recargar la página
 
-    // Evento submit del formulario
-    loginForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); // Evita recargar la página
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
+    // Validaciones básicas
+    if (!email || !password) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
 
-      // Validaciones básicas
-      if (!email || !password) {
-        alert('Por favor, completa todos los campos.');
-        return;
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      alert("El email no tiene un formato válido.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+
+    try {
+      // Enviar la solicitud al backend
+      const response = await fetch(`${backendURL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Error en el login.");
       }
 
-      if (!/\S+@\S+\.\S+/.test(email)) {
-        alert('El email no tiene un formato válido.');
-        return;
-      }
+      // Guardar el token en localStorage
+      AuthHelper.saveToken(data.token);
+      AuthHelper.savePayload(data.payload);
 
-      if (password.length < 6) {
-        alert('La contraseña debe tener al menos 6 caracteres.');
-        return;
-      }
-
-      try {
-        // Enviar la solicitud al backend
-        const response = await fetch('https://liquidvault.sinergifyworld.com:3000/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email, password })
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || 'Error en el login.');
-        }
-
-        // Guardar el token en localStorage
-        AuthHelper.saveToken(data.token);
-        AuthHelper.savePayload(data.payload);
-
-        alert('Inicio de sesión exitoso.');
-        // Redirigir o realizar acciones posteriores al login
-        window.location.href = '/investment-dashboard.html'; // Cambia por la ruta deseada
-      } catch (error) {
-        console.error('Error en el login:', error);
-        alert(error.message);
-      }
-    });
+      alert("Inicio de sesión exitoso.");
+      // Redirigir o realizar acciones posteriores al login
+      window.location.href = "/investment-dashboard.html"; // Cambia por la ruta deseada
+    } catch (error) {
+      console.error("Error en el login:", error);
+      alert(error.message);
+    }
+  });
 });

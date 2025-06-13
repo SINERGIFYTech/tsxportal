@@ -8,6 +8,13 @@ const depositUtils = {
     ]);
     return data;
   },
+  getDepositsByClient: async (clienteId) => {
+    const [data] = await db.execute(
+      "SELECT * FROM depositos WHERE clienteId = ? ORDER BY `createdAt` DESC",
+      [clienteId]
+    );
+    return data;
+  },
   depositsFromLastHour: async () => {
     const [data] = await db.execute(
       "SELECT * FROM depositos WHERE createdAt >= NOW() - INTERVAL 1 HOUR AND sweepStatus = 'pending';"
@@ -22,35 +29,45 @@ const depositUtils = {
     return data.map((d) => ({ ...d, amount: +d.amount }));
   },
   create: async ({ amount, clienteId }) => {
-    const depositExists = await depositUtils.depositsWithAmountFromLastMinutes(
-      amount
-    );
-    const walletData = TRC20Utils.create();
-    const depositBody = {
-      amount: amount,
-      amount_to_receive: +amount + depositExists.length / 10,
-      clienteId,
-      wallet_address: walletData,
-    };
+    try {
+      if (!amount) throw new Error("amount is required");
+      const depositExists =
+        await depositUtils.depositsWithAmountFromLastMinutes(amount);
+      const walletData = TRC20Utils.create();
+      const depositBody = {
+        amount: amount,
+        amount_to_receive: +amount + depositExists.length / 10,
+        clienteId,
+        wallet_address: walletData,
+      };
 
-    await db.query(
-      `
-    INSERT INTO depositos 
-    (amount, amount_to_receive, clienteId, wallet_address)
-    VALUES (?, ?, ?, ?)
-  `,
-      [
-        depositBody.amount,
-        depositBody.amount_to_receive,
-        depositBody.clienteId,
-        depositBody.wallet_address,
-      ]
-    );
-    return {
-      wallet_address: depositBody.wallet_address,
-      amount: depositBody.amount,
-      amount_to_receive: depositBody.amount_to_receive,
-    };
+      await db.query(
+        `
+      INSERT INTO depositos 
+      (amount, amount_to_receive, clienteId, wallet_address)
+      VALUES (?, ?, ?, ?)
+    `,
+        [
+          depositBody.amount,
+          depositBody.amount_to_receive,
+          depositBody.clienteId,
+          depositBody.wallet_address,
+        ]
+      );
+      return {
+        success: true,
+        data: {
+          wallet_address: depositBody.wallet_address,
+          amount: depositBody.amount,
+          amount_to_receive: depositBody.amount_to_receive,
+        },
+      };
+    } catch (err) {
+      return {
+        success: false,
+        message: err.message || err.error.message,
+      };
+    }
   },
   checkDepositsFromLastHour: async () => {
     const deposits = await depositUtils.depositsFromLastHour();
