@@ -778,6 +778,8 @@
       id="addmoneymodal"
       tabindex="-1"
       aria-hidden="true"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -813,7 +815,9 @@
             <div id="info-deposit"></div>
           </div>
           <div class="modal-footer justify-content-between">
-            <button class="btn btn-theme" id="depositSubmit">Depositar ahora</button>
+            <button class="btn btn-theme" id="depositSubmit">
+              Depositar ahora
+            </button>
             <button
               type="button"
               class="btn btn-link mx-2 theme-red"
@@ -831,6 +835,5 @@
     <script src="assets/js/investment/helpers/auth.js"></script>
     <script src="assets/js/investment/app.constants.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
   </body>
 </html>

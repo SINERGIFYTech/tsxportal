@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
       const myDeposits = await response.json();
-      isFirstDeposit = !myDeposits.length;
+      isFirstDeposit = !myDeposits.length || !myDeposits.some(d => d.sweepStatus === 'confirmed');
       changeValueDeposit(myDeposits.length ? 500 : 49, false);
       // cambiar o quitar valor inicial de depósito
     }
@@ -325,10 +325,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!response.ok) throw new Error(myDeposit.message);
         const { amount_to_receive: amountUSDT, wallet_address } =
           myDeposit.data;
-        console.log(myDeposit.data.wallet_address);
-
-        // el div tiene de id info-deposit empezar a mostrar el qr y mensaje de la cantidad de usdt que deben de mandar
-        // y un mensaje para especificar que se habilita el deposito para los proximos 10 minutos pasados ese tiempo, no será reconocido y se debe crear un nuevo deposito
         const infoDiv = document.getElementById("info-deposit");
         infoDiv.innerHTML = `
             <h3>Enviar ${amountUSDT} USDT (TRC20) a la siguiente dirección:</h3>
