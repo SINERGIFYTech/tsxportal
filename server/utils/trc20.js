@@ -39,18 +39,6 @@ const TRC20Utils = {
           value: transaction.value / 1000000,
           date: new Date(transaction.block_timestamp),
         }));
-      transactionsReceived.unshift({
-        transaction_id: Math.random(),
-        from: "",
-        value: 500,
-        date: new Date(),
-      });
-      transactionsReceived.unshift({
-        transaction_id: Math.random(),
-        from: "",
-        value: 600,
-        date: new Date(),
-      });
       return { trx, usdt, transactions: transactionsReceived };
     } catch (error) {
       console.error("Error al consultar saldo:", error);
