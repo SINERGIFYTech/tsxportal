@@ -32,8 +32,6 @@ const getInvestmentController = async (req, res) => {
         let montoTotalInicial = 0;
         let montoTotalCon5 = 0;
         let montoTotalCon8 = 0;
-    
-        console.log(investment)
         const resultados = investment.map(inversion => {
             const fechaInicio = new Date(inversion.fecha);
             const mesesTranscurridos = Math.floor((ahora - fechaInicio) / (1000 * 60 * 60 * 24 * 30)); // Meses completos
