@@ -149,9 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             let balance = totalDepositos - totalRetiros;
             // Mostrar resultados en pantalla
-            document.getElementById(
-              "total-depositos"
-            ).textContent = `$${(+totalDepositos).toFixed(2)}`;
+            
             document.getElementById(
               "total-retiros"
             ).textContent = `-$${(+totalRetiros).toFixed(2)}`;
@@ -172,16 +170,13 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Token no encontrado. Asegúrate de estar autenticado.");
       alert("Debes iniciar sesión para acceder a esta información.");
     } else {
-      fetch(
-        "https://liquidvault.sinergifyworld.com:3000/investment/calculado",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`, // Agregar el token al encabezado Authorization
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      fetch(`${backendURL}/investment/calculado`, {
+         method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`, // Agregar el token al encabezado Authorization
+          "Content-Type": "application/json",
+        },
+      })
         .then((response) => {
           if (!response.ok) {
             throw new Error("Error en la red: respuesta no válida");
@@ -192,6 +187,9 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById(
             "total-balance"
           ).textContent = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
+          document.getElementById(
+              "total-depositos"
+            ).textContent = `$${(+resumen.montoTotalInicial).toFixed(2)}`;
           document.getElementById("inversion5").textContent = `$${(
             +resumen.montoTotalCon5 - resumen.montoTotalInicial
           ).toFixed(2)}`;
@@ -275,7 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
       const myDeposits = await response.json();
-      isFirstDeposit = !myDeposits.length || !myDeposits.some(d => d.sweepStatus === 'confirmed');
+      isFirstDeposit =
+        !myDeposits.length ||
+        !myDeposits.some((d) => d.sweepStatus === "confirmed");
       changeValueDeposit(myDeposits.length ? 500 : 49, false);
       // cambiar o quitar valor inicial de depósito
     }
