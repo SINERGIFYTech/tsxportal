@@ -351,10 +351,10 @@ document.addEventListener("DOMContentLoaded", function () {
   ExistsDeposits();
   document
     .getElementById("increase_amount")
-    .addEventListener("click", () => changeValueDeposit(10, true));
+    .addEventListener("click", () => changeValueDeposit(500, true));
   document
     .getElementById("decrease_amount")
-    .addEventListener("click", () => changeValueDeposit(10, false));
+    .addEventListener("click", () => changeValueDeposit(500, false));
   document
     .getElementById("depositSubmit")
     .addEventListener("click", () => generateDeposit());
