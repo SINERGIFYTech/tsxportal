@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Token no encontrado. Asegúrate de estar autenticado.");
       alert("Debes iniciar sesión para acceder a esta información.");
     } else {
-      fetch("https://liquidvault.sinergifyworld.com:3000/transactions/my", {
+      fetch("https://backend.arkaltd.io/transactions/my", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // Agregar el token al encabezado Authorization

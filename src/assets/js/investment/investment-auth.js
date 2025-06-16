@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Evento submit del formulario
   loginForm.addEventListener("submit", async (event) => {
-    console.log('entra')
     event.preventDefault(); // Evita recargar la página
 
     const email = document.getElementById("email").value.trim();
@@ -84,8 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Guardar el token en localStorage
       AuthHelper.saveToken(data.token);
       AuthHelper.savePayload(data.payload);
-
-      alert("Inicio de sesión exitoso.");
       // Redirigir o realizar acciones posteriores al login
       window.location.href = "/investment-dashboard.html"; // Cambia por la ruta deseada
     } catch (error) {

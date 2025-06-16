@@ -1,1 +1,1 @@
-const backendURL = 'https://liquidvault.sinergifyworld.com:3000';
+const backendURL = 'https://backend.arkaltd.io';
