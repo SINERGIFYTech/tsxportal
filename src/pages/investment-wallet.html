@@ -417,6 +417,55 @@
           </div>
         </div>
 
+  <!-- <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.6/dist/signature_pad.umd.min.js"></script>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+        <h2>Firma con el mouse</h2>
+  <canvas id="signature-pad" width="400" height="200"></canvas><br>
+  <button id="clear">Borrar Firma</button>
+  <button id="generate-pdf">Generar PDF Firmado</button>
+
+  <script>
+    const canvas = document.getElementById("signature-pad");
+    const signaturePad = new SignaturePad(canvas);
+    const clearBtn = document.getElementById("clear");
+    const generatePdfBtn = document.getElementById("generate-pdf");
+
+    clearBtn.onclick = () => signaturePad.clear();
+
+    generatePdfBtn.onclick = async () => {
+      if (signaturePad.isEmpty()) {
+        alert("Por favor firma antes de generar el PDF");
+        return;
+      }
+
+      const firmaDataUrl = signaturePad.toDataURL();
+
+      // Crear PDF base
+      const pdfDoc = await PDFLib.PDFDocument.create();
+      const page = pdfDoc.addPage([600, 400]);
+      page.drawText("Documento firmado digitalmente:", { x: 50, y: 350, size: 18 });
+
+      // Insertar imagen de firma
+      const pngImageBytes = await fetch(firmaDataUrl).then(res => res.arrayBuffer());
+      const pngImage = await pdfDoc.embedPng(pngImageBytes);
+      const pngDims = pngImage.scale(0.5);
+      page.drawImage(pngImage, {
+        x: 50,
+        y: 200,
+        width: pngDims.width,
+        height: pngDims.height,
+      });
+
+      // Generar y descargar PDF
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "documento_firmado.pdf";
+      link.click();
+    };
+  </script> -->
         <!-- mobile footer -->
         <%= require('../partials/footer/mobile-footer-2.html').default %>
       </main>
@@ -835,5 +884,6 @@
     <script src="assets/js/investment/helpers/auth.js"></script>
     <script src="assets/js/investment/app.constants.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.6/dist/signature_pad.umd.min.js"></script>
   </body>
 </html>
