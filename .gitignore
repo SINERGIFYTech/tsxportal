@@ -56,3 +56,6 @@ uploads/
 
 # keys
 keys/
+
+# Environment variables
+.env

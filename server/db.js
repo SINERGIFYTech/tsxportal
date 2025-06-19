@@ -2,12 +2,10 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    // user: 'investor',
-    // password: 's3@4bGe9%MRNPap5iXQ#9F',
-    password: '',
-    database: 'sinergify_investments'
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
 });
 
 
