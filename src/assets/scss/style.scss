@@ -48,6 +48,13 @@ html {
     min-height: 100vh;
 }
 
+canvas {
+    border: 1px solid  var(--adminuiux-bg-1);
+    background-color: #ffffff;
+    border-radius: 5px;
+
+}
+
 body {
     font-family: var(--adminuiux-content-font), sans-serif;
     font-weight: var(--adminuiux-content-font-weight);

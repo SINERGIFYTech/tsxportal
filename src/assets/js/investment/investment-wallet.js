@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             let balance = totalDepositos - totalRetiros;
             // Mostrar resultados en pantalla
-            
+
             document.getElementById(
               "total-retiros"
             ).textContent = `-$${(+totalRetiros).toFixed(2)}`;
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Debes iniciar sesión para acceder a esta información.");
     } else {
       fetch(`${backendURL}/investment/calculado`, {
-         method: "GET",
+        method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // Agregar el token al encabezado Authorization
           "Content-Type": "application/json",
@@ -188,8 +188,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "total-balance"
           ).textContent = `$${(+resumen.montoTotalCon8).toFixed(2)}`;
           document.getElementById(
-              "total-depositos"
-            ).textContent = `$${(+resumen.montoTotalInicial).toFixed(2)}`;
+            "total-depositos"
+          ).textContent = `$${(+resumen.montoTotalInicial).toFixed(2)}`;
           document.getElementById("inversion5").textContent = `$${(
             +resumen.montoTotalCon5 - resumen.montoTotalInicial
           ).toFixed(2)}`;
@@ -219,13 +219,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="col">
                             <p class="mb-1 fw-medium">Depósito</p>
                             <p class="text-secondary small">${new Date(
-                              transaction.fecha
-                            ).toLocaleString()}</p>
+          transaction.fecha
+        ).toLocaleString()}</p>
                         </div>
                         <div class="col-auto">
                             <h6 class="text-theme-1">+ $ ${(
-                              transaction.monto / 1000
-                            ).toFixed(2)}k</h6>
+            transaction.monto / 1000
+          ).toFixed(2)}k</h6>
                         </div>
                     </div>
                     </li>`;
@@ -242,13 +242,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="col">
                             <p class="mb-1 fw-medium">Retiro</p>
                             <p class="text-secondary small">${new Date(
-                              transaction.fecha
-                            ).toLocaleString()}</p>
+          transaction.fecha
+        ).toLocaleString()}</p>
                         </div>
                         <div class="col-auto">
                             <h6>- $ ${(transaction.monto / 1000).toFixed(
-                              2
-                            )}k</h6>
+          2
+        )}k</h6>
                         </div>
                     </div>
                     </li>`;
@@ -344,11 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  let valueToDeposit = 0;
-  let isFirstDeposit = false;
-  getTransactions();
-  getInvestmentCalculated();
-  ExistsDeposits();
+
   document
     .getElementById("increase_amount")
     .addEventListener("click", () => changeValueDeposit(500, true));
@@ -358,4 +354,134 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("depositSubmit")
     .addEventListener("click", () => generateDeposit());
+
+
+  //tema de registro de contrato firmado
+
+  const canvas = document.getElementById("signature-pad");
+  // const downloadContract = document.getElementById("download-contract");
+
+  // downloadContract.addEventListener('click', () => {
+  //   getContractWoutSignature()
+  //     .then(res => res.blob())
+  //     .then(blob => {
+  //       const url = URL.createObjectURL(blob);
+  //       window.open(url, "_blank");
+  //     });
+  // });
+
+  const getContractWoutSignature = async () => {
+    const contractInit = await fetch("assets/pdf/arka_contract.pdf");
+    return contractInit
+  };
+
+  const signaturePad = new SignaturePad(canvas);
+  document.getElementById("clear").onclick = () => signaturePad.clear();
+
+  document.getElementById("sign").onclick = async () => {
+    // if (!fileInput.files.length) return alert("Selecciona un PDF primero");
+    if (signaturePad.isEmpty()) return alert("Firma antes de insertar");
+
+    const arrayBuffer = await getContractWoutSignature().then(res => res.arrayBuffer());
+    const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+
+    const signatureDataUrl = signaturePad.toDataURL();
+    const signatureBytes = dataURLtoUint8Array(signatureDataUrl);
+    const pngImage = await pdfDoc.embedPng(signatureBytes);
+    const pngDims = pngImage.scale(0.5);
+
+    const page = pdfDoc.getPages()[2];
+    const { width, height } = page.getSize();
+
+    const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+    const fecha = new Date().toLocaleDateString("es-CO");
+    page.drawText(`Firmado en fecha: ${fecha}`, {
+      x: 80,
+      y: 650,
+      size: 11,
+      font,
+      color: PDFLib.rgb(0, 0, 0),
+    });
+
+
+    // colocar firma en la página
+    page.drawImage(pngImage, {
+      x: 175,
+      y: 520,
+      width: pngDims.width,
+      height: pngDims.height,
+    });
+
+    const pdfBytes = await pdfDoc.save();
+    //una vez firmado se sube al backend
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const formData = new FormData();
+    const token = AuthHelper.getToken();
+    formData.append("file", blob, "contrato_firmado.pdf");
+    const response = await fetch(`${backendURL}/user/upload-contract`, {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      alert("Contrato enviado con éxito");
+      download(pdfBytes, "application/pdf");
+      getMyContract()
+    } else {
+      alert("Error al enviar el contrato");
+    }
+  };
+
+  function dataURLtoUint8Array(dataURL) {
+    const base64 = dataURL.split(",")[1];
+    const binary = atob(base64);
+    const len = binary.length;
+    const arr = new Uint8Array(len);
+    for (let i = 0; i < len; i++) arr[i] = binary.charCodeAt(i);
+    return arr;
+  }
+
+  function download(data, type) {
+    const blob = new Blob([data], { type });
+    const url = URL.createObjectURL(blob);
+    window.open(url, "_blank");
+  }
+
+  const getMyContract = async () => {
+    const token = AuthHelper.getToken();
+    if (!token) {
+      console.error("Token no encontrado. Asegúrate de estar autenticado.");
+      alert("Debes iniciar sesión para acceder a esta información.");
+    } else {
+      const response = await fetch(`${backendURL}/user/get-my-contract`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`, // Agregar el token al encabezado Authorization
+        },
+      });
+      const contractInfo = await response.json();
+      const downloadContract = document.getElementById("download-contract");
+      if (response.ok) {
+        document.getElementById("signatureContract").style = "display: none;";
+        const contractStatus = document.getElementById("contractStatus");
+        contractStatus.innerHTML = "Firmado";
+        contractStatus.className = 'text-success';
+        downloadContract.href = contractInfo.url;
+      } else {
+        contractStatus.innerHTML = "No Firmado";
+        contractStatus.className = 'text-danger';
+      }
+      console.log(contractInfo);
+    }
+
+  }
+
+  let valueToDeposit = 0;
+  let isFirstDeposit = false;
+  getTransactions();
+  getInvestmentCalculated();
+  ExistsDeposits();
+  getMyContract();
 });

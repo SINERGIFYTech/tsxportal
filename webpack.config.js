@@ -52,6 +52,8 @@ module.exports = {
       patterns: [
         // images copy
         { from: "src/assets/img", to: "assets/img" },
+        // pdf copy
+        { from: "src/assets/pdf", to: "assets/pdf" },
         // page level scripts 
         { from: "src/assets/js/component", to: "assets/js/component" },
         { from: "src/assets/js/investment", to: "assets/js/investment" },

@@ -49,3 +49,10 @@ node_modules/
 ### Custom Files ###
 dist/
 accessibility-reports/
+
+
+# Temporary files
+uploads/
+
+# keys
+keys/
