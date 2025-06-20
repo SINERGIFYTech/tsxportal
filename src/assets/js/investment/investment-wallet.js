@@ -273,9 +273,11 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
       const myDeposits = await response.json();
+      const hasConfirmedDeposits = myDeposits.some((d) => d.sweepStatus === "confirmed");
+      if (!hasConfirmedDeposits) document.getElementById("contractCard").style = 'display: none;';
       isFirstDeposit =
         !myDeposits.length ||
-        !myDeposits.some((d) => d.sweepStatus === "confirmed");
+        !hasConfirmedDeposits;
       changeValueDeposit(myDeposits.length ? 500 : 49, false);
       // cambiar o quitar valor inicial de depósito
     }
@@ -283,6 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const changeValueDeposit = (newValue, increaseAmount) => {
     // amountDepositInput.value = newValue;
     if (isFirstDeposit) {
+      
       // Sumar o restar según increaseAmount
       valueToDeposit += increaseAmount ? newValue : -newValue;
 
@@ -359,17 +362,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //tema de registro de contrato firmado
 
   const canvas = document.getElementById("signature-pad");
-  // const downloadContract = document.getElementById("download-contract");
-
-  // downloadContract.addEventListener('click', () => {
-  //   getContractWoutSignature()
-  //     .then(res => res.blob())
-  //     .then(blob => {
-  //       const url = URL.createObjectURL(blob);
-  //       window.open(url, "_blank");
-  //     });
-  // });
-
   const getContractWoutSignature = async () => {
     const contractInit = await fetch("assets/pdf/arka_contract.pdf");
     return contractInit
@@ -473,7 +465,6 @@ document.addEventListener("DOMContentLoaded", function () {
         contractStatus.innerHTML = "No Firmado";
         contractStatus.className = 'text-danger';
       }
-      console.log(contractInfo);
     }
 
   }
