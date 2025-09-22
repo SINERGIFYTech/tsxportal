@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Token no encontrado. Asegúrate de estar autenticado.');
             alert('Debes iniciar sesión para acceder a esta información.');
         } else {
-            fetch('https://backend.arkaltd.io/investment/calculado', {
+            fetch('https://backend.arkcode.io/investment/calculado', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`, // Agregar el token al encabezado Authorization
